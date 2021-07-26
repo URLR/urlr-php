@@ -1,0 +1,36 @@
+{
+    "name": "urlr/urlr-php",
+    "description": "PHP library for the URLR API.",
+    "keywords": [
+        "urlr",
+        "url shortener",
+        "link reducer",
+        "api"
+    ],
+    "homepage": "https://urlr.me",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "URLR",
+            "homepage": "https://github.com/URLR/urlr-php/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=7.3",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "php-http/curl-client": "^2.2",
+        "guzzlehttp/psr7": "^2.0",
+        "php-http/discovery": "^1.14"
+
+    },
+    "autoload": {
+        "psr-4": {
+            "URLR\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.12.93"
+    }
+}

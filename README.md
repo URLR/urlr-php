@@ -62,7 +62,7 @@ if ($response->code === 200) {
 We are decoupled from any HTTP messaging client with help by [HTTPlug](https://httplug.io).
 A list of community provided clients is found here: https://packagist.org/providers/php-http/client-implementation
 
-### Using a different http client
+### Using a different HTTP client
 
 ```bash
 composer require urlr/urlr-php symfony/http-client nyholm/psr7

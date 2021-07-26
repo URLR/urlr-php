@@ -1,4 +1,7 @@
 # urlr-php
+
+[![Latest Stable Version](http://poser.pugx.org/urlr/urlr-php/v)](https://packagist.org/packages/urlr/urlr-php) [![Total Downloads](http://poser.pugx.org/urlr/urlr-php/downloads)](https://packagist.org/packages/urlr/urlr-php) [![Latest Unstable Version](http://poser.pugx.org/urlr/urlr-php/v/unstable)](https://packagist.org/packages/urlr/urlr-php) [![License](http://poser.pugx.org/urlr/urlr-php/license)](https://packagist.org/packages/urlr/urlr-php)
+
 PHP library for the [URLR API](https://urlr.stoplight.io/).
 
 ## Requirements

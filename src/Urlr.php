@@ -28,7 +28,7 @@ final class Urlr
         return self::$httpClient;
     }
 
-    public static function setHttpClient(?HttpClient $httpClient)
+    public static function setHttpClient(?HttpClient $httpClient): void
     {
         self::$httpClient = $httpClient ?: HttpClientDiscovery::find();
     }
@@ -38,7 +38,7 @@ final class Urlr
         return self::$messageFactory;
     }
 
-    public static function setMessageFactory()
+    public static function setMessageFactory(): void
     {
         self::$messageFactory = MessageFactoryDiscovery::find();
     }

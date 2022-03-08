@@ -34,7 +34,7 @@ class Client
      * @param string $username Username
      * @param string $password Password
      *
-     * @return object response of the query
+     * @return bool response of the query
      */
     public function authenticate(string $username, string $password): bool
     {
@@ -53,7 +53,7 @@ class Client
     public function reduceLink(array $data): ?object
     {
         if (!$this->token) {
-            return false;
+            return null;
         }
 
         $headers = [
@@ -95,7 +95,7 @@ class Client
     public function getStatistics(array $data): ?object
     {
         if (!$this->token) {
-            return false;
+            return null;
         }
 
         $headers = [

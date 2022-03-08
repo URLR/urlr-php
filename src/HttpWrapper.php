@@ -2,26 +2,34 @@
 
 namespace URLR;
 
-use URLR\Urlr;
-use Http\Client\HttpClient;
-use Http\Message\MessageFactory;
+use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamFactoryInterface;
 
 class HttpWrapper
 {
     /**
-     * @var HttpClient
+     * @var ClientInterface
      */
     private $httpClient;
 
     /**
-     * @var MessageFactory
+     * @var RequestFactoryInterface
      */
-    private $messageFactory;
+    private $requestFactory;
+
+    /**
+     * @var StreamFactoryInterface
+     */
+    private $streamFactory;
 
     public function __construct()
     {
         $this->httpClient = Urlr::getHttpClient();
-        $this->messageFactory = Urlr::getMessageFactory();
+        $this->requestFactory = Urlr::getRequestFactory();
+        $this->streamFactory = Urlr::getStreamFactory();
     }
 
     /**
@@ -30,17 +38,20 @@ class HttpWrapper
      * @param string $endpoint Endpoint
      * @param array $headers Headers provided to the request
      *
-     * @return object response of the query
+     * @return ResponseInterface response of the query
      */
     public function get(
         string $endpoint,
         array $headers = []
-    ): object {
-        $headers = $this->generateHeaders($headers);
+    ): ResponseInterface {
+        $request = $this->requestFactory->createRequest('GET', Urlr::BASE_URL . $endpoint);
+        $request = $this->addHeadersToRequest($request, $headers);
 
-        return $this->httpClient->sendRequest(
-            $this->messageFactory->createRequest('GET', Urlr::BASE_URL . $endpoint, $headers)
-        );
+        try {
+            return $this->httpClient->sendRequest($request);
+        } catch (\Exception $e) {
+            throw new \Exception('Can\'t handle HTTP request: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -51,45 +62,49 @@ class HttpWrapper
      * @param bool $json Whether the body need to be JSON encoded or not
      * @param array $headers Headers provided to the request
      *
-     * @return object response of the query
+     * @return ResponseInterface response of the query
      */
     public function post(
         string $endpoint,
         $body = [],
         bool $json = true,
         array $headers = []
-    ): object {
+    ): ResponseInterface {
+        $request = $this->requestFactory->createRequest('POST', Urlr::BASE_URL . $endpoint);
+        $request = $this->addHeadersToRequest($request, $headers);
+
         if (!empty($body) && is_array($body)) {
-            if ($json) {
-                $body = json_encode($body);
-            } else {
-                $body = http_build_query($body);
-            }
+            $body = $json ? json_encode($body) : http_build_query($body);
+            $request = $this->addBodyToRequest($request, $body);
         }
 
-        $headers = $this->generateHeaders($headers);
-
-        return $this->httpClient->sendRequest(
-            $this->messageFactory->createRequest('POST', Urlr::BASE_URL . $endpoint, $headers, $body)
-        );
+        try {
+            return $this->httpClient->sendRequest($request);
+        } catch (\Exception $e) {
+            throw new \Exception('Can\'t handle HTTP request: ' . $e->getMessage());
+        }
     }
 
-    /**
-     * Generate header for the query.
-     *
-     * @param array $headers Headers of the request
-     *
-     * @return array Final headers
-     */
-    private function generateHeaders(array $headers): array
+    private function addHeadersToRequest(RequestInterface $request, array $headers): RequestInterface
     {
         $commonHeaders = [
             'Accept' => 'application/json',
             'Content-Type' => 'application/json'
         ];
-
         $headers = array_merge($headers, $commonHeaders);
 
-        return $headers;
+        foreach ($headers as $headerKey => $headerValue) {
+            $request = $request->withHeader($headerKey, $headerValue);
+        }
+
+        return $request;
+    }
+
+    private function addBodyToRequest(RequestInterface $request, string $body): RequestInterface
+    {
+        $stream = $this->streamFactory->createStream($body);
+        $request = $request->withBody($stream);
+
+        return $request;
     }
 }

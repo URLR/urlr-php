@@ -20,9 +20,11 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "php-http/curl-client": "^2.2",
-        "guzzlehttp/psr7": "^2.0",
-        "php-http/discovery": "^1.14"
+        "psr/http-client-implementation": "*",
+        "psr/http-factory": "*",
+        "psr/http-client": "*",
+        "php-http/discovery": "*",
+        "php-http/message": "*"
 
     },
     "autoload": {

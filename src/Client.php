@@ -2,9 +2,7 @@
 
 namespace URLR;
 
-use URLR\Urlr;
-use URLR\HttpWrapper;
-use Http\Client\HttpClient;
+use Psr\Http\Client\ClientInterface;
 
 class Client
 {
@@ -14,16 +12,17 @@ class Client
     private string $token;
 
     /**
-     * @param HttpClient|null $httpClient Client to do HTTP requests, if not set, auto discovery will be used to find a HTTP client
+     * @param ClientInterface|null $httpClient Client to do HTTP requests, if not set, auto discovery will be used to find a HTTP client
      */
-    public function __construct(?HttpClient $httpClient = null)
+    public function __construct(?ClientInterface $httpClient = null)
     {
         $this->username = '';
         $this->password = '';
         $this->token = '';
 
         Urlr::setHttpClient($httpClient);
-        Urlr::setMessageFactory();
+        Urlr::setRequestFactory();
+        Urlr::setStreamFactory();
 
         $this->httpWrapper = new HttpWrapper();
     }
@@ -150,7 +149,7 @@ class Client
         } elseif ($statusCode === 401) {
             throw new \Exception('Invalid credentials.');
         } else {
-            throw new \Exception('Unknown error');
+            throw new \Exception('Unknown error. Status code: ' . $statusCode);
         }
     }
 }

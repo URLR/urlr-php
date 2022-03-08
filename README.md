@@ -13,8 +13,10 @@ PHP 7.3 and later.
 You can install the bindings via [Composer](http://getcomposer.org/). Run the following command:
 
 ```bash
-composer require urlr/urlr-php guzzlehttp/guzzle http-interop/http-factory-guzzle
+composer require urlr/urlr-php guzzlehttp/guzzle
 ```
+
+The Guzzle client will automatically be found with the help of `php-http/discovery` package. If you prefer to specify a custom HTTP client to use, please read the [Advanced usage](https://github.com/URLR/urlr-php#advanced-usage) section.
 
 To use the bindings, use Composer's [autoload](https://getcomposer.org/doc/01-basic-usage.md#autoloading):
 
@@ -71,9 +73,9 @@ composer require urlr/urlr-php symfony/http-client nyholm/psr7
 For example, to set up the URLR client with Symfony HTTP client:
 
 ```php
-use Symfony\Component\HttpClient\HttplugClient;
+use Symfony\Component\HttpClient\Psr18Client;
 
-$urlr = new \URLR\Client(new HttplugClient());
+$urlr = new \URLR\Client(new Psr18Client());
 ```
 
 ## Support

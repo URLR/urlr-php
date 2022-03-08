@@ -2,10 +2,11 @@
 
 namespace URLR;
 
-use Http\Client\HttpClient;
-use Http\Message\MessageFactory;
-use Http\Discovery\HttpClientDiscovery;
-use Http\Discovery\MessageFactoryDiscovery;
+use Http\Discovery\Psr17FactoryDiscovery;
+use Http\Discovery\Psr18ClientDiscovery;
+use Psr\Http\Client\ClientInterface;
+use Psr\Http\Message\RequestFactoryInterface;
+use Psr\Http\Message\StreamFactoryInterface;
 
 final class Urlr
 {
@@ -14,32 +15,47 @@ final class Urlr
     public const BASE_URL = 'https://urlr.me/api/';
 
     /**
-     * @var HttpClient
+     * @var ClientInterface
      */
     private static $httpClient;
 
     /**
-     * @var MessageFactory
+     * @var RequestFactoryInterface
      */
-    private static $messageFactory;
+    private static $requestFactory;
 
-    public static function getHttpClient(): HttpClient
+    /**
+     * @var StreamFactoryInterface
+     */
+    private static $streamFactory;
+
+    public static function getHttpClient(): ClientInterface
     {
         return self::$httpClient;
     }
 
-    public static function setHttpClient(?HttpClient $httpClient): void
+    public static function setHttpClient(?ClientInterface $httpClient): void
     {
-        self::$httpClient = $httpClient ?: HttpClientDiscovery::find();
+        self::$httpClient = $httpClient ?: Psr18ClientDiscovery::find();
     }
 
-    public static function getMessageFactory(): MessageFactory
+    public static function getRequestFactory(): RequestFactoryInterface
     {
-        return self::$messageFactory;
+        return self::$requestFactory;
     }
 
-    public static function setMessageFactory(): void
+    public static function setRequestFactory(): void
     {
-        self::$messageFactory = MessageFactoryDiscovery::find();
+        self::$requestFactory = Psr17FactoryDiscovery::findRequestFactory();
+    }
+
+    public static function getStreamFactory(): StreamFactoryInterface
+    {
+        return self::$streamFactory;
+    }
+
+    public static function setStreamFactory(): void
+    {
+        self::$streamFactory = Psr17FactoryDiscovery::findStreamFactory();
     }
 }

@@ -10,7 +10,7 @@ use Psr\Http\Message\StreamFactoryInterface;
 
 final class Urlr
 {
-    public const VERSION = '0.1';
+    public const VERSION = '0.2';
 
     public const BASE_URL = 'https://urlr.me/api/';
 

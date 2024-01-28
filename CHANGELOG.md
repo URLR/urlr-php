@@ -1,12 +1,6 @@
 # Changelog
-All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+## [1.0.0] - 2024-01-28
 
-## [0.2]
-- BC: Drop included Curl client.
-- Adopt PSR-18 HTTP client.
 
-## [0.1]
-- Initial version.
+- **Breaking:** First version of the URLR PHP client generated with the OpenAPI Generator project. Please check examples on README to see how to upgrade.

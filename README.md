@@ -39,26 +39,48 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 ```php
 <?php
+
 require_once(__DIR__ . '/vendor/autoload.php');
 
+// Authentification
 
-
-
-$apiInstance = new URLR\Api\AuthentificationApi(
+$authentificationApi = new URLR\Api\AuthentificationApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$authentificationRequest = new \URLR\Model\AuthentificationRequest(); // \URLR\Model\AuthentificationRequest | Your credentials
+$authentificationRequest = new \URLR\Model\AuthentificationRequest([
+    'username' => '',
+    'password' => '',
+]); // \URLR\Model\AuthentificationRequest | Your credentials
 
 try {
-    $result = $apiInstance->authentification($authentificationRequest);
-    print_r($result);
+    $token = $authentificationApi->authentification($authentificationRequest)->getToken();
 } catch (Exception $e) {
     echo 'Exception when calling AuthentificationApi->authentification: ', $e->getMessage(), PHP_EOL;
+    exit;
 }
 
+$config = URLR\Configuration::getDefaultConfiguration()->setAccessToken($token);
+
+// Link shortening
+
+$linkApi = new URLR\Api\LinkApi(null, $config);
+
+$reduceLinkRequest = new \URLR\Model\ReduceLinkRequest([
+    'url' => '',
+    'team' => ''
+]); // \URLR\Model\ReduceLinkRequest | Infos of the link to reduce
+
+try {
+    $result = $apiInstance->reduceLink($reduceLinkRequest);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling LinkApi->reduceLink: ', $e->getMessage(), PHP_EOL;
+}
 ```
+
+A complete example is [available here](examples/example1.php).
 
 ## API Endpoints
 

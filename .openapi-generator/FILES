@@ -1,8 +1,6 @@
 .gitignore
-.openapi-generator-ignore
 .php-cs-fixer.dist.php
 .phplint.yml
-.travis.yml
 README.md
 composer.json
 docs/Api/AuthentificationApi.md
@@ -17,7 +15,6 @@ docs/Model/ReduceLinkRequest.md
 docs/Model/Stats200Response.md
 docs/Model/Stats400Response.md
 docs/Model/StatsRequest.md
-git_push.sh
 phpunit.xml.dist
 src/Api/AuthentificationApi.php
 src/Api/LinkApi.php

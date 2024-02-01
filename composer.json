@@ -1,6 +1,6 @@
 {
     "name": "urlr/urlr-php",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "PHP client for URLR",
     "keywords": ["link shortener", "api", "sdk", "client"],
     "homepage": "https://urlr.me/en",

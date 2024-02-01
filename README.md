@@ -1,11 +1,11 @@
-# URLR@1.0.0
+# URLR@1.0.1
 
-[![Latest Stable Version](http://poser.pugx.org/urlr/urlr-php/v)](https://packagist.org/packages/urlr/urlr-php) [![Total Downloads](http://poser.pugx.org/urlr/urlr-php/downloads)](https://packagist.org/packages/urlr/urlr-php) [![Latest Unstable Version](http://poser.pugx.org/urlr/urlr-php/v/unstable)](https://packagist.org/packages/urlr/urlr-php) [![License](http://poser.pugx.org/urlr/urlr-php/license)](https://packagist.org/packages/urlr/urlr-php)
+![Packagist Version](https://img.shields.io/packagist/v/urlr/urlr-php) ![Packagist Downloads](https://img.shields.io/packagist/dm/urlr/urlr-php) ![Packagist License](https://img.shields.io/packagist/l/urlr/urlr-php)
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
 - API version: 0.2
-- Package version: 1.0.0
+- Package version: 1.0.1
 - Build package: urlr/urlr-php
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en)

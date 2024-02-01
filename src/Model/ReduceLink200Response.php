@@ -61,8 +61,8 @@ class ReduceLink200Response implements ModelInterface, ArrayAccess, JsonSerializ
     protected static array $openAPITypes = [
         'url' => 'string',
         'expiredAt' => 'string',
-        'team' => 'string',
-        'folder' => 'string',
+        'team' => 'int',
+        'folder' => 'int',
         'urlCode' => 'string',
         'domain' => 'string',
         'code' => 'int'
@@ -387,9 +387,9 @@ class ReduceLink200Response implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets team
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getTeam(): ?string
+    public function getTeam(): ?int
     {
         return $this->container['team'];
     }
@@ -397,11 +397,11 @@ class ReduceLink200Response implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets team
      *
-     * @param string|null $team Team id (displayed on dashboard)
+     * @param int|null $team Team id (displayed on dashboard)
      *
      * @return $this
      */
-    public function setTeam(?string $team): static
+    public function setTeam(?int $team): static
     {
         if (is_null($team)) {
             throw new InvalidArgumentException('non-nullable team cannot be null');
@@ -414,9 +414,9 @@ class ReduceLink200Response implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Gets folder
      *
-     * @return string|null
+     * @return int|null
      */
-    public function getFolder(): ?string
+    public function getFolder(): ?int
     {
         return $this->container['folder'];
     }
@@ -424,11 +424,11 @@ class ReduceLink200Response implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets folder
      *
-     * @param string|null $folder Folder id (displayed on dashboard)
+     * @param int|null $folder Folder id (displayed on dashboard)
      *
      * @return $this
      */
-    public function setFolder(?string $folder): static
+    public function setFolder(?int $folder): static
     {
         if (is_null($folder)) {
             throw new InvalidArgumentException('non-nullable folder cannot be null');

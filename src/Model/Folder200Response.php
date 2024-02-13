@@ -1,6 +1,6 @@
 <?php
 /**
- * ReduceLinkRequest
+ * Folder200Response
  *
  * PHP version 8.1
  *
@@ -35,14 +35,14 @@ use ReturnTypeWillChange;
 use URLR\ObjectSerializer;
 
 /**
- * ReduceLinkRequest Class Doc Comment
+ * Folder200Response Class Doc Comment
  *
  * @package  URLR
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class ReduceLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
+class Folder200Response implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class ReduceLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'reduceLink_request';
+    protected static string $openAPIModelName = 'folder_200_response';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,13 +59,7 @@ class ReduceLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
       * @var array<string, string>
       */
     protected static array $openAPITypes = [
-        'url' => 'string',
-        'team' => 'string',
-        'folder' => 'string',
-        'code' => 'string',
-        'label' => 'string',
-        'password' => 'string',
-        'expiredAt' => 'string'
+        'folders' => '\URLR\Model\Folder200ResponseFoldersInner[]'
     ];
 
     /**
@@ -74,13 +68,7 @@ class ReduceLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
       * @var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'url' => null,
-        'team' => null,
-        'folder' => null,
-        'code' => null,
-        'label' => null,
-        'password' => null,
-        'expiredAt' => null
+        'folders' => null
     ];
 
     /**
@@ -89,13 +77,7 @@ class ReduceLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
       * @var array<string, bool>
       */
     protected static array $openAPINullables = [
-        'url' => false,
-        'team' => false,
-        'folder' => false,
-        'code' => false,
-        'label' => false,
-        'password' => false,
-        'expiredAt' => false
+        'folders' => false
     ];
 
     /**
@@ -184,13 +166,7 @@ class ReduceLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'url' => 'url',
-        'team' => 'team',
-        'folder' => 'folder',
-        'code' => 'code',
-        'label' => 'label',
-        'password' => 'password',
-        'expiredAt' => 'expired_at'
+        'folders' => 'folders'
     ];
 
     /**
@@ -199,13 +175,7 @@ class ReduceLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $setters = [
-        'url' => 'setUrl',
-        'team' => 'setTeam',
-        'folder' => 'setFolder',
-        'code' => 'setCode',
-        'label' => 'setLabel',
-        'password' => 'setPassword',
-        'expiredAt' => 'setExpiredAt'
+        'folders' => 'setFolders'
     ];
 
     /**
@@ -214,13 +184,7 @@ class ReduceLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
      * @var array<string, string>
      */
     protected static array $getters = [
-        'url' => 'getUrl',
-        'team' => 'getTeam',
-        'folder' => 'getFolder',
-        'code' => 'getCode',
-        'label' => 'getLabel',
-        'password' => 'getPassword',
-        'expiredAt' => 'getExpiredAt'
+        'folders' => 'getFolders'
     ];
 
     /**
@@ -279,13 +243,7 @@ class ReduceLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('url', $data ?? [], null);
-        $this->setIfExists('team', $data ?? [], null);
-        $this->setIfExists('folder', $data ?? [], null);
-        $this->setIfExists('code', $data ?? [], null);
-        $this->setIfExists('label', $data ?? [], null);
-        $this->setIfExists('password', $data ?? [], null);
-        $this->setIfExists('expiredAt', $data ?? [], null);
+        $this->setIfExists('folders', $data ?? [], null);
     }
 
     /**
@@ -315,16 +273,6 @@ class ReduceLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['url'] === null) {
-            $invalidProperties[] = "'url' can't be null";
-        }
-        if ($this->container['team'] === null) {
-            $invalidProperties[] = "'team' can't be null";
-        }
-        if (!is_null($this->container['code']) && !preg_match("/^[a-zA-Z0-9!-]{3,50}$/", $this->container['code'])) {
-            $invalidProperties[] = "invalid value for 'code', must be conform to the pattern /^[a-zA-Z0-9!-]{3,50}$/.";
-        }
-
         return $invalidProperties;
     }
 
@@ -341,195 +289,28 @@ class ReduceLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
 
 
     /**
-     * Gets url
+     * Gets folders
      *
-     * @return string
+     * @return \URLR\Model\Folder200ResponseFoldersInner[]|null
      */
-    public function getUrl(): string
+    public function getFolders(): ?array
     {
-        return $this->container['url'];
+        return $this->container['folders'];
     }
 
     /**
-     * Sets url
+     * Sets folders
      *
-     * @param string $url URL to shorten
+     * @param \URLR\Model\Folder200ResponseFoldersInner[]|null $folders folders
      *
      * @return $this
      */
-    public function setUrl(string $url): static
+    public function setFolders(?array $folders): static
     {
-        if (is_null($url)) {
-            throw new InvalidArgumentException('non-nullable url cannot be null');
+        if (is_null($folders)) {
+            throw new InvalidArgumentException('non-nullable folders cannot be null');
         }
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets team
-     *
-     * @return string
-     */
-    public function getTeam(): string
-    {
-        return $this->container['team'];
-    }
-
-    /**
-     * Sets team
-     *
-     * @param string $team Team ID (displayed on dashboard)
-     *
-     * @return $this
-     */
-    public function setTeam(string $team): static
-    {
-        if (is_null($team)) {
-            throw new InvalidArgumentException('non-nullable team cannot be null');
-        }
-        $this->container['team'] = $team;
-
-        return $this;
-    }
-
-    /**
-     * Gets folder
-     *
-     * @return string|null
-     */
-    public function getFolder(): ?string
-    {
-        return $this->container['folder'];
-    }
-
-    /**
-     * Sets folder
-     *
-     * @param string|null $folder Folder ID (displayed on dashboard)
-     *
-     * @return $this
-     */
-    public function setFolder(?string $folder): static
-    {
-        if (is_null($folder)) {
-            throw new InvalidArgumentException('non-nullable folder cannot be null');
-        }
-        $this->container['folder'] = $folder;
-
-        return $this;
-    }
-
-    /**
-     * Gets code
-     *
-     * @return string|null
-     */
-    public function getCode(): ?string
-    {
-        return $this->container['code'];
-    }
-
-    /**
-     * Sets code
-     *
-     * @param string|null $code Custom short code
-     *
-     * @return $this
-     */
-    public function setCode(?string $code): static
-    {
-        if (is_null($code)) {
-            throw new InvalidArgumentException('non-nullable code cannot be null');
-        }
-
-        if ((!preg_match("/^[a-zA-Z0-9!-]{3,50}$/", ObjectSerializer::toString($code)))) {
-            throw new InvalidArgumentException("invalid value for \$code when calling ReduceLinkRequest., must conform to the pattern /^[a-zA-Z0-9!-]{3,50}$/.");
-        }
-
-        $this->container['code'] = $code;
-
-        return $this;
-    }
-
-    /**
-     * Gets label
-     *
-     * @return string|null
-     */
-    public function getLabel(): ?string
-    {
-        return $this->container['label'];
-    }
-
-    /**
-     * Sets label
-     *
-     * @param string|null $label Label
-     *
-     * @return $this
-     */
-    public function setLabel(?string $label): static
-    {
-        if (is_null($label)) {
-            throw new InvalidArgumentException('non-nullable label cannot be null');
-        }
-        $this->container['label'] = $label;
-
-        return $this;
-    }
-
-    /**
-     * Gets password
-     *
-     * @return string|null
-     */
-    public function getPassword(): ?string
-    {
-        return $this->container['password'];
-    }
-
-    /**
-     * Sets password
-     *
-     * @param string|null $password Password
-     *
-     * @return $this
-     */
-    public function setPassword(?string $password): static
-    {
-        if (is_null($password)) {
-            throw new InvalidArgumentException('non-nullable password cannot be null');
-        }
-        $this->container['password'] = $password;
-
-        return $this;
-    }
-
-    /**
-     * Gets expiredAt
-     *
-     * @return string|null
-     */
-    public function getExpiredAt(): ?string
-    {
-        return $this->container['expiredAt'];
-    }
-
-    /**
-     * Sets expiredAt
-     *
-     * @param string|null $expiredAt Expiration date
-     *
-     * @return $this
-     */
-    public function setExpiredAt(?string $expiredAt): static
-    {
-        if (is_null($expiredAt)) {
-            throw new InvalidArgumentException('non-nullable expiredAt cannot be null');
-        }
-        $this->container['expiredAt'] = $expiredAt;
+        $this->container['folders'] = $folders;
 
         return $this;
     }

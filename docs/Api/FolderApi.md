@@ -1,19 +1,19 @@
-# URLR\LinkApi
+# URLR\FolderApi
 
 All URIs are relative to https://urlr.me/api, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**reduceLink()**](LinkApi.md#reduceLink) | **POST** /reduce-link | Shorten a link |
+| [**folder()**](FolderApi.md#folder) | **GET** /folder | Get folders of team |
 
 
-## `reduceLink()`
+## `folder()`
 
 ```php
-reduceLink($reduceLinkRequest): \URLR\Model\ReduceLink200Response
+folder($folderRequest): \URLR\Model\Folder200Response
 ```
 
-Shorten a link
+Get folders of team
 
 ### Example
 
@@ -26,19 +26,19 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = URLR\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new URLR\Api\LinkApi(
+$apiInstance = new URLR\Api\FolderApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$reduceLinkRequest = new \URLR\Model\ReduceLinkRequest(); // \URLR\Model\ReduceLinkRequest | Info of the link to shorten
+$folderRequest = new \URLR\Model\FolderRequest(); // \URLR\Model\FolderRequest | Infos to provide to get folders of team
 
 try {
-    $result = $apiInstance->reduceLink($reduceLinkRequest);
+    $result = $apiInstance->folder($folderRequest);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LinkApi->reduceLink: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FolderApi->folder: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -46,11 +46,11 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **reduceLinkRequest** | [**\URLR\Model\ReduceLinkRequest**](../Model/ReduceLinkRequest.md)| Info of the link to shorten | [optional] |
+| **folderRequest** | [**\URLR\Model\FolderRequest**](../Model/FolderRequest.md)| Infos to provide to get folders of team | [optional] |
 
 ### Return type
 
-[**\URLR\Model\ReduceLink200Response**](../Model/ReduceLink200Response.md)
+[**\URLR\Model\Folder200Response**](../Model/Folder200Response.md)
 
 ### Authorization
 

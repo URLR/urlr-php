@@ -1,6 +1,6 @@
 <?php
 /**
- * Authentification401ResponseTest
+ * Team200ResponseTeamsInnerTest
  *
  * PHP version 8.1
  *
@@ -31,14 +31,14 @@ namespace URLR\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Authentification401ResponseTest Class Doc Comment
+ * Team200ResponseTeamsInnerTest Class Doc Comment
  *
- * @description Authentification401Response
+ * @description Team200ResponseTeamsInner
  * @package     URLR
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class Authentification401ResponseTest extends TestCase
+class Team200ResponseTeamsInnerTest extends TestCase
 {
 
     /**
@@ -70,27 +70,27 @@ class Authentification401ResponseTest extends TestCase
     }
 
     /**
-     * Test "Authentification401Response"
+     * Test "Team200ResponseTeamsInner"
      */
-    public function testAuthentification401Response()
+    public function testTeam200ResponseTeamsInner()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "code"
+     * Test attribute "id"
      */
-    public function testPropertyCode()
+    public function testPropertyId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "message"
+     * Test attribute "name"
      */
-    public function testPropertyMessage()
+    public function testPropertyName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

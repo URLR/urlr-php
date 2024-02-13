@@ -1,19 +1,19 @@
-# URLR\LinkApi
+# URLR\TeamApi
 
 All URIs are relative to https://urlr.me/api, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**reduceLink()**](LinkApi.md#reduceLink) | **POST** /reduce-link | Shorten a link |
+| [**team()**](TeamApi.md#team) | **GET** /team | Get teams of user |
 
 
-## `reduceLink()`
+## `team()`
 
 ```php
-reduceLink($reduceLinkRequest): \URLR\Model\ReduceLink200Response
+team(): \URLR\Model\Team200Response
 ```
 
-Shorten a link
+Get teams of user
 
 ### Example
 
@@ -26,31 +26,28 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = URLR\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new URLR\Api\LinkApi(
+$apiInstance = new URLR\Api\TeamApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$reduceLinkRequest = new \URLR\Model\ReduceLinkRequest(); // \URLR\Model\ReduceLinkRequest | Info of the link to shorten
 
 try {
-    $result = $apiInstance->reduceLink($reduceLinkRequest);
+    $result = $apiInstance->team();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LinkApi->reduceLink: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling TeamApi->team: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **reduceLinkRequest** | [**\URLR\Model\ReduceLinkRequest**](../Model/ReduceLinkRequest.md)| Info of the link to shorten | [optional] |
+This endpoint does not need any parameter.
 
 ### Return type
 
-[**\URLR\Model\ReduceLink200Response**](../Model/ReduceLink200Response.md)
+[**\URLR\Model\Team200Response**](../Model/Team200Response.md)
 
 ### Authorization
 
@@ -58,7 +55,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

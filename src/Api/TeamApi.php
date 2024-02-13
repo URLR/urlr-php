@@ -1,6 +1,6 @@
 <?php
 /**
- * AuthentificationApi
+ * TeamApi
  * PHP version 8.1
  *
  * @package  URLR
@@ -42,13 +42,13 @@ use URLR\HeaderSelector;
 use URLR\ObjectSerializer;
 
 /**
- * AuthentificationApi Class Doc Comment
+ * TeamApi Class Doc Comment
  *
  * @package  URLR
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class AuthentificationApi
+class TeamApi
 {
     /**
      * @var ClientInterface
@@ -72,7 +72,7 @@ class AuthentificationApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'authentification' => [
+        'team' => [
             'application/json',
         ],
     ];
@@ -124,44 +124,40 @@ class AuthentificationApi
     }
 
     /**
-     * Operation authentification
+     * Operation team
      *
-     * Get an access token
+     * Get teams of user
      *
-     * @param  \URLR\Model\AuthentificationRequest|null $authentificationRequest Your credentials (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authentification'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['team'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \URLR\Model\Authentification200Response|\URLR\Model\Authentification401Response
+     * @return \URLR\Model\Team200Response
      */
-    public function authentification(
-        ?\URLR\Model\AuthentificationRequest $authentificationRequest = null,
-        string $contentType = self::contentTypes['authentification'][0]
-    ): \URLR\Model\Authentification200Response
+    public function team(
+        string $contentType = self::contentTypes['team'][0]
+    ): \URLR\Model\Team200Response
     {
-        list($response) = $this->authentificationWithHttpInfo($authentificationRequest, $contentType);
+        list($response) = $this->teamWithHttpInfo($contentType);
         return $response;
     }
 
     /**
-     * Operation authentificationWithHttpInfo
+     * Operation teamWithHttpInfo
      *
-     * Get an access token
+     * Get teams of user
      *
-     * @param  \URLR\Model\AuthentificationRequest|null $authentificationRequest Your credentials (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authentification'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['team'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \URLR\Model\Authentification200Response|\URLR\Model\Authentification401Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \URLR\Model\Team200Response, HTTP status code, HTTP response headers (array of strings)
      */
-    public function authentificationWithHttpInfo(
-        ?\URLR\Model\AuthentificationRequest $authentificationRequest = null,
-        string $contentType = self::contentTypes['authentification'][0]
+    public function teamWithHttpInfo(
+        string $contentType = self::contentTypes['team'][0]
     ): array
     {
-        $request = $this->authentificationRequest($authentificationRequest, $contentType);
+        $request = $this->teamRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -200,11 +196,11 @@ class AuthentificationApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\URLR\Model\Authentification200Response' === '\SplFileObject') {
+                    if ('\URLR\Model\Team200Response' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\URLR\Model\Authentification200Response' !== 'string') {
+                        if ('\URLR\Model\Team200Response' !== 'string') {
                             try {
                                 $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
                             } catch (\JsonException $exception) {
@@ -222,40 +218,13 @@ class AuthentificationApi
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\URLR\Model\Authentification200Response', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
-                case 401:
-                    if ('\URLR\Model\Authentification401Response' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ('\URLR\Model\Authentification401Response' !== 'string') {
-                            try {
-                                $content = json_decode($content, false, 512, JSON_THROW_ON_ERROR);
-                            } catch (\JsonException $exception) {
-                                throw new ApiException(
-                                    sprintf(
-                                        'Error JSON decoding server response (%s)',
-                                        $request->getUri()
-                                    ),
-                                    $statusCode,
-                                    $response->getHeaders(),
-                                    $content
-                                );
-                            }
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\URLR\Model\Authentification401Response', []),
+                        ObjectSerializer::deserialize($content, '\URLR\Model\Team200Response', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\URLR\Model\Authentification200Response';
+            $returnType = '\URLR\Model\Team200Response';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -288,15 +257,7 @@ class AuthentificationApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\URLR\Model\Authentification200Response',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\URLR\Model\Authentification401Response',
+                        '\URLR\Model\Team200Response',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -307,22 +268,20 @@ class AuthentificationApi
     }
 
     /**
-     * Operation authentificationAsync
+     * Operation teamAsync
      *
-     * Get an access token
+     * Get teams of user
      *
-     * @param  \URLR\Model\AuthentificationRequest|null $authentificationRequest Your credentials (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authentification'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['team'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
-    public function authentificationAsync(
-        ?\URLR\Model\AuthentificationRequest $authentificationRequest = null,
-        string $contentType = self::contentTypes['authentification'][0]
+    public function teamAsync(
+        string $contentType = self::contentTypes['team'][0]
     ): PromiseInterface
     {
-        return $this->authentificationAsyncWithHttpInfo($authentificationRequest, $contentType)
+        return $this->teamAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -331,23 +290,21 @@ class AuthentificationApi
     }
 
     /**
-     * Operation authentificationAsyncWithHttpInfo
+     * Operation teamAsyncWithHttpInfo
      *
-     * Get an access token
+     * Get teams of user
      *
-     * @param  \URLR\Model\AuthentificationRequest|null $authentificationRequest Your credentials (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authentification'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['team'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
-    public function authentificationAsyncWithHttpInfo(
-        $authentificationRequest = null,
-        string $contentType = self::contentTypes['authentification'][0]
+    public function teamAsyncWithHttpInfo(
+        string $contentType = self::contentTypes['team'][0]
     ): PromiseInterface
     {
-        $returnType = '\URLR\Model\Authentification200Response';
-        $request = $this->authentificationRequest($authentificationRequest, $contentType);
+        $returnType = '\URLR\Model\Team200Response';
+        $request = $this->teamRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -386,23 +343,20 @@ class AuthentificationApi
     }
 
     /**
-     * Create request for operation 'authentification'
+     * Create request for operation 'team'
      *
-     * @param  \URLR\Model\AuthentificationRequest|null $authentificationRequest Your credentials (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['authentification'] to see the possible values for this operation
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['team'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function authentificationRequest(
-        $authentificationRequest = null,
-        string $contentType = self::contentTypes['authentification'][0]
+    public function teamRequest(
+        string $contentType = self::contentTypes['team'][0]
     ): Request
     {
 
 
-
-        $resourcePath = '/login_check';
+        $resourcePath = '/team';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -420,14 +374,7 @@ class AuthentificationApi
         );
 
         // for model (json/xml)
-        if (isset($authentificationRequest)) {
-            if (stripos($headers['Content-Type'], 'application/json') !== false) {
-                # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($authentificationRequest));
-            } else {
-                $httpBody = $authentificationRequest;
-            }
-        } elseif (count($formParams) > 0) {
+        if (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -451,6 +398,10 @@ class AuthentificationApi
             }
         }
 
+        // this endpoint requires Bearer (JWT) authentication (access token)
+        if (!empty($this->config->getAccessToken())) {
+            $headers['Authorization'] = 'Bearer ' . $this->config->getAccessToken();
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {
@@ -466,7 +417,7 @@ class AuthentificationApi
         $operationHost = $this->config->getHost();
         $query = ObjectSerializer::buildQuery($queryParams);
         return new Request(
-            'POST',
+            'GET',
             $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody

@@ -1,11 +1,11 @@
-# URLR@1.2.0
+# URLR@2.0.0
 
 ![Packagist Version](https://img.shields.io/packagist/v/urlr/urlr-php) ![Packagist Downloads](https://img.shields.io/packagist/dm/urlr/urlr-php) ![Packagist License](https://img.shields.io/packagist/l/urlr/urlr-php)
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
-- API version: 0.3
-- Package version: 1.2.0
+- API version: 1.0
+- Package version: 2.0.0
 - Build package: urlr/urlr-php
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en)
@@ -84,33 +84,40 @@ A complete example is [available here](examples/example1.php).
 
 ## API Endpoints
 
-All URIs are relative to *https://urlr.me/api*
+All URIs are relative to *https://urlr.me/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AuthentificationApi* | [**authentification**](docs/Api/AuthentificationApi.md#authentification) | **POST** /login_check | Get an access token
-*FolderApi* | [**folder**](docs/Api/FolderApi.md#folder) | **GET** /folder | Get folders of team
-*LinkApi* | [**reduceLink**](docs/Api/LinkApi.md#reducelink) | **POST** /reduce-link | Shorten a link
-*StatsApi* | [**stats**](docs/Api/StatsApi.md#stats) | **POST** /stats | Get statistics of a link
-*TeamApi* | [**team**](docs/Api/TeamApi.md#team) | **GET** /team | Get teams of user
+*AccessTokensApi* | [**createAccessToken**](docs/Api/AccessTokensApi.md#createaccesstoken) | **POST** /access_tokens/create | Get an access token
+*AccessTokensApi* | [**refreshAccessToken**](docs/Api/AccessTokensApi.md#refreshaccesstoken) | **POST** /access_tokens/refresh | Refresh an access token
+*FoldersApi* | [**getFolders**](docs/Api/FoldersApi.md#getfolders) | **GET** /folders/{team_id} | Get folders of team
+*LinksApi* | [**createLink**](docs/Api/LinksApi.md#createlink) | **POST** /links/create | Create a link
+*LinksApi* | [**getLink**](docs/Api/LinksApi.md#getlink) | **GET** /links/{link_id} | Get a link
+*StatisticsApi* | [**getStatistics**](docs/Api/StatisticsApi.md#getstatistics) | **POST** /statistics | Get statistics of a link
+*TeamsApi* | [**getTeams**](docs/Api/TeamsApi.md#getteams) | **GET** /teams | Get teams of user
 
 
 ## Models
 
-- [Authentification200Response](docs/Model/Authentification200Response.md)
-- [Authentification401Response](docs/Model/Authentification401Response.md)
-- [AuthentificationRequest](docs/Model/AuthentificationRequest.md)
-- [Folder200Response](docs/Model/Folder200Response.md)
-- [Folder200ResponseFoldersInner](docs/Model/Folder200ResponseFoldersInner.md)
-- [FolderRequest](docs/Model/FolderRequest.md)
-- [ReduceLink200Response](docs/Model/ReduceLink200Response.md)
-- [ReduceLink400Response](docs/Model/ReduceLink400Response.md)
-- [ReduceLinkRequest](docs/Model/ReduceLinkRequest.md)
-- [Stats200Response](docs/Model/Stats200Response.md)
-- [Stats400Response](docs/Model/Stats400Response.md)
-- [StatsRequest](docs/Model/StatsRequest.md)
-- [Team200Response](docs/Model/Team200Response.md)
-- [Team200ResponseTeamsInner](docs/Model/Team200ResponseTeamsInner.md)
+- [CreateAccessToken200Response](docs/Model/CreateAccessToken200Response.md)
+- [CreateAccessToken401Response](docs/Model/CreateAccessToken401Response.md)
+- [CreateAccessTokenRequest](docs/Model/CreateAccessTokenRequest.md)
+- [CreateLink201Response](docs/Model/CreateLink201Response.md)
+- [CreateLink429Response](docs/Model/CreateLink429Response.md)
+- [CreateLink500Response](docs/Model/CreateLink500Response.md)
+- [CreateLinkRequest](docs/Model/CreateLinkRequest.md)
+- [GetFolders200Response](docs/Model/GetFolders200Response.md)
+- [GetFolders200ResponseFoldersInner](docs/Model/GetFolders200ResponseFoldersInner.md)
+- [GetLink200Response](docs/Model/GetLink200Response.md)
+- [GetLink401Response](docs/Model/GetLink401Response.md)
+- [GetLink404Response](docs/Model/GetLink404Response.md)
+- [GetLink422Response](docs/Model/GetLink422Response.md)
+- [GetStatistics200Response](docs/Model/GetStatistics200Response.md)
+- [GetStatisticsRequest](docs/Model/GetStatisticsRequest.md)
+- [GetTeams200Response](docs/Model/GetTeams200Response.md)
+- [GetTeams200ResponseTeamsInner](docs/Model/GetTeams200ResponseTeamsInner.md)
+- [RefreshAccessToken401Response](docs/Model/RefreshAccessToken401Response.md)
+- [RefreshAccessTokenRequest](docs/Model/RefreshAccessTokenRequest.md)
 
 ## Authorization
 

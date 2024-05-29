@@ -42,22 +42,22 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Authentification
+// Access Tokens
 
-$authentificationApi = new URLR\Api\AuthentificationApi(
+$accessTokensApi = new URLR\Api\AccessTokensApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$authentificationRequest = new \URLR\Model\AuthentificationRequest([
+$accessTokensRequest = new \URLR\Model\AccessTokensRequest([
     'username' => '',
     'password' => '',
-]); // \URLR\Model\AuthentificationRequest | Your credentials
+]); // \URLR\Model\AccessTokensRequest | Your credentials
 
 try {
-    $token = $authentificationApi->authentification($authentificationRequest)->getToken();
+    $token = $accessTokensApi->createAccessToken($accessTokensRequest)->getToken();
 } catch (Exception $e) {
-    echo 'Exception when calling AuthentificationApi->authentification: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccessTokensApi->createAccessToken: ', $e->getMessage(), PHP_EOL;
     exit;
 }
 
@@ -65,18 +65,18 @@ $config = URLR\Configuration::getDefaultConfiguration()->setAccessToken($token);
 
 // Link shortening
 
-$linkApi = new URLR\Api\LinkApi(null, $config);
+$linksApi = new URLR\Api\LinksApi(null, $config);
 
-$reduceLinkRequest = new \URLR\Model\ReduceLinkRequest([
+$createLinkRequest = new \URLR\Model\CreateLinkRequest([
     'url' => '',
     'team_id' => ''
-]); // \URLR\Model\ReduceLinkRequest | Infos of the link to reduce
+]); // \URLR\Model\CreateLinkRequest | Infos of the link to shorten
 
 try {
-    $result = $apiInstance->reduceLink($reduceLinkRequest);
+    $result = $apiInstance->createLink($createLinkRequest);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LinkApi->reduceLink: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling LinksApi->createLink: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

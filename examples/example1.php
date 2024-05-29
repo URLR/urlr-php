@@ -29,7 +29,7 @@ $linksApi = new URLR\Api\LinksApi(null, $config);
 
 $createLinkRequest = new \URLR\Model\CreateLinkRequest([
     'url' => '',
-    'team_id' => ''
+    'teamId' => ''
 ]); // \URLR\Model\CreateLinkRequest | Infos of the link to shorten
 
 try {
@@ -44,7 +44,7 @@ try {
 $apiInstance = new URLR\Api\StatisticsApi(null, $config);
 
 $statisticsRequest = new \URLR\Model\StatisticsRequest([
-    'link_id' => ''
+    'linkId' => ''
 ]); // \URLR\Model\StatisticsRequest | Infos to provide to get statistics of a link
 
 try {

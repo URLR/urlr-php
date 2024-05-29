@@ -69,7 +69,7 @@ $linksApi = new URLR\Api\LinksApi(null, $config);
 
 $createLinkRequest = new \URLR\Model\CreateLinkRequest([
     'url' => '',
-    'team_id' => ''
+    'teamId' => ''
 ]); // \URLR\Model\CreateLinkRequest | Infos of the link to shorten
 
 try {

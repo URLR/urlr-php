@@ -115,9 +115,9 @@ class CreateLink201ResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "domainId"
+     * Test attribute "domain"
      */
-    public function testPropertyDomainId()
+    public function testPropertyDomain()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

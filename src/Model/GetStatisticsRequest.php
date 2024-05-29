@@ -349,7 +349,7 @@ class GetStatisticsRequest implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets from
      *
-     * @param \DateTime|null $from Get stats from this date
+     * @param \DateTime|null $from Get statistics from this date
      *
      * @return $this
      */
@@ -376,7 +376,7 @@ class GetStatisticsRequest implements ModelInterface, ArrayAccess, JsonSerializa
     /**
      * Sets to
      *
-     * @param \DateTime|null $to Get stats until this date
+     * @param \DateTime|null $to Get statistics until this date
      *
      * @return $this
      */

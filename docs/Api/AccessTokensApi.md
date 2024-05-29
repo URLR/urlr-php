@@ -29,7 +29,7 @@ $apiInstance = new URLR\Api\AccessTokensApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$createAccessTokenRequest = new \URLR\Model\CreateAccessTokenRequest(); // \URLR\Model\CreateAccessTokenRequest | Your credentials
+$createAccessTokenRequest = new \URLR\Model\CreateAccessTokenRequest(); // \URLR\Model\CreateAccessTokenRequest | You can use this endpoint to get an access token to access the API.
 
 try {
     $result = $apiInstance->createAccessToken($createAccessTokenRequest);
@@ -43,7 +43,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **createAccessTokenRequest** | [**\URLR\Model\CreateAccessTokenRequest**](../Model/CreateAccessTokenRequest.md)| Your credentials | [optional] |
+| **createAccessTokenRequest** | [**\URLR\Model\CreateAccessTokenRequest**](../Model/CreateAccessTokenRequest.md)| You can use this endpoint to get an access token to access the API. | [optional] |
 
 ### Return type
 
@@ -83,7 +83,7 @@ $apiInstance = new URLR\Api\AccessTokensApi(
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
 );
-$refreshAccessTokenRequest = new \URLR\Model\RefreshAccessTokenRequest(); // \URLR\Model\RefreshAccessTokenRequest | Your credentials
+$refreshAccessTokenRequest = new \URLR\Model\RefreshAccessTokenRequest(); // \URLR\Model\RefreshAccessTokenRequest | You can use this endpoint to refresh your access token without credentials.
 
 try {
     $result = $apiInstance->refreshAccessToken($refreshAccessTokenRequest);
@@ -97,7 +97,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **refreshAccessTokenRequest** | [**\URLR\Model\RefreshAccessTokenRequest**](../Model/RefreshAccessTokenRequest.md)| Your credentials | [optional] |
+| **refreshAccessTokenRequest** | [**\URLR\Model\RefreshAccessTokenRequest**](../Model/RefreshAccessTokenRequest.md)| You can use this endpoint to refresh your access token without credentials. | [optional] |
 
 ### Return type
 

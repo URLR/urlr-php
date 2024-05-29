@@ -131,7 +131,7 @@ class AccessTokensApi
      *
      * Get an access token
      *
-     * @param  \URLR\Model\CreateAccessTokenRequest|null $createAccessTokenRequest Your credentials (optional)
+     * @param  \URLR\Model\CreateAccessTokenRequest|null $createAccessTokenRequest You can use this endpoint to get an access token to access the API. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAccessToken'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -152,7 +152,7 @@ class AccessTokensApi
      *
      * Get an access token
      *
-     * @param  \URLR\Model\CreateAccessTokenRequest|null $createAccessTokenRequest Your credentials (optional)
+     * @param  \URLR\Model\CreateAccessTokenRequest|null $createAccessTokenRequest You can use this endpoint to get an access token to access the API. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAccessToken'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -314,7 +314,7 @@ class AccessTokensApi
      *
      * Get an access token
      *
-     * @param  \URLR\Model\CreateAccessTokenRequest|null $createAccessTokenRequest Your credentials (optional)
+     * @param  \URLR\Model\CreateAccessTokenRequest|null $createAccessTokenRequest You can use this endpoint to get an access token to access the API. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAccessToken'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -338,7 +338,7 @@ class AccessTokensApi
      *
      * Get an access token
      *
-     * @param  \URLR\Model\CreateAccessTokenRequest|null $createAccessTokenRequest Your credentials (optional)
+     * @param  \URLR\Model\CreateAccessTokenRequest|null $createAccessTokenRequest You can use this endpoint to get an access token to access the API. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAccessToken'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -391,7 +391,7 @@ class AccessTokensApi
     /**
      * Create request for operation 'createAccessToken'
      *
-     * @param  \URLR\Model\CreateAccessTokenRequest|null $createAccessTokenRequest Your credentials (optional)
+     * @param  \URLR\Model\CreateAccessTokenRequest|null $createAccessTokenRequest You can use this endpoint to get an access token to access the API. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createAccessToken'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -481,7 +481,7 @@ class AccessTokensApi
      *
      * Refresh an access token
      *
-     * @param  \URLR\Model\RefreshAccessTokenRequest|null $refreshAccessTokenRequest Your credentials (optional)
+     * @param  \URLR\Model\RefreshAccessTokenRequest|null $refreshAccessTokenRequest You can use this endpoint to refresh your access token without credentials. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshAccessToken'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -502,7 +502,7 @@ class AccessTokensApi
      *
      * Refresh an access token
      *
-     * @param  \URLR\Model\RefreshAccessTokenRequest|null $refreshAccessTokenRequest Your credentials (optional)
+     * @param  \URLR\Model\RefreshAccessTokenRequest|null $refreshAccessTokenRequest You can use this endpoint to refresh your access token without credentials. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshAccessToken'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -664,7 +664,7 @@ class AccessTokensApi
      *
      * Refresh an access token
      *
-     * @param  \URLR\Model\RefreshAccessTokenRequest|null $refreshAccessTokenRequest Your credentials (optional)
+     * @param  \URLR\Model\RefreshAccessTokenRequest|null $refreshAccessTokenRequest You can use this endpoint to refresh your access token without credentials. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshAccessToken'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -688,7 +688,7 @@ class AccessTokensApi
      *
      * Refresh an access token
      *
-     * @param  \URLR\Model\RefreshAccessTokenRequest|null $refreshAccessTokenRequest Your credentials (optional)
+     * @param  \URLR\Model\RefreshAccessTokenRequest|null $refreshAccessTokenRequest You can use this endpoint to refresh your access token without credentials. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshAccessToken'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -741,7 +741,7 @@ class AccessTokensApi
     /**
      * Create request for operation 'refreshAccessToken'
      *
-     * @param  \URLR\Model\RefreshAccessTokenRequest|null $refreshAccessTokenRequest Your credentials (optional)
+     * @param  \URLR\Model\RefreshAccessTokenRequest|null $refreshAccessTokenRequest You can use this endpoint to refresh your access token without credentials. (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['refreshAccessToken'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException

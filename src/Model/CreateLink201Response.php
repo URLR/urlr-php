@@ -63,7 +63,7 @@ class CreateLink201Response implements ModelInterface, ArrayAccess, JsonSerializ
         'url' => 'string',
         'team' => 'string',
         'folderId' => 'string',
-        'domainId' => 'string',
+        'domain' => 'string',
         'code' => 'string',
         'label' => 'string',
         'createdAt' => '\DateTime',
@@ -81,7 +81,7 @@ class CreateLink201Response implements ModelInterface, ArrayAccess, JsonSerializ
         'url' => null,
         'team' => 'uuid',
         'folderId' => 'uuid',
-        'domainId' => null,
+        'domain' => null,
         'code' => null,
         'label' => null,
         'createdAt' => 'date-time',
@@ -99,7 +99,7 @@ class CreateLink201Response implements ModelInterface, ArrayAccess, JsonSerializ
         'url' => false,
         'team' => false,
         'folderId' => false,
-        'domainId' => false,
+        'domain' => false,
         'code' => false,
         'label' => false,
         'createdAt' => false,
@@ -197,7 +197,7 @@ class CreateLink201Response implements ModelInterface, ArrayAccess, JsonSerializ
         'url' => 'url',
         'team' => 'team',
         'folderId' => 'folder_id',
-        'domainId' => 'domain_id',
+        'domain' => 'domain',
         'code' => 'code',
         'label' => 'label',
         'createdAt' => 'created_at',
@@ -215,7 +215,7 @@ class CreateLink201Response implements ModelInterface, ArrayAccess, JsonSerializ
         'url' => 'setUrl',
         'team' => 'setTeam',
         'folderId' => 'setFolderId',
-        'domainId' => 'setDomainId',
+        'domain' => 'setDomain',
         'code' => 'setCode',
         'label' => 'setLabel',
         'createdAt' => 'setCreatedAt',
@@ -233,7 +233,7 @@ class CreateLink201Response implements ModelInterface, ArrayAccess, JsonSerializ
         'url' => 'getUrl',
         'team' => 'getTeam',
         'folderId' => 'getFolderId',
-        'domainId' => 'getDomainId',
+        'domain' => 'getDomain',
         'code' => 'getCode',
         'label' => 'getLabel',
         'createdAt' => 'getCreatedAt',
@@ -301,7 +301,7 @@ class CreateLink201Response implements ModelInterface, ArrayAccess, JsonSerializ
         $this->setIfExists('url', $data ?? [], null);
         $this->setIfExists('team', $data ?? [], null);
         $this->setIfExists('folderId', $data ?? [], null);
-        $this->setIfExists('domainId', $data ?? [], null);
+        $this->setIfExists('domain', $data ?? [], null);
         $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('label', $data ?? [], null);
         $this->setIfExists('createdAt', $data ?? [], null);
@@ -460,28 +460,28 @@ class CreateLink201Response implements ModelInterface, ArrayAccess, JsonSerializ
     }
 
     /**
-     * Gets domainId
+     * Gets domain
      *
      * @return string|null
      */
-    public function getDomainId(): ?string
+    public function getDomain(): ?string
     {
-        return $this->container['domainId'];
+        return $this->container['domain'];
     }
 
     /**
-     * Sets domainId
+     * Sets domain
      *
-     * @param string|null $domainId Domain
+     * @param string|null $domain Domain
      *
      * @return $this
      */
-    public function setDomainId(?string $domainId): static
+    public function setDomain(?string $domain): static
     {
-        if (is_null($domainId)) {
-            throw new InvalidArgumentException('non-nullable domainId cannot be null');
+        if (is_null($domain)) {
+            throw new InvalidArgumentException('non-nullable domain cannot be null');
         }
-        $this->container['domainId'] = $domainId;
+        $this->container['domain'] = $domain;
 
         return $this;
     }

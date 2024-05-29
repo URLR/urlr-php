@@ -29,7 +29,7 @@ $linkApi = new URLR\Api\LinkApi(null, $config);
 
 $reduceLinkRequest = new \URLR\Model\ReduceLinkRequest([
     'url' => '',
-    'team' => ''
+    'team_id' => ''
 ]); // \URLR\Model\ReduceLinkRequest | Infos of the link to reduce
 
 try {

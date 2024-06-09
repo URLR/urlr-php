@@ -11,7 +11,7 @@ All URIs are relative to https://urlr.me/api/v1, except if the operation defines
 ## `createLink()`
 
 ```php
-createLink($createLinkRequest): \URLR\Model\CreateLink201Response
+createLink($createLinkRequest): \URLR\Model\GetLink200Response
 ```
 
 Create a link
@@ -51,7 +51,7 @@ try {
 
 ### Return type
 
-[**\URLR\Model\CreateLink201Response**](../Model/CreateLink201Response.md)
+[**\URLR\Model\GetLink200Response**](../Model/GetLink200Response.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * GetFolders200ResponseFoldersInnerTest
+ * CreateLinkRequestMetatagTest
  *
  * PHP version 8.1
  *
@@ -31,14 +31,14 @@ namespace URLR\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * GetFolders200ResponseFoldersInnerTest Class Doc Comment
+ * CreateLinkRequestMetatagTest Class Doc Comment
  *
- * @description GetFolders200ResponseFoldersInner
+ * @description Custom metadata for social previews
  * @package     URLR
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class GetFolders200ResponseFoldersInnerTest extends TestCase
+class CreateLinkRequestMetatagTest extends TestCase
 {
 
     /**
@@ -70,27 +70,36 @@ class GetFolders200ResponseFoldersInnerTest extends TestCase
     }
 
     /**
-     * Test "GetFolders200ResponseFoldersInner"
+     * Test "CreateLinkRequestMetatag"
      */
-    public function testGetFolders200ResponseFoldersInner()
+    public function testCreateLinkRequestMetatag()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "title"
      */
-    public function testPropertyId()
+    public function testPropertyTitle()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "name"
+     * Test attribute "description"
      */
-    public function testPropertyName()
+    public function testPropertyDescription()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "image"
+     */
+    public function testPropertyImage()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

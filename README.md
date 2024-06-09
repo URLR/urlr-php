@@ -1,11 +1,11 @@
-# URLR@2.0.1
+# URLR@2.1.0
 
 ![Packagist Version](https://img.shields.io/packagist/v/urlr/urlr-php) ![Packagist Downloads](https://img.shields.io/packagist/dm/urlr/urlr-php) ![Packagist License](https://img.shields.io/packagist/l/urlr/urlr-php)
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
-- API version: 1.0
-- Package version: 2.0.1
+- API version: 1.1
+- Package version: 2.1.0
 - Build package: urlr/urlr-php
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en)
@@ -102,13 +102,15 @@ Class | Method | HTTP request | Description
 - [CreateAccessToken200Response](docs/Model/CreateAccessToken200Response.md)
 - [CreateAccessToken401Response](docs/Model/CreateAccessToken401Response.md)
 - [CreateAccessTokenRequest](docs/Model/CreateAccessTokenRequest.md)
-- [CreateLink201Response](docs/Model/CreateLink201Response.md)
 - [CreateLink429Response](docs/Model/CreateLink429Response.md)
 - [CreateLink500Response](docs/Model/CreateLink500Response.md)
 - [CreateLinkRequest](docs/Model/CreateLinkRequest.md)
+- [CreateLinkRequestMetatag](docs/Model/CreateLinkRequestMetatag.md)
 - [GetFolders200Response](docs/Model/GetFolders200Response.md)
 - [GetFolders200ResponseFoldersInner](docs/Model/GetFolders200ResponseFoldersInner.md)
 - [GetLink200Response](docs/Model/GetLink200Response.md)
+- [GetLink200ResponseGeolinksInner](docs/Model/GetLink200ResponseGeolinksInner.md)
+- [GetLink200ResponseMetatag](docs/Model/GetLink200ResponseMetatag.md)
 - [GetLink401Response](docs/Model/GetLink401Response.md)
 - [GetLink404Response](docs/Model/GetLink404Response.md)
 - [GetLink422Response](docs/Model/GetLink422Response.md)

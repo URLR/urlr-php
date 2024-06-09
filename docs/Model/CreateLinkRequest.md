@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **code** | **string** | Custom short code | [optional]
 **label** | **string** | Label | [optional]
 **password** | **string** | Password | [optional]
+**metatag** | [**\URLR\Model\CreateLinkRequestMetatag**](CreateLinkRequestMetatag.md) |  | [optional]
 **expiredAt** | **\DateTime** | Expiration date | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

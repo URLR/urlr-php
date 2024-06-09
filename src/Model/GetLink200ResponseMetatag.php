@@ -1,6 +1,6 @@
 <?php
 /**
- * GetStatistics200Response
+ * GetLink200ResponseMetatag
  *
  * PHP version 8.1
  *
@@ -35,14 +35,15 @@ use ReturnTypeWillChange;
 use URLR\ObjectSerializer;
 
 /**
- * GetStatistics200Response Class Doc Comment
+ * GetLink200ResponseMetatag Class Doc Comment
  *
+ * @description Custom metadata for social previews
  * @package  URLR
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetStatistics200Response implements ModelInterface, ArrayAccess, JsonSerializable
+class GetLink200ResponseMetatag implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +52,7 @@ class GetStatistics200Response implements ModelInterface, ArrayAccess, JsonSeria
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'getStatistics_200_response';
+    protected static string $openAPIModelName = 'getLink_200_response_metatag';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,9 +60,9 @@ class GetStatistics200Response implements ModelInterface, ArrayAccess, JsonSeria
       * @var array<string, string>
       */
     protected static array $openAPITypes = [
-        'linkId' => 'string',
-        'clicks' => 'int',
-        'uniqueClicks' => 'int'
+        'title' => 'string',
+        'description' => 'string',
+        'image' => 'string'
     ];
 
     /**
@@ -70,9 +71,9 @@ class GetStatistics200Response implements ModelInterface, ArrayAccess, JsonSeria
       * @var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'linkId' => 'uuid',
-        'clicks' => null,
-        'uniqueClicks' => null
+        'title' => null,
+        'description' => null,
+        'image' => 'url'
     ];
 
     /**
@@ -81,9 +82,9 @@ class GetStatistics200Response implements ModelInterface, ArrayAccess, JsonSeria
       * @var array<string, bool>
       */
     protected static array $openAPINullables = [
-        'linkId' => false,
-        'clicks' => false,
-        'uniqueClicks' => false
+        'title' => false,
+        'description' => false,
+        'image' => false
     ];
 
     /**
@@ -172,9 +173,9 @@ class GetStatistics200Response implements ModelInterface, ArrayAccess, JsonSeria
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'linkId' => 'link_id',
-        'clicks' => 'clicks',
-        'uniqueClicks' => 'unique_clicks'
+        'title' => 'title',
+        'description' => 'description',
+        'image' => 'image'
     ];
 
     /**
@@ -183,9 +184,9 @@ class GetStatistics200Response implements ModelInterface, ArrayAccess, JsonSeria
      * @var array<string, string>
      */
     protected static array $setters = [
-        'linkId' => 'setLinkId',
-        'clicks' => 'setClicks',
-        'uniqueClicks' => 'setUniqueClicks'
+        'title' => 'setTitle',
+        'description' => 'setDescription',
+        'image' => 'setImage'
     ];
 
     /**
@@ -194,9 +195,9 @@ class GetStatistics200Response implements ModelInterface, ArrayAccess, JsonSeria
      * @var array<string, string>
      */
     protected static array $getters = [
-        'linkId' => 'getLinkId',
-        'clicks' => 'getClicks',
-        'uniqueClicks' => 'getUniqueClicks'
+        'title' => 'getTitle',
+        'description' => 'getDescription',
+        'image' => 'getImage'
     ];
 
     /**
@@ -255,9 +256,9 @@ class GetStatistics200Response implements ModelInterface, ArrayAccess, JsonSeria
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('linkId', $data ?? [], null);
-        $this->setIfExists('clicks', $data ?? [], null);
-        $this->setIfExists('uniqueClicks', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('image', $data ?? [], null);
     }
 
     /**
@@ -303,82 +304,82 @@ class GetStatistics200Response implements ModelInterface, ArrayAccess, JsonSeria
 
 
     /**
-     * Gets linkId
+     * Gets title
      *
      * @return string|null
      */
-    public function getLinkId(): ?string
+    public function getTitle(): ?string
     {
-        return $this->container['linkId'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets linkId
+     * Sets title
      *
-     * @param string|null $linkId Link API ID
+     * @param string|null $title Title of the link
      *
      * @return $this
      */
-    public function setLinkId(?string $linkId): static
+    public function setTitle(?string $title): static
     {
-        if (is_null($linkId)) {
-            throw new InvalidArgumentException('non-nullable linkId cannot be null');
+        if (is_null($title)) {
+            throw new InvalidArgumentException('non-nullable title cannot be null');
         }
-        $this->container['linkId'] = $linkId;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets clicks
+     * Gets description
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getClicks(): ?int
+    public function getDescription(): ?string
     {
-        return $this->container['clicks'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets clicks
+     * Sets description
      *
-     * @param int|null $clicks Clicks
+     * @param string|null $description Description of the link
      *
      * @return $this
      */
-    public function setClicks(?int $clicks): static
+    public function setDescription(?string $description): static
     {
-        if (is_null($clicks)) {
-            throw new InvalidArgumentException('non-nullable clicks cannot be null');
+        if (is_null($description)) {
+            throw new InvalidArgumentException('non-nullable description cannot be null');
         }
-        $this->container['clicks'] = $clicks;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets uniqueClicks
+     * Gets image
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getUniqueClicks(): ?int
+    public function getImage(): ?string
     {
-        return $this->container['uniqueClicks'];
+        return $this->container['image'];
     }
 
     /**
-     * Sets uniqueClicks
+     * Sets image
      *
-     * @param int|null $uniqueClicks Unique clicks
+     * @param string|null $image Image URL of the link
      *
      * @return $this
      */
-    public function setUniqueClicks(?int $uniqueClicks): static
+    public function setImage(?string $image): static
     {
-        if (is_null($uniqueClicks)) {
-            throw new InvalidArgumentException('non-nullable uniqueClicks cannot be null');
+        if (is_null($image)) {
+            throw new InvalidArgumentException('non-nullable image cannot be null');
         }
-        $this->container['uniqueClicks'] = $uniqueClicks;
+        $this->container['image'] = $image;
 
         return $this;
     }

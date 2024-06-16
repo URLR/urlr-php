@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **code** | **string** | Custom short code | [optional]
 **label** | **string** | Label | [optional]
 **password** | **string** | Password | [optional]
+**qrcode** | [**\URLR\Model\CreateLinkRequestQrcode**](CreateLinkRequestQrcode.md) |  | [optional]
 **metatag** | [**\URLR\Model\CreateLinkRequestMetatag**](CreateLinkRequestMetatag.md) |  | [optional]
 **expiredAt** | **\DateTime** | Expiration date | [optional]
 

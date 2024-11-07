@@ -26,6 +26,7 @@ docs/Model/GetLink200Response.md
 docs/Model/GetLink200ResponseGeolinksInner.md
 docs/Model/GetLink200ResponseMetatag.md
 docs/Model/GetLink200ResponseQrcode.md
+docs/Model/GetLink200ResponseUtm.md
 docs/Model/GetLink401Response.md
 docs/Model/GetLink404Response.md
 docs/Model/GetLink422Response.md
@@ -62,6 +63,7 @@ src/Model/GetLink200Response.php
 src/Model/GetLink200ResponseGeolinksInner.php
 src/Model/GetLink200ResponseMetatag.php
 src/Model/GetLink200ResponseQrcode.php
+src/Model/GetLink200ResponseUtm.php
 src/Model/GetLink401Response.php
 src/Model/GetLink404Response.php
 src/Model/GetLink422Response.php
@@ -96,6 +98,7 @@ tests/Model/GetLink200ResponseGeolinksInnerTest.php
 tests/Model/GetLink200ResponseMetatagTest.php
 tests/Model/GetLink200ResponseQrcodeTest.php
 tests/Model/GetLink200ResponseTest.php
+tests/Model/GetLink200ResponseUtmTest.php
 tests/Model/GetLink401ResponseTest.php
 tests/Model/GetLink404ResponseTest.php
 tests/Model/GetLink422ResponseTest.php

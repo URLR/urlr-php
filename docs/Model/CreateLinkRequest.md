@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **label** | **string** | Label | [optional]
 **password** | **string** | Password | [optional]
 **qrcode** | [**\URLR\Model\CreateLinkRequestQrcode**](CreateLinkRequestQrcode.md) |  | [optional]
+**utm** | [**\URLR\Model\GetLink200ResponseUtm**](GetLink200ResponseUtm.md) |  | [optional]
 **metatag** | [**\URLR\Model\CreateLinkRequestMetatag**](CreateLinkRequestMetatag.md) |  | [optional]
 **expiredAt** | **\DateTime** | Expiration date | [optional]
 **expiredUrl** | **string** | Expiration URL | [optional]

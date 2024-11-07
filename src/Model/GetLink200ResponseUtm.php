@@ -1,6 +1,6 @@
 <?php
 /**
- * GetFolders200ResponseFoldersInner
+ * GetLink200ResponseUtm
  *
  * PHP version 8.1
  *
@@ -35,14 +35,15 @@ use ReturnTypeWillChange;
 use URLR\ObjectSerializer;
 
 /**
- * GetFolders200ResponseFoldersInner Class Doc Comment
+ * GetLink200ResponseUtm Class Doc Comment
  *
+ * @description UTM parameters
  * @package  URLR
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetFolders200ResponseFoldersInner implements ModelInterface, ArrayAccess, JsonSerializable
+class GetLink200ResponseUtm implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +52,7 @@ class GetFolders200ResponseFoldersInner implements ModelInterface, ArrayAccess, 
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'getFolders_200_response_folders_inner';
+    protected static string $openAPIModelName = 'getLink_200_response_utm';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,8 +60,10 @@ class GetFolders200ResponseFoldersInner implements ModelInterface, ArrayAccess, 
       * @var array<string, string>
       */
     protected static array $openAPITypes = [
-        'id' => 'string',
-        'name' => 'string'
+        'campaign' => 'string',
+        'medium' => 'string',
+        'source' => 'string',
+        'content' => 'string'
     ];
 
     /**
@@ -69,8 +72,10 @@ class GetFolders200ResponseFoldersInner implements ModelInterface, ArrayAccess, 
       * @var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'id' => 'uuid',
-        'name' => null
+        'campaign' => null,
+        'medium' => null,
+        'source' => null,
+        'content' => null
     ];
 
     /**
@@ -79,8 +84,10 @@ class GetFolders200ResponseFoldersInner implements ModelInterface, ArrayAccess, 
       * @var array<string, bool>
       */
     protected static array $openAPINullables = [
-        'id' => false,
-        'name' => false
+        'campaign' => false,
+        'medium' => false,
+        'source' => false,
+        'content' => false
     ];
 
     /**
@@ -169,8 +176,10 @@ class GetFolders200ResponseFoldersInner implements ModelInterface, ArrayAccess, 
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'id' => 'id',
-        'name' => 'name'
+        'campaign' => 'campaign',
+        'medium' => 'medium',
+        'source' => 'source',
+        'content' => 'content'
     ];
 
     /**
@@ -179,8 +188,10 @@ class GetFolders200ResponseFoldersInner implements ModelInterface, ArrayAccess, 
      * @var array<string, string>
      */
     protected static array $setters = [
-        'id' => 'setId',
-        'name' => 'setName'
+        'campaign' => 'setCampaign',
+        'medium' => 'setMedium',
+        'source' => 'setSource',
+        'content' => 'setContent'
     ];
 
     /**
@@ -189,8 +200,10 @@ class GetFolders200ResponseFoldersInner implements ModelInterface, ArrayAccess, 
      * @var array<string, string>
      */
     protected static array $getters = [
-        'id' => 'getId',
-        'name' => 'getName'
+        'campaign' => 'getCampaign',
+        'medium' => 'getMedium',
+        'source' => 'getSource',
+        'content' => 'getContent'
     ];
 
     /**
@@ -249,8 +262,10 @@ class GetFolders200ResponseFoldersInner implements ModelInterface, ArrayAccess, 
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('campaign', $data ?? [], null);
+        $this->setIfExists('medium', $data ?? [], null);
+        $this->setIfExists('source', $data ?? [], null);
+        $this->setIfExists('content', $data ?? [], null);
     }
 
     /**
@@ -280,6 +295,22 @@ class GetFolders200ResponseFoldersInner implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['campaign']) && (mb_strlen($this->container['campaign']) > 255)) {
+            $invalidProperties[] = "invalid value for 'campaign', the character length must be smaller than or equal to 255.";
+        }
+
+        if (!is_null($this->container['medium']) && (mb_strlen($this->container['medium']) > 255)) {
+            $invalidProperties[] = "invalid value for 'medium', the character length must be smaller than or equal to 255.";
+        }
+
+        if (!is_null($this->container['source']) && (mb_strlen($this->container['source']) > 255)) {
+            $invalidProperties[] = "invalid value for 'source', the character length must be smaller than or equal to 255.";
+        }
+
+        if (!is_null($this->container['content']) && (mb_strlen($this->container['content']) > 255)) {
+            $invalidProperties[] = "invalid value for 'content', the character length must be smaller than or equal to 255.";
+        }
+
         return $invalidProperties;
     }
 
@@ -296,55 +327,125 @@ class GetFolders200ResponseFoldersInner implements ModelInterface, ArrayAccess, 
 
 
     /**
-     * Gets id
+     * Gets campaign
      *
      * @return string|null
      */
-    public function getId(): ?string
+    public function getCampaign(): ?string
     {
-        return $this->container['id'];
+        return $this->container['campaign'];
     }
 
     /**
-     * Sets id
+     * Sets campaign
      *
-     * @param string|null $id Folder API ID
+     * @param string|null $campaign utm_campaign
      *
      * @return $this
      */
-    public function setId(?string $id): static
+    public function setCampaign(?string $campaign): static
     {
-        if (is_null($id)) {
-            throw new InvalidArgumentException('non-nullable id cannot be null');
+        if (is_null($campaign)) {
+            throw new InvalidArgumentException('non-nullable campaign cannot be null');
         }
-        $this->container['id'] = $id;
+        if ((mb_strlen($campaign) > 255)) {
+            throw new InvalidArgumentException('invalid length for $campaign when calling GetLink200ResponseUtm., must be smaller than or equal to 255.');
+        }
+
+        $this->container['campaign'] = $campaign;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets medium
      *
      * @return string|null
      */
-    public function getName(): ?string
+    public function getMedium(): ?string
     {
-        return $this->container['name'];
+        return $this->container['medium'];
     }
 
     /**
-     * Sets name
+     * Sets medium
      *
-     * @param string|null $name Folder name
+     * @param string|null $medium utm_medium
      *
      * @return $this
      */
-    public function setName(?string $name): static
+    public function setMedium(?string $medium): static
     {
-        if (is_null($name)) {
-            throw new InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($medium)) {
+            throw new InvalidArgumentException('non-nullable medium cannot be null');
         }
-        $this->container['name'] = $name;
+        if ((mb_strlen($medium) > 255)) {
+            throw new InvalidArgumentException('invalid length for $medium when calling GetLink200ResponseUtm., must be smaller than or equal to 255.');
+        }
+
+        $this->container['medium'] = $medium;
+
+        return $this;
+    }
+
+    /**
+     * Gets source
+     *
+     * @return string|null
+     */
+    public function getSource(): ?string
+    {
+        return $this->container['source'];
+    }
+
+    /**
+     * Sets source
+     *
+     * @param string|null $source utm_source
+     *
+     * @return $this
+     */
+    public function setSource(?string $source): static
+    {
+        if (is_null($source)) {
+            throw new InvalidArgumentException('non-nullable source cannot be null');
+        }
+        if ((mb_strlen($source) > 255)) {
+            throw new InvalidArgumentException('invalid length for $source when calling GetLink200ResponseUtm., must be smaller than or equal to 255.');
+        }
+
+        $this->container['source'] = $source;
+
+        return $this;
+    }
+
+    /**
+     * Gets content
+     *
+     * @return string|null
+     */
+    public function getContent(): ?string
+    {
+        return $this->container['content'];
+    }
+
+    /**
+     * Sets content
+     *
+     * @param string|null $content utm_content
+     *
+     * @return $this
+     */
+    public function setContent(?string $content): static
+    {
+        if (is_null($content)) {
+            throw new InvalidArgumentException('non-nullable content cannot be null');
+        }
+        if ((mb_strlen($content) > 255)) {
+            throw new InvalidArgumentException('invalid length for $content when calling GetLink200ResponseUtm., must be smaller than or equal to 255.');
+        }
+
+        $this->container['content'] = $content;
 
         return $this;
     }

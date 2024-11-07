@@ -1,6 +1,6 @@
 <?php
 /**
- * RefreshAccessTokenRequestTest
+ * GetLink200ResponseUtmTest
  *
  * PHP version 8.1
  *
@@ -31,14 +31,14 @@ namespace URLR\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * RefreshAccessTokenRequestTest Class Doc Comment
+ * GetLink200ResponseUtmTest Class Doc Comment
  *
- * @description RefreshAccessTokenRequest
+ * @description UTM parameters
  * @package     URLR
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class RefreshAccessTokenRequestTest extends TestCase
+class GetLink200ResponseUtmTest extends TestCase
 {
 
     /**
@@ -70,18 +70,45 @@ class RefreshAccessTokenRequestTest extends TestCase
     }
 
     /**
-     * Test "RefreshAccessTokenRequest"
+     * Test "GetLink200ResponseUtm"
      */
-    public function testRefreshAccessTokenRequest()
+    public function testGetLink200ResponseUtm()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "refreshToken"
+     * Test attribute "campaign"
      */
-    public function testPropertyRefreshToken()
+    public function testPropertyCampaign()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "medium"
+     */
+    public function testPropertyMedium()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "source"
+     */
+    public function testPropertySource()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "content"
+     */
+    public function testPropertyContent()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

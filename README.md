@@ -1,11 +1,11 @@
-# URLR@2.4.0
+# URLR@2.5.0
 
 ![Packagist Version](https://img.shields.io/packagist/v/urlr/urlr-php) ![Packagist Downloads](https://img.shields.io/packagist/dm/urlr/urlr-php) ![Packagist License](https://img.shields.io/packagist/l/urlr/urlr-php)
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
-- API version: 1.3
-- Package version: 2.4.0
+- API version: 1.4
+- Package version: 2.5.0
 - Build package: urlr/urlr-php
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en)
@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
 - [GetLink200ResponseGeolinksInner](docs/Model/GetLink200ResponseGeolinksInner.md)
 - [GetLink200ResponseMetatag](docs/Model/GetLink200ResponseMetatag.md)
 - [GetLink200ResponseQrcode](docs/Model/GetLink200ResponseQrcode.md)
+- [GetLink200ResponseUtm](docs/Model/GetLink200ResponseUtm.md)
 - [GetLink401Response](docs/Model/GetLink401Response.md)
 - [GetLink404Response](docs/Model/GetLink404Response.md)
 - [GetLink422Response](docs/Model/GetLink422Response.md)

@@ -16,5 +16,6 @@ Name | Type | Description | Notes
 **metatag** | [**\URLR\Model\CreateLinkRequestMetatag**](CreateLinkRequestMetatag.md) |  | [optional]
 **expiredAt** | **\DateTime** | Expiration date | [optional]
 **expiredUrl** | **string** | Expiration URL | [optional]
+**deleteAfterExpiration** | **bool** | Whether or not to remove the link after the expiry date | [optional] [default to false]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

@@ -1,6 +1,6 @@
 <?php
 /**
- * GetTeams200ResponseTest
+ * GetLink200ResponseTagsInnerTest
  *
  * PHP version 8.1
  *
@@ -31,14 +31,14 @@ namespace URLR\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * GetTeams200ResponseTest Class Doc Comment
+ * GetLink200ResponseTagsInnerTest Class Doc Comment
  *
- * @description GetTeams200Response
+ * @description GetLink200ResponseTagsInner
  * @package     URLR
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class GetTeams200ResponseTest extends TestCase
+class GetLink200ResponseTagsInnerTest extends TestCase
 {
 
     /**
@@ -70,18 +70,27 @@ class GetTeams200ResponseTest extends TestCase
     }
 
     /**
-     * Test "GetTeams200Response"
+     * Test "GetLink200ResponseTagsInner"
      */
-    public function testGetTeams200Response()
+    public function testGetLink200ResponseTagsInner()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "teams"
+     * Test attribute "id"
      */
-    public function testPropertyTeams()
+    public function testPropertyId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "name"
+     */
+    public function testPropertyName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

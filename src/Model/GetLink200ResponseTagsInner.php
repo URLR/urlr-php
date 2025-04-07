@@ -1,6 +1,6 @@
 <?php
 /**
- * RefreshAccessTokenRequest
+ * GetLink200ResponseTagsInner
  *
  * PHP version 8.1
  *
@@ -35,14 +35,14 @@ use ReturnTypeWillChange;
 use URLR\ObjectSerializer;
 
 /**
- * RefreshAccessTokenRequest Class Doc Comment
+ * GetLink200ResponseTagsInner Class Doc Comment
  *
  * @package  URLR
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class RefreshAccessTokenRequest implements ModelInterface, ArrayAccess, JsonSerializable
+class GetLink200ResponseTagsInner implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class RefreshAccessTokenRequest implements ModelInterface, ArrayAccess, JsonSeri
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'refreshAccessToken_request';
+    protected static string $openAPIModelName = 'getLink_200_response_tags_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,8 @@ class RefreshAccessTokenRequest implements ModelInterface, ArrayAccess, JsonSeri
       * @var array<string, string>
       */
     protected static array $openAPITypes = [
-        'refreshToken' => 'string'
+        'id' => 'string',
+        'name' => 'string'
     ];
 
     /**
@@ -68,7 +69,8 @@ class RefreshAccessTokenRequest implements ModelInterface, ArrayAccess, JsonSeri
       * @var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'refreshToken' => null
+        'id' => 'uuid',
+        'name' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class RefreshAccessTokenRequest implements ModelInterface, ArrayAccess, JsonSeri
       * @var array<string, bool>
       */
     protected static array $openAPINullables = [
-        'refreshToken' => false
+        'id' => false,
+        'name' => false
     ];
 
     /**
@@ -166,7 +169,8 @@ class RefreshAccessTokenRequest implements ModelInterface, ArrayAccess, JsonSeri
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'refreshToken' => 'refresh_token'
+        'id' => 'id',
+        'name' => 'name'
     ];
 
     /**
@@ -175,7 +179,8 @@ class RefreshAccessTokenRequest implements ModelInterface, ArrayAccess, JsonSeri
      * @var array<string, string>
      */
     protected static array $setters = [
-        'refreshToken' => 'setRefreshToken'
+        'id' => 'setId',
+        'name' => 'setName'
     ];
 
     /**
@@ -184,7 +189,8 @@ class RefreshAccessTokenRequest implements ModelInterface, ArrayAccess, JsonSeri
      * @var array<string, string>
      */
     protected static array $getters = [
-        'refreshToken' => 'getRefreshToken'
+        'id' => 'getId',
+        'name' => 'getName'
     ];
 
     /**
@@ -243,7 +249,8 @@ class RefreshAccessTokenRequest implements ModelInterface, ArrayAccess, JsonSeri
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('refreshToken', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
     }
 
     /**
@@ -273,9 +280,6 @@ class RefreshAccessTokenRequest implements ModelInterface, ArrayAccess, JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['refreshToken'] === null) {
-            $invalidProperties[] = "'refreshToken' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -292,28 +296,55 @@ class RefreshAccessTokenRequest implements ModelInterface, ArrayAccess, JsonSeri
 
 
     /**
-     * Gets refreshToken
+     * Gets id
      *
-     * @return string
+     * @return string|null
      */
-    public function getRefreshToken(): string
+    public function getId(): ?string
     {
-        return $this->container['refreshToken'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets refreshToken
+     * Sets id
      *
-     * @param string $refreshToken Refresh token
+     * @param string|null $id ID
      *
      * @return $this
      */
-    public function setRefreshToken(string $refreshToken): static
+    public function setId(?string $id): static
     {
-        if (is_null($refreshToken)) {
-            throw new InvalidArgumentException('non-nullable refreshToken cannot be null');
+        if (is_null($id)) {
+            throw new InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['refreshToken'] = $refreshToken;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
+     *
+     * @return string|null
+     */
+    public function getName(): ?string
+    {
+        return $this->container['name'];
+    }
+
+    /**
+     * Sets name
+     *
+     * @param string|null $name Name
+     *
+     * @return $this
+     */
+    public function setName(?string $name): static
+    {
+        if (is_null($name)) {
+            throw new InvalidArgumentException('non-nullable name cannot be null');
+        }
+        $this->container['name'] = $name;
 
         return $this;
     }

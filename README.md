@@ -4,7 +4,7 @@
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
-- API version: 1.5
+- API version: 1.7
 - Package version: 2.7.0
 - Build package: urlr/urlr-php
 
@@ -117,6 +117,7 @@ Class | Method | HTTP request | Description
 - [GetLink200ResponseGeolinksInner](docs/Model/GetLink200ResponseGeolinksInner.md)
 - [GetLink200ResponseMetatag](docs/Model/GetLink200ResponseMetatag.md)
 - [GetLink200ResponseQrcode](docs/Model/GetLink200ResponseQrcode.md)
+- [GetLink200ResponseTagsInner](docs/Model/GetLink200ResponseTagsInner.md)
 - [GetLink200ResponseUtm](docs/Model/GetLink200ResponseUtm.md)
 - [GetLink401Response](docs/Model/GetLink401Response.md)
 - [GetLink404Response](docs/Model/GetLink404Response.md)

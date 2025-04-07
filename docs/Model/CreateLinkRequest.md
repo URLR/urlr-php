@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **domain** | **string** | Domain | [optional]
 **code** | **string** | Custom short code | [optional]
 **label** | **string** | Label | [optional]
-**** | **string[]** | Tags | [optional]
+**tags** | **string[]** | Tags | [optional]
 **password** | **string** | Password | [optional]
 **qrcode** | [**\URLR\Model\CreateLinkRequestQrcode**](CreateLinkRequestQrcode.md) |  | [optional]
 **utm** | [**\URLR\Model\GetLink200ResponseUtm**](GetLink200ResponseUtm.md) |  | [optional]

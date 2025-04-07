@@ -133,9 +133,9 @@ class CreateLinkRequestTest extends TestCase
     }
 
     /**
-     * Test attribute ""
+     * Test attribute "tags"
      */
-    public function testProperty()
+    public function testPropertyTags()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

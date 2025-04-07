@@ -65,7 +65,7 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'domain' => 'string',
         'code' => 'string',
         'label' => 'string',
-        '' => 'string[]',
+        'tags' => 'string[]',
         'password' => 'string',
         'qrcode' => '\URLR\Model\CreateLinkRequestQrcode',
         'utm' => '\URLR\Model\GetLink200ResponseUtm',
@@ -88,7 +88,7 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'domain' => 'hostname',
         'code' => null,
         'label' => null,
-        '' => 'uuid',
+        'tags' => 'uuid',
         'password' => null,
         'qrcode' => null,
         'utm' => null,
@@ -111,7 +111,7 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'domain' => false,
         'code' => false,
         'label' => false,
-        '' => false,
+        'tags' => false,
         'password' => false,
         'qrcode' => false,
         'utm' => false,
@@ -214,7 +214,7 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'domain' => 'domain',
         'code' => 'code',
         'label' => 'label',
-        '' => '',
+        'tags' => 'tags',
         'password' => 'password',
         'qrcode' => 'qrcode',
         'utm' => 'utm',
@@ -237,7 +237,7 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'domain' => 'setDomain',
         'code' => 'setCode',
         'label' => 'setLabel',
-        '' => 'set',
+        'tags' => 'setTags',
         'password' => 'setPassword',
         'qrcode' => 'setQrcode',
         'utm' => 'setUtm',
@@ -260,7 +260,7 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'domain' => 'getDomain',
         'code' => 'getCode',
         'label' => 'getLabel',
-        '' => 'get',
+        'tags' => 'getTags',
         'password' => 'getPassword',
         'qrcode' => 'getQrcode',
         'utm' => 'getUtm',
@@ -333,7 +333,7 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('domain', $data ?? [], null);
         $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('label', $data ?? [], null);
-        $this->setIfExists('', $data ?? [], null);
+        $this->setIfExists('tags', $data ?? [], null);
         $this->setIfExists('password', $data ?? [], null);
         $this->setIfExists('qrcode', $data ?? [], null);
         $this->setIfExists('utm', $data ?? [], null);
@@ -385,8 +385,8 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
             $invalidProperties[] = "invalid value for 'code', must be conform to the pattern /^[a-zA-Z0-9!-]{2,50}$/.";
         }
 
-        if (!is_null($this->container['']) && (count($this->container['']) > 3)) {
-            $invalidProperties[] = "invalid value for '', number of items must be less than or equal to 3.";
+        if (!is_null($this->container['tags']) && (count($this->container['tags']) > 3)) {
+            $invalidProperties[] = "invalid value for 'tags', number of items must be less than or equal to 3.";
         }
 
         return $invalidProperties;
@@ -576,32 +576,32 @@ class CreateLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
     }
 
     /**
-     * Gets 
+     * Gets tags
      *
      * @return string[]|null
      */
-    public function get(): ?array
+    public function getTags(): ?array
     {
-        return $this->container[''];
+        return $this->container['tags'];
     }
 
     /**
-     * Sets 
+     * Sets tags
      *
-     * @param string[]|null $ Tags
+     * @param string[]|null $tags Tags
      *
      * @return $this
      */
-    public function set(?array $): static
+    public function setTags(?array $tags): static
     {
-        if (is_null($)) {
-            throw new InvalidArgumentException('non-nullable  cannot be null');
+        if (is_null($tags)) {
+            throw new InvalidArgumentException('non-nullable tags cannot be null');
         }
 
-        if ((count($) > 3)) {
-            throw new InvalidArgumentException('invalid value for $ when calling CreateLinkRequest., number of items must be less than or equal to 3.');
+        if ((count($tags) > 3)) {
+            throw new InvalidArgumentException('invalid value for $tags when calling CreateLinkRequest., number of items must be less than or equal to 3.');
         }
-        $this->container[''] = $;
+        $this->container['tags'] = $tags;
 
         return $this;
     }

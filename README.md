@@ -1,11 +1,11 @@
-# URLR@2.8.1
+# URLR@2.9.0
 
 ![Packagist Version](https://img.shields.io/packagist/v/urlr/urlr-php) ![Packagist Downloads](https://img.shields.io/packagist/dm/urlr/urlr-php) ![Packagist License](https://img.shields.io/packagist/l/urlr/urlr-php)
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
-- API version: 1.7
-- Package version: 2.8.1
+- API version: 1.9
+- Package version: 2.9.0
 - Build package: urlr/urlr-php
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en).
@@ -90,6 +90,7 @@ Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccessTokensApi* | [**createAccessToken**](docs/Api/AccessTokensApi.md#createaccesstoken) | **POST** /access_tokens/create | Get an access token
 *AccessTokensApi* | [**refreshAccessToken**](docs/Api/AccessTokensApi.md#refreshaccesstoken) | **POST** /access_tokens/refresh | Refresh an access token
+*DomainsApi* | [**createDomain**](docs/Api/DomainsApi.md#createdomain) | **POST** /domains/create | Create a domain
 *FoldersApi* | [**getFolders**](docs/Api/FoldersApi.md#getfolders) | **GET** /folders/{team_id} | Get folders of team
 *LinksApi* | [**createLink**](docs/Api/LinksApi.md#createlink) | **POST** /links/create | Create a link
 *LinksApi* | [**getLink**](docs/Api/LinksApi.md#getlink) | **GET** /links/{link_id} | Get a link
@@ -103,6 +104,9 @@ Class | Method | HTTP request | Description
 - [CreateAccessToken200Response](docs/Model/CreateAccessToken200Response.md)
 - [CreateAccessToken401Response](docs/Model/CreateAccessToken401Response.md)
 - [CreateAccessTokenRequest](docs/Model/CreateAccessTokenRequest.md)
+- [CreateDomain200Response](docs/Model/CreateDomain200Response.md)
+- [CreateDomain409Response](docs/Model/CreateDomain409Response.md)
+- [CreateDomainRequest](docs/Model/CreateDomainRequest.md)
 - [CreateLink429Response](docs/Model/CreateLink429Response.md)
 - [CreateLink500Response](docs/Model/CreateLink500Response.md)
 - [CreateLinkRequest](docs/Model/CreateLinkRequest.md)
@@ -115,6 +119,7 @@ Class | Method | HTTP request | Description
 - [GetFolders200ResponseFoldersInner](docs/Model/GetFolders200ResponseFoldersInner.md)
 - [GetLink200Response](docs/Model/GetLink200Response.md)
 - [GetLink200ResponseGeolinksInner](docs/Model/GetLink200ResponseGeolinksInner.md)
+- [GetLink200ResponseGeolinksInnerConditionsInner](docs/Model/GetLink200ResponseGeolinksInnerConditionsInner.md)
 - [GetLink200ResponseMetatag](docs/Model/GetLink200ResponseMetatag.md)
 - [GetLink200ResponseQrcode](docs/Model/GetLink200ResponseQrcode.md)
 - [GetLink200ResponseTagsInner](docs/Model/GetLink200ResponseTagsInner.md)

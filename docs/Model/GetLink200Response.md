@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **qrcode** | [**\URLR\Model\GetLink200ResponseQrcode**](GetLink200ResponseQrcode.md) |  | [optional]
 **utm** | [**\URLR\Model\GetLink200ResponseUtm**](GetLink200ResponseUtm.md) |  | [optional]
 **metatag** | [**\URLR\Model\GetLink200ResponseMetatag**](GetLink200ResponseMetatag.md) |  | [optional]
-**geolinks** | [**\URLR\Model\GetLink200ResponseGeolinksInner[]**](GetLink200ResponseGeolinksInner.md) | Geographical targeting links | [optional]
+**geolinks** | [**\URLR\Model\GetLink200ResponseGeolinksInner[]**](GetLink200ResponseGeolinksInner.md) | Dynamic routing conditions | [optional]
 **createdAt** | **\DateTime** | Creation date | [optional]
 **updatedAt** | **\DateTime** | Modification date | [optional]
 **deleteAt** | **\DateTime** | Scheduled deletion date | [optional]

@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **qrcode** | [**\URLR\Model\CreateLinkRequestQrcode**](CreateLinkRequestQrcode.md) |  | [optional]
 **utm** | [**\URLR\Model\GetLink200ResponseUtm**](GetLink200ResponseUtm.md) |  | [optional]
 **metatag** | [**\URLR\Model\CreateLinkRequestMetatag**](CreateLinkRequestMetatag.md) |  | [optional]
+**geolinks** | [**\URLR\Model\GetLink200ResponseGeolinksInner[]**](GetLink200ResponseGeolinksInner.md) | Dynamic routing conditions | [optional]
 **deleteAt** | **\DateTime** | Scheduled deletion date | [optional]
 **expiredAt** | **\DateTime** | Scheduled expiration date | [optional]
 **expiredUrl** | **string** | Expiration URL | [optional]

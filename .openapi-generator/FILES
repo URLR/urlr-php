@@ -4,6 +4,7 @@
 README.md
 composer.json
 docs/Api/AccessTokensApi.md
+docs/Api/DomainsApi.md
 docs/Api/FoldersApi.md
 docs/Api/LinksApi.md
 docs/Api/QRCodesApi.md
@@ -12,6 +13,9 @@ docs/Api/TeamsApi.md
 docs/Model/CreateAccessToken200Response.md
 docs/Model/CreateAccessToken401Response.md
 docs/Model/CreateAccessTokenRequest.md
+docs/Model/CreateDomain200Response.md
+docs/Model/CreateDomain409Response.md
+docs/Model/CreateDomainRequest.md
 docs/Model/CreateLink429Response.md
 docs/Model/CreateLink500Response.md
 docs/Model/CreateLinkRequest.md
@@ -24,6 +28,7 @@ docs/Model/GetFolders200Response.md
 docs/Model/GetFolders200ResponseFoldersInner.md
 docs/Model/GetLink200Response.md
 docs/Model/GetLink200ResponseGeolinksInner.md
+docs/Model/GetLink200ResponseGeolinksInnerConditionsInner.md
 docs/Model/GetLink200ResponseMetatag.md
 docs/Model/GetLink200ResponseQrcode.md
 docs/Model/GetLink200ResponseTagsInner.md
@@ -39,6 +44,7 @@ docs/Model/RefreshAccessToken401Response.md
 docs/Model/RefreshAccessTokenRequest.md
 phpunit.xml.dist
 src/Api/AccessTokensApi.php
+src/Api/DomainsApi.php
 src/Api/FoldersApi.php
 src/Api/LinksApi.php
 src/Api/QRCodesApi.php
@@ -46,10 +52,14 @@ src/Api/StatisticsApi.php
 src/Api/TeamsApi.php
 src/ApiException.php
 src/Configuration.php
+src/FormDataProcessor.php
 src/HeaderSelector.php
 src/Model/CreateAccessToken200Response.php
 src/Model/CreateAccessToken401Response.php
 src/Model/CreateAccessTokenRequest.php
+src/Model/CreateDomain200Response.php
+src/Model/CreateDomain409Response.php
+src/Model/CreateDomainRequest.php
 src/Model/CreateLink429Response.php
 src/Model/CreateLink500Response.php
 src/Model/CreateLinkRequest.php
@@ -62,6 +72,7 @@ src/Model/GetFolders200Response.php
 src/Model/GetFolders200ResponseFoldersInner.php
 src/Model/GetLink200Response.php
 src/Model/GetLink200ResponseGeolinksInner.php
+src/Model/GetLink200ResponseGeolinksInnerConditionsInner.php
 src/Model/GetLink200ResponseMetatag.php
 src/Model/GetLink200ResponseQrcode.php
 src/Model/GetLink200ResponseTagsInner.php
@@ -78,6 +89,7 @@ src/Model/RefreshAccessToken401Response.php
 src/Model/RefreshAccessTokenRequest.php
 src/ObjectSerializer.php
 tests/Api/AccessTokensApiTest.php
+tests/Api/DomainsApiTest.php
 tests/Api/FoldersApiTest.php
 tests/Api/LinksApiTest.php
 tests/Api/QRCodesApiTest.php
@@ -86,6 +98,9 @@ tests/Api/TeamsApiTest.php
 tests/Model/CreateAccessToken200ResponseTest.php
 tests/Model/CreateAccessToken401ResponseTest.php
 tests/Model/CreateAccessTokenRequestTest.php
+tests/Model/CreateDomain200ResponseTest.php
+tests/Model/CreateDomain409ResponseTest.php
+tests/Model/CreateDomainRequestTest.php
 tests/Model/CreateLink429ResponseTest.php
 tests/Model/CreateLink500ResponseTest.php
 tests/Model/CreateLinkRequestMetatagTest.php
@@ -96,6 +111,7 @@ tests/Model/CreateQrCodeRequestOneOfTest.php
 tests/Model/CreateQrCodeRequestTest.php
 tests/Model/GetFolders200ResponseFoldersInnerTest.php
 tests/Model/GetFolders200ResponseTest.php
+tests/Model/GetLink200ResponseGeolinksInnerConditionsInnerTest.php
 tests/Model/GetLink200ResponseGeolinksInnerTest.php
 tests/Model/GetLink200ResponseMetatagTest.php
 tests/Model/GetLink200ResponseQrcodeTest.php

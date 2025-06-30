@@ -4,8 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**type** | **string** | Type of the geographic link | [optional]
-**value** | **string** | Value corresponding to the type of the geographic link | [optional]
-**url** | **string** | URL of the geographic link | [optional]
+**conditions** | [**\URLR\Model\GetLink200ResponseGeolinksInnerConditionsInner[]**](GetLink200ResponseGeolinksInnerConditionsInner.md) | Conditions for dynamic routing | [optional]
+**url** | **string** | URL to redirect to when conditions match | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

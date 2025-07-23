@@ -1,6 +1,6 @@
 <?php
 /**
- * GetLink200ResponseTest
+ * LinkCreateRequestTest
  *
  * PHP version 8.1
  *
@@ -31,14 +31,14 @@ namespace URLR\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * GetLink200ResponseTest Class Doc Comment
+ * LinkCreateRequestTest Class Doc Comment
  *
- * @description GetLink200Response
+ * @description LinkCreateRequest
  * @package     URLR
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class GetLink200ResponseTest extends TestCase
+class LinkCreateRequestTest extends TestCase
 {
 
     /**
@@ -70,18 +70,9 @@ class GetLink200ResponseTest extends TestCase
     }
 
     /**
-     * Test "GetLink200Response"
+     * Test "LinkCreateRequest"
      */
-    public function testGetLink200Response()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
+    public function testLinkCreateRequest()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -91,15 +82,6 @@ class GetLink200ResponseTest extends TestCase
      * Test attribute "url"
      */
     public function testPropertyUrl()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "teamId"
-     */
-    public function testPropertyTeamId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -151,6 +133,15 @@ class GetLink200ResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "password"
+     */
+    public function testPropertyPassword()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "qrcode"
      */
     public function testPropertyQrcode()
@@ -187,24 +178,6 @@ class GetLink200ResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "createdAt"
-     */
-    public function testPropertyCreatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "updatedAt"
-     */
-    public function testPropertyUpdatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "deleteAt"
      */
     public function testPropertyDeleteAt()
@@ -235,6 +208,15 @@ class GetLink200ResponseTest extends TestCase
      * Test attribute "deleteAfterExpiration"
      */
     public function testPropertyDeleteAfterExpiration()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "teamId"
+     */
+    public function testPropertyTeamId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

@@ -1,10 +1,10 @@
-# URLR\TeamsApi
+# URLR\WorkspacesApi
 
 All URIs are relative to https://urlr.me/api/v1, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getTeams()**](TeamsApi.md#getTeams) | **GET** /teams | Get teams of user |
+| [**getTeams()**](WorkspacesApi.md#getTeams) | **GET** /teams | Get workspaces of user |
 
 
 ## `getTeams()`
@@ -13,7 +13,7 @@ All URIs are relative to https://urlr.me/api/v1, except if the operation defines
 getTeams(): \URLR\Model\GetTeams200Response
 ```
 
-Get teams of user
+Get workspaces of user
 
 ### Example
 
@@ -26,7 +26,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 $config = URLR\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 
-$apiInstance = new URLR\Api\TeamsApi(
+$apiInstance = new URLR\Api\WorkspacesApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -37,7 +37,7 @@ try {
     $result = $apiInstance->getTeams();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling TeamsApi->getTeams: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling WorkspacesApi->getTeams: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

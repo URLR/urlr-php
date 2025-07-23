@@ -1,4 +1,4 @@
-# # CreateLinkRequestQrcode
+# # LinkBaseRequestQrcode
 
 ## Properties
 

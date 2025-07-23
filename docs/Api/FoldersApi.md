@@ -4,7 +4,7 @@ All URIs are relative to https://urlr.me/api/v1, except if the operation defines
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getFolders()**](FoldersApi.md#getFolders) | **GET** /folders/{team_id} | Get folders of team |
+| [**getFolders()**](FoldersApi.md#getFolders) | **GET** /folders/{team_id} | Get folders of workspace |
 
 
 ## `getFolders()`
@@ -13,7 +13,7 @@ All URIs are relative to https://urlr.me/api/v1, except if the operation defines
 getFolders($teamId): \URLR\Model\GetFolders200Response
 ```
 
-Get folders of team
+Get folders of workspace
 
 ### Example
 
@@ -32,7 +32,7 @@ $apiInstance = new URLR\Api\FoldersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$teamId = ffefc6c4-d970-4373-a867-2a69c8be2c89; // string | Team API ID
+$teamId = ffefc6c4-d970-4373-a867-2a69c8be2c89; // string | Workspace API ID
 
 try {
     $result = $apiInstance->getFolders($teamId);
@@ -46,7 +46,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **teamId** | **string**| Team API ID | |
+| **teamId** | **string**| Workspace API ID | |
 
 ### Return type
 

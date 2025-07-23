@@ -1,6 +1,6 @@
 <?php
 /**
- * GetLink200ResponseTest
+ * LinkBaseRequestTest
  *
  * PHP version 8.1
  *
@@ -31,14 +31,14 @@ namespace URLR\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * GetLink200ResponseTest Class Doc Comment
+ * LinkBaseRequestTest Class Doc Comment
  *
- * @description GetLink200Response
+ * @description LinkBaseRequest
  * @package     URLR
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class GetLink200ResponseTest extends TestCase
+class LinkBaseRequestTest extends TestCase
 {
 
     /**
@@ -70,18 +70,9 @@ class GetLink200ResponseTest extends TestCase
     }
 
     /**
-     * Test "GetLink200Response"
+     * Test "LinkBaseRequest"
      */
-    public function testGetLink200Response()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "id"
-     */
-    public function testPropertyId()
+    public function testLinkBaseRequest()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -91,15 +82,6 @@ class GetLink200ResponseTest extends TestCase
      * Test attribute "url"
      */
     public function testPropertyUrl()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "teamId"
-     */
-    public function testPropertyTeamId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -151,6 +133,15 @@ class GetLink200ResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "password"
+     */
+    public function testPropertyPassword()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "qrcode"
      */
     public function testPropertyQrcode()
@@ -181,24 +172,6 @@ class GetLink200ResponseTest extends TestCase
      * Test attribute "geolinks"
      */
     public function testPropertyGeolinks()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "createdAt"
-     */
-    public function testPropertyCreatedAt()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "updatedAt"
-     */
-    public function testPropertyUpdatedAt()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

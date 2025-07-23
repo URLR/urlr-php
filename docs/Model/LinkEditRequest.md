@@ -1,20 +1,19 @@
-# # CreateLinkRequest
+# # LinkEditRequest
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **string** | URL to shorten |
-**teamId** | **string** | Team API ID |
+**url** | **string** | URL to shorten | [optional]
 **folderId** | **string** | Folder API ID | [optional]
 **domain** | **string** | Domain | [optional]
 **code** | **string** | Custom short code | [optional]
 **label** | **string** | Label | [optional]
 **tags** | **string[]** | Tags | [optional]
 **password** | **string** | Password | [optional]
-**qrcode** | [**\URLR\Model\CreateLinkRequestQrcode**](CreateLinkRequestQrcode.md) |  | [optional]
+**qrcode** | [**\URLR\Model\LinkBaseRequestQrcode**](LinkBaseRequestQrcode.md) |  | [optional]
 **utm** | [**\URLR\Model\GetLink200ResponseUtm**](GetLink200ResponseUtm.md) |  | [optional]
-**metatag** | [**\URLR\Model\CreateLinkRequestMetatag**](CreateLinkRequestMetatag.md) |  | [optional]
+**metatag** | [**\URLR\Model\LinkBaseRequestMetatag**](LinkBaseRequestMetatag.md) |  | [optional]
 **geolinks** | [**\URLR\Model\GetLink200ResponseGeolinksInner[]**](GetLink200ResponseGeolinksInner.md) | Dynamic routing conditions | [optional]
 **deleteAt** | **\DateTime** | Scheduled deletion date | [optional]
 **expiredAt** | **\DateTime** | Scheduled expiration date | [optional]

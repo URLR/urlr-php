@@ -1,6 +1,6 @@
 <?php
 /**
- * GetLink200Response
+ * LinkEditRequest
  *
  * PHP version 8.1
  *
@@ -35,14 +35,14 @@ use ReturnTypeWillChange;
 use URLR\ObjectSerializer;
 
 /**
- * GetLink200Response Class Doc Comment
+ * LinkEditRequest Class Doc Comment
  *
  * @package  URLR
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializable
+class LinkEditRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'getLink_200_response';
+    protected static string $openAPIModelName = 'LinkEditRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,20 +59,17 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
       * @var array<string, string>
       */
     protected static array $openAPITypes = [
-        'id' => 'string',
         'url' => 'string',
-        'teamId' => 'string',
         'folderId' => 'string',
         'domain' => 'string',
         'code' => 'string',
         'label' => 'string',
-        'tags' => '\URLR\Model\GetLink200ResponseTagsInner[]',
-        'qrcode' => '\URLR\Model\GetLink200ResponseQrcode',
+        'tags' => 'string[]',
+        'password' => 'string',
+        'qrcode' => '\URLR\Model\LinkBaseRequestQrcode',
         'utm' => '\URLR\Model\GetLink200ResponseUtm',
-        'metatag' => '\URLR\Model\GetLink200ResponseMetatag',
+        'metatag' => '\URLR\Model\LinkBaseRequestMetatag',
         'geolinks' => '\URLR\Model\GetLink200ResponseGeolinksInner[]',
-        'createdAt' => '\DateTime',
-        'updatedAt' => '\DateTime',
         'deleteAt' => '\DateTime',
         'expiredAt' => '\DateTime',
         'expiredUrl' => 'string',
@@ -85,20 +82,17 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
       * @var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'id' => 'uuid',
         'url' => null,
-        'teamId' => 'uuid',
         'folderId' => 'uuid',
         'domain' => 'hostname',
         'code' => null,
         'label' => null,
-        'tags' => null,
+        'tags' => 'uuid',
+        'password' => null,
         'qrcode' => null,
         'utm' => null,
         'metatag' => null,
         'geolinks' => null,
-        'createdAt' => 'date-time',
-        'updatedAt' => 'date-time',
         'deleteAt' => 'date-time',
         'expiredAt' => 'date-time',
         'expiredUrl' => 'url',
@@ -111,20 +105,17 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
       * @var array<string, bool>
       */
     protected static array $openAPINullables = [
-        'id' => false,
         'url' => false,
-        'teamId' => false,
         'folderId' => false,
         'domain' => false,
         'code' => false,
         'label' => false,
         'tags' => false,
+        'password' => false,
         'qrcode' => false,
         'utm' => false,
         'metatag' => false,
         'geolinks' => false,
-        'createdAt' => false,
-        'updatedAt' => false,
         'deleteAt' => false,
         'expiredAt' => false,
         'expiredUrl' => false,
@@ -217,20 +208,17 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'id' => 'id',
         'url' => 'url',
-        'teamId' => 'team_id',
         'folderId' => 'folder_id',
         'domain' => 'domain',
         'code' => 'code',
         'label' => 'label',
         'tags' => 'tags',
+        'password' => 'password',
         'qrcode' => 'qrcode',
         'utm' => 'utm',
         'metatag' => 'metatag',
         'geolinks' => 'geolinks',
-        'createdAt' => 'created_at',
-        'updatedAt' => 'updated_at',
         'deleteAt' => 'delete_at',
         'expiredAt' => 'expired_at',
         'expiredUrl' => 'expired_url',
@@ -243,20 +231,17 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string>
      */
     protected static array $setters = [
-        'id' => 'setId',
         'url' => 'setUrl',
-        'teamId' => 'setTeamId',
         'folderId' => 'setFolderId',
         'domain' => 'setDomain',
         'code' => 'setCode',
         'label' => 'setLabel',
         'tags' => 'setTags',
+        'password' => 'setPassword',
         'qrcode' => 'setQrcode',
         'utm' => 'setUtm',
         'metatag' => 'setMetatag',
         'geolinks' => 'setGeolinks',
-        'createdAt' => 'setCreatedAt',
-        'updatedAt' => 'setUpdatedAt',
         'deleteAt' => 'setDeleteAt',
         'expiredAt' => 'setExpiredAt',
         'expiredUrl' => 'setExpiredUrl',
@@ -269,20 +254,17 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
      * @var array<string, string>
      */
     protected static array $getters = [
-        'id' => 'getId',
         'url' => 'getUrl',
-        'teamId' => 'getTeamId',
         'folderId' => 'getFolderId',
         'domain' => 'getDomain',
         'code' => 'getCode',
         'label' => 'getLabel',
         'tags' => 'getTags',
+        'password' => 'getPassword',
         'qrcode' => 'getQrcode',
         'utm' => 'getUtm',
         'metatag' => 'getMetatag',
         'geolinks' => 'getGeolinks',
-        'createdAt' => 'getCreatedAt',
-        'updatedAt' => 'getUpdatedAt',
         'deleteAt' => 'getDeleteAt',
         'expiredAt' => 'getExpiredAt',
         'expiredUrl' => 'getExpiredUrl',
@@ -345,20 +327,17 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('id', $data ?? [], null);
         $this->setIfExists('url', $data ?? [], null);
-        $this->setIfExists('teamId', $data ?? [], null);
         $this->setIfExists('folderId', $data ?? [], null);
         $this->setIfExists('domain', $data ?? [], null);
         $this->setIfExists('code', $data ?? [], null);
         $this->setIfExists('label', $data ?? [], null);
         $this->setIfExists('tags', $data ?? [], null);
+        $this->setIfExists('password', $data ?? [], null);
         $this->setIfExists('qrcode', $data ?? [], null);
         $this->setIfExists('utm', $data ?? [], null);
         $this->setIfExists('metatag', $data ?? [], null);
         $this->setIfExists('geolinks', $data ?? [], null);
-        $this->setIfExists('createdAt', $data ?? [], null);
-        $this->setIfExists('updatedAt', $data ?? [], null);
         $this->setIfExists('deleteAt', $data ?? [], null);
         $this->setIfExists('expiredAt', $data ?? [], null);
         $this->setIfExists('expiredUrl', $data ?? [], null);
@@ -392,6 +371,14 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['url']) && (mb_strlen($this->container['url']) > 4096)) {
+            $invalidProperties[] = "invalid value for 'url', the character length must be smaller than or equal to 4096.";
+        }
+
+        if (!is_null($this->container['code']) && !preg_match("/^[a-zA-Z0-9!-]{2,50}$/", $this->container['code'])) {
+            $invalidProperties[] = "invalid value for 'code', must be conform to the pattern /^[a-zA-Z0-9!-]{2,50}$/.";
+        }
+
         if (!is_null($this->container['tags']) && (count($this->container['tags']) > 3)) {
             $invalidProperties[] = "invalid value for 'tags', number of items must be less than or equal to 3.";
         }
@@ -412,33 +399,6 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
 
 
     /**
-     * Gets id
-     *
-     * @return string|null
-     */
-    public function getId(): ?string
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string|null $id Link API ID
-     *
-     * @return $this
-     */
-    public function setId(?string $id): static
-    {
-        if (is_null($id)) {
-            throw new InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
      * Gets url
      *
      * @return string|null
@@ -451,7 +411,7 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets url
      *
-     * @param string|null $url Original URL
+     * @param string|null $url URL to shorten
      *
      * @return $this
      */
@@ -460,34 +420,11 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
         if (is_null($url)) {
             throw new InvalidArgumentException('non-nullable url cannot be null');
         }
-        $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets teamId
-     *
-     * @return string|null
-     */
-    public function getTeamId(): ?string
-    {
-        return $this->container['teamId'];
-    }
-
-    /**
-     * Sets teamId
-     *
-     * @param string|null $teamId Workspace API ID
-     *
-     * @return $this
-     */
-    public function setTeamId(?string $teamId): static
-    {
-        if (is_null($teamId)) {
-            throw new InvalidArgumentException('non-nullable teamId cannot be null');
+        if ((mb_strlen($url) > 4096)) {
+            throw new InvalidArgumentException('invalid length for $url when calling LinkEditRequest., must be smaller than or equal to 4096.');
         }
-        $this->container['teamId'] = $teamId;
+
+        $this->container['url'] = $url;
 
         return $this;
     }
@@ -559,7 +496,7 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets code
      *
-     * @param string|null $code Short code
+     * @param string|null $code Custom short code
      *
      * @return $this
      */
@@ -568,6 +505,11 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
         if (is_null($code)) {
             throw new InvalidArgumentException('non-nullable code cannot be null');
         }
+
+        if ((!preg_match("/^[a-zA-Z0-9!-]{2,50}$/", ObjectSerializer::toString($code)))) {
+            throw new InvalidArgumentException("invalid value for \$code when calling LinkEditRequest., must conform to the pattern /^[a-zA-Z0-9!-]{2,50}$/.");
+        }
+
         $this->container['code'] = $code;
 
         return $this;
@@ -603,7 +545,7 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets tags
      *
-     * @return \URLR\Model\GetLink200ResponseTagsInner[]|null
+     * @return string[]|null
      */
     public function getTags(): ?array
     {
@@ -613,7 +555,7 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets tags
      *
-     * @param \URLR\Model\GetLink200ResponseTagsInner[]|null $tags Tags
+     * @param string[]|null $tags Tags
      *
      * @return $this
      */
@@ -624,7 +566,7 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
         }
 
         if ((count($tags) > 3)) {
-            throw new InvalidArgumentException('invalid value for $tags when calling GetLink200Response., number of items must be less than or equal to 3.');
+            throw new InvalidArgumentException('invalid value for $tags when calling LinkEditRequest., number of items must be less than or equal to 3.');
         }
         $this->container['tags'] = $tags;
 
@@ -632,11 +574,38 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
     }
 
     /**
+     * Gets password
+     *
+     * @return string|null
+     */
+    public function getPassword(): ?string
+    {
+        return $this->container['password'];
+    }
+
+    /**
+     * Sets password
+     *
+     * @param string|null $password Password
+     *
+     * @return $this
+     */
+    public function setPassword(?string $password): static
+    {
+        if (is_null($password)) {
+            throw new InvalidArgumentException('non-nullable password cannot be null');
+        }
+        $this->container['password'] = $password;
+
+        return $this;
+    }
+
+    /**
      * Gets qrcode
      *
-     * @return \URLR\Model\GetLink200ResponseQrcode|null
+     * @return \URLR\Model\LinkBaseRequestQrcode|null
      */
-    public function getQrcode(): ?\URLR\Model\GetLink200ResponseQrcode
+    public function getQrcode(): ?\URLR\Model\LinkBaseRequestQrcode
     {
         return $this->container['qrcode'];
     }
@@ -644,11 +613,11 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets qrcode
      *
-     * @param \URLR\Model\GetLink200ResponseQrcode|null $qrcode qrcode
+     * @param \URLR\Model\LinkBaseRequestQrcode|null $qrcode qrcode
      *
      * @return $this
      */
-    public function setQrcode(?\URLR\Model\GetLink200ResponseQrcode $qrcode): static
+    public function setQrcode(?\URLR\Model\LinkBaseRequestQrcode $qrcode): static
     {
         if (is_null($qrcode)) {
             throw new InvalidArgumentException('non-nullable qrcode cannot be null');
@@ -688,9 +657,9 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Gets metatag
      *
-     * @return \URLR\Model\GetLink200ResponseMetatag|null
+     * @return \URLR\Model\LinkBaseRequestMetatag|null
      */
-    public function getMetatag(): ?\URLR\Model\GetLink200ResponseMetatag
+    public function getMetatag(): ?\URLR\Model\LinkBaseRequestMetatag
     {
         return $this->container['metatag'];
     }
@@ -698,11 +667,11 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
     /**
      * Sets metatag
      *
-     * @param \URLR\Model\GetLink200ResponseMetatag|null $metatag metatag
+     * @param \URLR\Model\LinkBaseRequestMetatag|null $metatag metatag
      *
      * @return $this
      */
-    public function setMetatag(?\URLR\Model\GetLink200ResponseMetatag $metatag): static
+    public function setMetatag(?\URLR\Model\LinkBaseRequestMetatag $metatag): static
     {
         if (is_null($metatag)) {
             throw new InvalidArgumentException('non-nullable metatag cannot be null');
@@ -735,60 +704,6 @@ class GetLink200Response implements ModelInterface, ArrayAccess, JsonSerializabl
             throw new InvalidArgumentException('non-nullable geolinks cannot be null');
         }
         $this->container['geolinks'] = $geolinks;
-
-        return $this;
-    }
-
-    /**
-     * Gets createdAt
-     *
-     * @return \DateTime|null
-     */
-    public function getCreatedAt(): ?\DateTime
-    {
-        return $this->container['createdAt'];
-    }
-
-    /**
-     * Sets createdAt
-     *
-     * @param \DateTime|null $createdAt Creation date
-     *
-     * @return $this
-     */
-    public function setCreatedAt(?\DateTime $createdAt): static
-    {
-        if (is_null($createdAt)) {
-            throw new InvalidArgumentException('non-nullable createdAt cannot be null');
-        }
-        $this->container['createdAt'] = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Gets updatedAt
-     *
-     * @return \DateTime|null
-     */
-    public function getUpdatedAt(): ?\DateTime
-    {
-        return $this->container['updatedAt'];
-    }
-
-    /**
-     * Sets updatedAt
-     *
-     * @param \DateTime|null $updatedAt Modification date
-     *
-     * @return $this
-     */
-    public function setUpdatedAt(?\DateTime $updatedAt): static
-    {
-        if (is_null($updatedAt)) {
-            throw new InvalidArgumentException('non-nullable updatedAt cannot be null');
-        }
-        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }

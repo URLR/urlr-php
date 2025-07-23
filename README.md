@@ -1,11 +1,11 @@
-# URLR@2.9.0
+# URLR@2.10.0
 
 ![Packagist Version](https://img.shields.io/packagist/v/urlr/urlr-php) ![Packagist Downloads](https://img.shields.io/packagist/dm/urlr/urlr-php) ![Packagist License](https://img.shields.io/packagist/l/urlr/urlr-php)
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
-- API version: 1.9
-- Package version: 2.9.0
+- API version: 1.10
+- Package version: 2.10.0
 - Build package: urlr/urlr-php
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en).
@@ -91,12 +91,13 @@ Class | Method | HTTP request | Description
 *AccessTokensApi* | [**createAccessToken**](docs/Api/AccessTokensApi.md#createaccesstoken) | **POST** /access_tokens/create | Get an access token
 *AccessTokensApi* | [**refreshAccessToken**](docs/Api/AccessTokensApi.md#refreshaccesstoken) | **POST** /access_tokens/refresh | Refresh an access token
 *DomainsApi* | [**createDomain**](docs/Api/DomainsApi.md#createdomain) | **POST** /domains/create | Create a domain
-*FoldersApi* | [**getFolders**](docs/Api/FoldersApi.md#getfolders) | **GET** /folders/{team_id} | Get folders of team
+*FoldersApi* | [**getFolders**](docs/Api/FoldersApi.md#getfolders) | **GET** /folders/{team_id} | Get folders of workspace
 *LinksApi* | [**createLink**](docs/Api/LinksApi.md#createlink) | **POST** /links/create | Create a link
+*LinksApi* | [**editLink**](docs/Api/LinksApi.md#editlink) | **PATCH** /links/{link_id} | Edit a link
 *LinksApi* | [**getLink**](docs/Api/LinksApi.md#getlink) | **GET** /links/{link_id} | Get a link
 *QRCodesApi* | [**createQrCode**](docs/Api/QRCodesApi.md#createqrcode) | **POST** /qrcodes/create | Create a QR Code
 *StatisticsApi* | [**getStatistics**](docs/Api/StatisticsApi.md#getstatistics) | **POST** /statistics | Get statistics of a link
-*TeamsApi* | [**getTeams**](docs/Api/TeamsApi.md#getteams) | **GET** /teams | Get teams of user
+*WorkspacesApi* | [**getTeams**](docs/Api/WorkspacesApi.md#getteams) | **GET** /teams | Get workspaces of user
 
 
 ## Models
@@ -108,13 +109,10 @@ Class | Method | HTTP request | Description
 - [CreateDomain409Response](docs/Model/CreateDomain409Response.md)
 - [CreateDomainRequest](docs/Model/CreateDomainRequest.md)
 - [CreateLink429Response](docs/Model/CreateLink429Response.md)
-- [CreateLink500Response](docs/Model/CreateLink500Response.md)
-- [CreateLinkRequest](docs/Model/CreateLinkRequest.md)
-- [CreateLinkRequestMetatag](docs/Model/CreateLinkRequestMetatag.md)
-- [CreateLinkRequestQrcode](docs/Model/CreateLinkRequestQrcode.md)
 - [CreateQrCodeRequest](docs/Model/CreateQrCodeRequest.md)
 - [CreateQrCodeRequestOneOf](docs/Model/CreateQrCodeRequestOneOf.md)
 - [CreateQrCodeRequestOneOf1](docs/Model/CreateQrCodeRequestOneOf1.md)
+- [EditLink500Response](docs/Model/EditLink500Response.md)
 - [GetFolders200Response](docs/Model/GetFolders200Response.md)
 - [GetFolders200ResponseFoldersInner](docs/Model/GetFolders200ResponseFoldersInner.md)
 - [GetLink200Response](docs/Model/GetLink200Response.md)
@@ -131,6 +129,11 @@ Class | Method | HTTP request | Description
 - [GetStatisticsRequest](docs/Model/GetStatisticsRequest.md)
 - [GetTeams200Response](docs/Model/GetTeams200Response.md)
 - [GetTeams200ResponseTeamsInner](docs/Model/GetTeams200ResponseTeamsInner.md)
+- [LinkBaseRequest](docs/Model/LinkBaseRequest.md)
+- [LinkBaseRequestMetatag](docs/Model/LinkBaseRequestMetatag.md)
+- [LinkBaseRequestQrcode](docs/Model/LinkBaseRequestQrcode.md)
+- [LinkCreateRequest](docs/Model/LinkCreateRequest.md)
+- [LinkEditRequest](docs/Model/LinkEditRequest.md)
 - [RefreshAccessToken401Response](docs/Model/RefreshAccessToken401Response.md)
 - [RefreshAccessTokenRequest](docs/Model/RefreshAccessTokenRequest.md)
 

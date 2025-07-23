@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **backgroundColor** | **string** | The background color of the QR code (hexadecimal) | [optional] [default to '#ffffff']
 **foregroundColor** | **string** | The foreground color of the QR code (hexadecimal) | [optional] [default to '#000000']
 **url** | **string** | URL of the QR Code |
-**teamId** | **string** | Team API ID |
+**teamId** | **string** | Workspace API ID |
 **linkId** | **string** | Link API ID of the QR Code |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

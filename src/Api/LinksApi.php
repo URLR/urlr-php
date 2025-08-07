@@ -137,7 +137,7 @@ class LinksApi
      *
      * Create a link
      *
-     * @param  \URLR\Model\LinkCreateRequest|null $linkCreateRequest Info of the link to create (optional)
+     * @param  \URLR\Model\CreateLinkRequest|null $createLinkRequest Info of the link to create (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLink'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -145,11 +145,11 @@ class LinksApi
      * @return \URLR\Model\GetLink200Response|\URLR\Model\GetLink401Response|\URLR\Model\GetLink422Response|\URLR\Model\CreateLink429Response|\URLR\Model\EditLink500Response
      */
     public function createLink(
-        ?\URLR\Model\LinkCreateRequest $linkCreateRequest = null,
+        ?\URLR\Model\CreateLinkRequest $createLinkRequest = null,
         string $contentType = self::contentTypes['createLink'][0]
     ): \URLR\Model\GetLink200Response|\URLR\Model\GetLink401Response|\URLR\Model\GetLink422Response|\URLR\Model\CreateLink429Response|\URLR\Model\EditLink500Response
     {
-        list($response) = $this->createLinkWithHttpInfo($linkCreateRequest, $contentType);
+        list($response) = $this->createLinkWithHttpInfo($createLinkRequest, $contentType);
         return $response;
     }
 
@@ -158,7 +158,7 @@ class LinksApi
      *
      * Create a link
      *
-     * @param  \URLR\Model\LinkCreateRequest|null $linkCreateRequest Info of the link to create (optional)
+     * @param  \URLR\Model\CreateLinkRequest|null $createLinkRequest Info of the link to create (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLink'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -166,11 +166,11 @@ class LinksApi
      * @return array of \URLR\Model\GetLink200Response|\URLR\Model\GetLink401Response|\URLR\Model\GetLink422Response|\URLR\Model\CreateLink429Response|\URLR\Model\EditLink500Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function createLinkWithHttpInfo(
-        ?\URLR\Model\LinkCreateRequest $linkCreateRequest = null,
+        ?\URLR\Model\CreateLinkRequest $createLinkRequest = null,
         string $contentType = self::contentTypes['createLink'][0]
     ): array
     {
-        $request = $this->createLinkRequest($linkCreateRequest, $contentType);
+        $request = $this->createLinkRequest($createLinkRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -299,18 +299,18 @@ class LinksApi
      *
      * Create a link
      *
-     * @param  \URLR\Model\LinkCreateRequest|null $linkCreateRequest Info of the link to create (optional)
+     * @param  \URLR\Model\CreateLinkRequest|null $createLinkRequest Info of the link to create (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLink'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function createLinkAsync(
-        ?\URLR\Model\LinkCreateRequest $linkCreateRequest = null,
+        ?\URLR\Model\CreateLinkRequest $createLinkRequest = null,
         string $contentType = self::contentTypes['createLink'][0]
     ): PromiseInterface
     {
-        return $this->createLinkAsyncWithHttpInfo($linkCreateRequest, $contentType)
+        return $this->createLinkAsyncWithHttpInfo($createLinkRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -323,19 +323,19 @@ class LinksApi
      *
      * Create a link
      *
-     * @param  \URLR\Model\LinkCreateRequest|null $linkCreateRequest Info of the link to create (optional)
+     * @param  \URLR\Model\CreateLinkRequest|null $createLinkRequest Info of the link to create (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLink'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function createLinkAsyncWithHttpInfo(
-        ?\URLR\Model\LinkCreateRequest $linkCreateRequest = null,
+        ?\URLR\Model\CreateLinkRequest $createLinkRequest = null,
         string $contentType = self::contentTypes['createLink'][0]
     ): PromiseInterface
     {
         $returnType = '\URLR\Model\GetLink200Response';
-        $request = $this->createLinkRequest($linkCreateRequest, $contentType);
+        $request = $this->createLinkRequest($createLinkRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -376,14 +376,14 @@ class LinksApi
     /**
      * Create request for operation 'createLink'
      *
-     * @param  \URLR\Model\LinkCreateRequest|null $linkCreateRequest Info of the link to create (optional)
+     * @param  \URLR\Model\CreateLinkRequest|null $createLinkRequest Info of the link to create (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createLink'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     public function createLinkRequest(
-        ?\URLR\Model\LinkCreateRequest $linkCreateRequest = null,
+        ?\URLR\Model\CreateLinkRequest $createLinkRequest = null,
         string $contentType = self::contentTypes['createLink'][0]
     ): Request
     {
@@ -408,12 +408,12 @@ class LinksApi
         );
 
         // for model (json/xml)
-        if (isset($linkCreateRequest)) {
+        if (isset($createLinkRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($linkCreateRequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($createLinkRequest));
             } else {
-                $httpBody = $linkCreateRequest;
+                $httpBody = $createLinkRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -471,7 +471,7 @@ class LinksApi
      * Edit a link
      *
      * @param  string $linkId Link API ID (required)
-     * @param  \URLR\Model\LinkEditRequest|null $linkEditRequest Info of the link to edit (optional)
+     * @param  \URLR\Model\EditLinkRequest|null $editLinkRequest Info of the link to edit (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editLink'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -480,11 +480,11 @@ class LinksApi
      */
     public function editLink(
         string $linkId,
-        ?\URLR\Model\LinkEditRequest $linkEditRequest = null,
+        ?\URLR\Model\EditLinkRequest $editLinkRequest = null,
         string $contentType = self::contentTypes['editLink'][0]
     ): \URLR\Model\GetLink200Response|\URLR\Model\GetLink401Response|\URLR\Model\GetLink422Response|\URLR\Model\EditLink500Response
     {
-        list($response) = $this->editLinkWithHttpInfo($linkId, $linkEditRequest, $contentType);
+        list($response) = $this->editLinkWithHttpInfo($linkId, $editLinkRequest, $contentType);
         return $response;
     }
 
@@ -494,7 +494,7 @@ class LinksApi
      * Edit a link
      *
      * @param  string $linkId Link API ID (required)
-     * @param  \URLR\Model\LinkEditRequest|null $linkEditRequest Info of the link to edit (optional)
+     * @param  \URLR\Model\EditLinkRequest|null $editLinkRequest Info of the link to edit (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editLink'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -503,11 +503,11 @@ class LinksApi
      */
     public function editLinkWithHttpInfo(
         string $linkId,
-        ?\URLR\Model\LinkEditRequest $linkEditRequest = null,
+        ?\URLR\Model\EditLinkRequest $editLinkRequest = null,
         string $contentType = self::contentTypes['editLink'][0]
     ): array
     {
-        $request = $this->editLinkRequest($linkId, $linkEditRequest, $contentType);
+        $request = $this->editLinkRequest($linkId, $editLinkRequest, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -623,7 +623,7 @@ class LinksApi
      * Edit a link
      *
      * @param  string $linkId Link API ID (required)
-     * @param  \URLR\Model\LinkEditRequest|null $linkEditRequest Info of the link to edit (optional)
+     * @param  \URLR\Model\EditLinkRequest|null $editLinkRequest Info of the link to edit (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editLink'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -631,11 +631,11 @@ class LinksApi
      */
     public function editLinkAsync(
         string $linkId,
-        ?\URLR\Model\LinkEditRequest $linkEditRequest = null,
+        ?\URLR\Model\EditLinkRequest $editLinkRequest = null,
         string $contentType = self::contentTypes['editLink'][0]
     ): PromiseInterface
     {
-        return $this->editLinkAsyncWithHttpInfo($linkId, $linkEditRequest, $contentType)
+        return $this->editLinkAsyncWithHttpInfo($linkId, $editLinkRequest, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -649,7 +649,7 @@ class LinksApi
      * Edit a link
      *
      * @param  string $linkId Link API ID (required)
-     * @param  \URLR\Model\LinkEditRequest|null $linkEditRequest Info of the link to edit (optional)
+     * @param  \URLR\Model\EditLinkRequest|null $editLinkRequest Info of the link to edit (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editLink'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -657,12 +657,12 @@ class LinksApi
      */
     public function editLinkAsyncWithHttpInfo(
         string $linkId,
-        ?\URLR\Model\LinkEditRequest $linkEditRequest = null,
+        ?\URLR\Model\EditLinkRequest $editLinkRequest = null,
         string $contentType = self::contentTypes['editLink'][0]
     ): PromiseInterface
     {
         $returnType = '\URLR\Model\GetLink200Response';
-        $request = $this->editLinkRequest($linkId, $linkEditRequest, $contentType);
+        $request = $this->editLinkRequest($linkId, $editLinkRequest, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -704,7 +704,7 @@ class LinksApi
      * Create request for operation 'editLink'
      *
      * @param  string $linkId Link API ID (required)
-     * @param  \URLR\Model\LinkEditRequest|null $linkEditRequest Info of the link to edit (optional)
+     * @param  \URLR\Model\EditLinkRequest|null $editLinkRequest Info of the link to edit (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['editLink'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
@@ -712,7 +712,7 @@ class LinksApi
      */
     public function editLinkRequest(
         string $linkId,
-        ?\URLR\Model\LinkEditRequest $linkEditRequest = null,
+        ?\URLR\Model\EditLinkRequest $editLinkRequest = null,
         string $contentType = self::contentTypes['editLink'][0]
     ): Request
     {
@@ -752,12 +752,12 @@ class LinksApi
         );
 
         // for model (json/xml)
-        if (isset($linkEditRequest)) {
+        if (isset($editLinkRequest)) {
             if (stripos($headers['Content-Type'], 'application/json') !== false) {
                 # if Content-Type contains "application/json", json_encode the body
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($linkEditRequest));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($editLinkRequest));
             } else {
-                $httpBody = $linkEditRequest;
+                $httpBody = $editLinkRequest;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {

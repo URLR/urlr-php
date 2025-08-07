@@ -1,6 +1,6 @@
 <?php
 /**
- * LinkBaseRequestQrcodeTest
+ * BaseLinkRequestMetatagTest
  *
  * PHP version 8.1
  *
@@ -31,14 +31,14 @@ namespace URLR\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * LinkBaseRequestQrcodeTest Class Doc Comment
+ * BaseLinkRequestMetatagTest Class Doc Comment
  *
- * @description QR Code
+ * @description Custom metadata for social previews
  * @package     URLR
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class LinkBaseRequestQrcodeTest extends TestCase
+class BaseLinkRequestMetatagTest extends TestCase
 {
 
     /**
@@ -70,54 +70,36 @@ class LinkBaseRequestQrcodeTest extends TestCase
     }
 
     /**
-     * Test "LinkBaseRequestQrcode"
+     * Test "BaseLinkRequestMetatag"
      */
-    public function testLinkBaseRequestQrcode()
+    public function testBaseLinkRequestMetatag()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "size"
+     * Test attribute "title"
      */
-    public function testPropertySize()
+    public function testPropertyTitle()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "format"
+     * Test attribute "description"
      */
-    public function testPropertyFormat()
+    public function testPropertyDescription()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "margin"
+     * Test attribute "image"
      */
-    public function testPropertyMargin()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "backgroundColor"
-     */
-    public function testPropertyBackgroundColor()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "foregroundColor"
-     */
-    public function testPropertyForegroundColor()
+    public function testPropertyImage()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

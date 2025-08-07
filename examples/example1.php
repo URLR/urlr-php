@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Acc
+// Access tokens
 
 $accessTokensApi = new URLR\Api\AccessTokensApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -15,9 +15,9 @@ $accessTokensRequest = new \URLR\Model\AccessTokensRequest([
 ]); // \URLR\Model\AccessTokensRequest | Your credentials
 
 try {
-    $token = $accessTokensApi->create_access_token($accessTokensRequest)->getToken();
+    $token = $accessTokensApi->createAccessToken($accessTokensRequest)->getToken();
 } catch (Exception $e) {
-    echo 'Exception when calling AccessTokensApi->create_access_token: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling AccessTokensApi->createAccessToken: ', $e->getMessage(), PHP_EOL;
     exit;
 }
 
@@ -33,7 +33,7 @@ $createLinkRequest = new \URLR\Model\CreateLinkRequest([
 ]); // \URLR\Model\CreateLinkRequest | Infos of the link to shorten
 
 try {
-    $result = $apiInstance->createLink($createLinkRequest);
+    $result = $linksApi->createLink($createLinkRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LinksApi->createLink: ', $e->getMessage(), PHP_EOL;
@@ -41,15 +41,15 @@ try {
 
 // Statistics
 
-$apiInstance = new URLR\Api\StatisticsApi(null, $config);
+$statisticsApi = new URLR\Api\StatisticsApi(null, $config);
 
 $statisticsRequest = new \URLR\Model\StatisticsRequest([
     'linkId' => ''
 ]); // \URLR\Model\StatisticsRequest | Infos to provide to get statistics of a link
 
 try {
-    $result = $apiInstance->statistics($statisticsRequest);
+    $result = $statisticsApi->getStatistics($statisticsRequest);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling StatisticsApi->statistics: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling StatisticsApi->getStatistics: ', $e->getMessage(), PHP_EOL;
 }

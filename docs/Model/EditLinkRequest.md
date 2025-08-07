@@ -1,4 +1,4 @@
-# # LinkBaseRequest
+# # EditLinkRequest
 
 ## Properties
 
@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **label** | **string** | Label | [optional]
 **tags** | **string[]** | Tags | [optional]
 **password** | **string** | Password | [optional]
-**qrcode** | [**\URLR\Model\LinkBaseRequestQrcode**](LinkBaseRequestQrcode.md) |  | [optional]
+**qrcode** | [**\URLR\Model\BaseLinkRequestQrcode**](BaseLinkRequestQrcode.md) |  | [optional]
 **utm** | [**\URLR\Model\GetLink200ResponseUtm**](GetLink200ResponseUtm.md) |  | [optional]
-**metatag** | [**\URLR\Model\LinkBaseRequestMetatag**](LinkBaseRequestMetatag.md) |  | [optional]
+**metatag** | [**\URLR\Model\BaseLinkRequestMetatag**](BaseLinkRequestMetatag.md) |  | [optional]
 **geolinks** | [**\URLR\Model\GetLink200ResponseGeolinksInner[]**](GetLink200ResponseGeolinksInner.md) | Dynamic routing conditions | [optional]
 **deleteAt** | **\DateTime** | Scheduled deletion date | [optional]
 **expiredAt** | **\DateTime** | Scheduled expiration date | [optional]

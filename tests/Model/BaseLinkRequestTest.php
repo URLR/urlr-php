@@ -1,6 +1,6 @@
 <?php
 /**
- * LinkEditRequestTest
+ * BaseLinkRequestTest
  *
  * PHP version 8.1
  *
@@ -31,14 +31,14 @@ namespace URLR\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * LinkEditRequestTest Class Doc Comment
+ * BaseLinkRequestTest Class Doc Comment
  *
- * @description LinkEditRequest
+ * @description BaseLinkRequest
  * @package     URLR
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class LinkEditRequestTest extends TestCase
+class BaseLinkRequestTest extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class LinkEditRequestTest extends TestCase
     }
 
     /**
-     * Test "LinkEditRequest"
+     * Test "BaseLinkRequest"
      */
-    public function testLinkEditRequest()
+    public function testBaseLinkRequest()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

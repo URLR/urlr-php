@@ -12,7 +12,7 @@ All URIs are relative to https://urlr.me/api/v1, except if the operation defines
 ## `createLink()`
 
 ```php
-createLink($linkCreateRequest): \URLR\Model\GetLink200Response
+createLink($createLinkRequest): \URLR\Model\GetLink200Response
 ```
 
 Create a link
@@ -34,10 +34,10 @@ $apiInstance = new URLR\Api\LinksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$linkCreateRequest = new \URLR\Model\LinkCreateRequest(); // \URLR\Model\LinkCreateRequest | Info of the link to create
+$createLinkRequest = new \URLR\Model\CreateLinkRequest(); // \URLR\Model\CreateLinkRequest | Info of the link to create
 
 try {
-    $result = $apiInstance->createLink($linkCreateRequest);
+    $result = $apiInstance->createLink($createLinkRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LinksApi->createLink: ', $e->getMessage(), PHP_EOL;
@@ -48,7 +48,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **linkCreateRequest** | [**\URLR\Model\LinkCreateRequest**](../Model/LinkCreateRequest.md)| Info of the link to create | [optional] |
+| **createLinkRequest** | [**\URLR\Model\CreateLinkRequest**](../Model/CreateLinkRequest.md)| Info of the link to create | [optional] |
 
 ### Return type
 
@@ -70,7 +70,7 @@ try {
 ## `editLink()`
 
 ```php
-editLink($linkId, $linkEditRequest): \URLR\Model\GetLink200Response
+editLink($linkId, $editLinkRequest): \URLR\Model\GetLink200Response
 ```
 
 Edit a link
@@ -93,10 +93,10 @@ $apiInstance = new URLR\Api\LinksApi(
     $config
 );
 $linkId = ffefc6c4-d970-4373-a867-2a69c8be2c89; // string | Link API ID
-$linkEditRequest = new \URLR\Model\LinkEditRequest(); // \URLR\Model\LinkEditRequest | Info of the link to edit
+$editLinkRequest = new \URLR\Model\EditLinkRequest(); // \URLR\Model\EditLinkRequest | Info of the link to edit
 
 try {
-    $result = $apiInstance->editLink($linkId, $linkEditRequest);
+    $result = $apiInstance->editLink($linkId, $editLinkRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LinksApi->editLink: ', $e->getMessage(), PHP_EOL;
@@ -108,7 +108,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **linkId** | **string**| Link API ID | |
-| **linkEditRequest** | [**\URLR\Model\LinkEditRequest**](../Model/LinkEditRequest.md)| Info of the link to edit | [optional] |
+| **editLinkRequest** | [**\URLR\Model\EditLinkRequest**](../Model/EditLinkRequest.md)| Info of the link to edit | [optional] |
 
 ### Return type
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * LinkBaseRequestQrcode
+ * BaseLinkRequestMetatag
  *
  * PHP version 8.1
  *
@@ -35,15 +35,15 @@ use ReturnTypeWillChange;
 use URLR\ObjectSerializer;
 
 /**
- * LinkBaseRequestQrcode Class Doc Comment
+ * BaseLinkRequestMetatag Class Doc Comment
  *
- * @description QR Code
+ * @description Custom metadata for social previews
  * @package  URLR
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class LinkBaseRequestQrcode implements ModelInterface, ArrayAccess, JsonSerializable
+class BaseLinkRequestMetatag implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -52,7 +52,7 @@ class LinkBaseRequestQrcode implements ModelInterface, ArrayAccess, JsonSerializ
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'LinkBaseRequest_qrcode';
+    protected static string $openAPIModelName = 'BaseLinkRequest_metatag';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,11 +60,9 @@ class LinkBaseRequestQrcode implements ModelInterface, ArrayAccess, JsonSerializ
       * @var array<string, string>
       */
     protected static array $openAPITypes = [
-        'size' => 'int',
-        'format' => 'string',
-        'margin' => 'int',
-        'backgroundColor' => 'string',
-        'foregroundColor' => 'string'
+        'title' => 'string',
+        'description' => 'string',
+        'image' => 'string'
     ];
 
     /**
@@ -73,11 +71,9 @@ class LinkBaseRequestQrcode implements ModelInterface, ArrayAccess, JsonSerializ
       * @var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'size' => null,
-        'format' => null,
-        'margin' => null,
-        'backgroundColor' => null,
-        'foregroundColor' => null
+        'title' => null,
+        'description' => null,
+        'image' => 'url'
     ];
 
     /**
@@ -86,11 +82,9 @@ class LinkBaseRequestQrcode implements ModelInterface, ArrayAccess, JsonSerializ
       * @var array<string, bool>
       */
     protected static array $openAPINullables = [
-        'size' => false,
-        'format' => false,
-        'margin' => false,
-        'backgroundColor' => false,
-        'foregroundColor' => false
+        'title' => false,
+        'description' => false,
+        'image' => false
     ];
 
     /**
@@ -179,11 +173,9 @@ class LinkBaseRequestQrcode implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'size' => 'size',
-        'format' => 'format',
-        'margin' => 'margin',
-        'backgroundColor' => 'background_color',
-        'foregroundColor' => 'foreground_color'
+        'title' => 'title',
+        'description' => 'description',
+        'image' => 'image'
     ];
 
     /**
@@ -192,11 +184,9 @@ class LinkBaseRequestQrcode implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $setters = [
-        'size' => 'setSize',
-        'format' => 'setFormat',
-        'margin' => 'setMargin',
-        'backgroundColor' => 'setBackgroundColor',
-        'foregroundColor' => 'setForegroundColor'
+        'title' => 'setTitle',
+        'description' => 'setDescription',
+        'image' => 'setImage'
     ];
 
     /**
@@ -205,11 +195,9 @@ class LinkBaseRequestQrcode implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $getters = [
-        'size' => 'getSize',
-        'format' => 'getFormat',
-        'margin' => 'getMargin',
-        'backgroundColor' => 'getBackgroundColor',
-        'foregroundColor' => 'getForegroundColor'
+        'title' => 'getTitle',
+        'description' => 'getDescription',
+        'image' => 'getImage'
     ];
 
     /**
@@ -253,23 +241,6 @@ class LinkBaseRequestQrcode implements ModelInterface, ArrayAccess, JsonSerializ
         return self::$openAPIModelName;
     }
 
-    public const FORMAT_PNG = 'png';
-    public const FORMAT_WEBP = 'webp';
-    public const FORMAT_SVG = 'svg';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public static function getFormatAllowableValues()
-    {
-        return [
-            self::FORMAT_PNG,
-            self::FORMAT_WEBP,
-            self::FORMAT_SVG,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -285,11 +256,9 @@ class LinkBaseRequestQrcode implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('size', $data ?? [], 600);
-        $this->setIfExists('format', $data ?? [], 'png');
-        $this->setIfExists('margin', $data ?? [], 0);
-        $this->setIfExists('backgroundColor', $data ?? [], '#ffffff');
-        $this->setIfExists('foregroundColor', $data ?? [], '#000000');
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('image', $data ?? [], null);
     }
 
     /**
@@ -319,21 +288,12 @@ class LinkBaseRequestQrcode implements ModelInterface, ArrayAccess, JsonSerializ
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['size']) && ($this->container['size'] > 1000)) {
-            $invalidProperties[] = "invalid value for 'size', must be smaller than or equal to 1000.";
+        if (!is_null($this->container['title']) && (mb_strlen($this->container['title']) > 255)) {
+            $invalidProperties[] = "invalid value for 'title', the character length must be smaller than or equal to 255.";
         }
 
-        if (!is_null($this->container['size']) && ($this->container['size'] < 100)) {
-            $invalidProperties[] = "invalid value for 'size', must be bigger than or equal to 100.";
-        }
-
-        $allowedValues = self::getFormatAllowableValues();
-        if (!is_null($this->container['format']) && !in_array($this->container['format'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'format', must be one of '%s'",
-                $this->container['format'],
-                implode("', '", $allowedValues)
-            );
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 255)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 255.";
         }
 
         return $invalidProperties;
@@ -352,154 +312,90 @@ class LinkBaseRequestQrcode implements ModelInterface, ArrayAccess, JsonSerializ
 
 
     /**
-     * Gets size
-     *
-     * @return int|null
-     */
-    public function getSize(): ?int
-    {
-        return $this->container['size'];
-    }
-
-    /**
-     * Sets size
-     *
-     * @param int|null $size The size of the QR code (px)
-     *
-     * @return $this
-     */
-    public function setSize(?int $size): static
-    {
-        if (is_null($size)) {
-            throw new InvalidArgumentException('non-nullable size cannot be null');
-        }
-
-        if (($size > 1000)) {
-            throw new InvalidArgumentException('invalid value for $size when calling LinkBaseRequestQrcode., must be smaller than or equal to 1000.');
-        }
-        if (($size < 100)) {
-            throw new InvalidArgumentException('invalid value for $size when calling LinkBaseRequestQrcode., must be bigger than or equal to 100.');
-        }
-
-        $this->container['size'] = $size;
-
-        return $this;
-    }
-
-    /**
-     * Gets format
+     * Gets title
      *
      * @return string|null
      */
-    public function getFormat(): ?string
+    public function getTitle(): ?string
     {
-        return $this->container['format'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets format
+     * Sets title
      *
-     * @param string|null $format The format of the QR code
+     * @param string|null $title Title for the link
      *
      * @return $this
      */
-    public function setFormat(?string $format): static
+    public function setTitle(?string $title): static
     {
-        if (is_null($format)) {
-            throw new InvalidArgumentException('non-nullable format cannot be null');
+        if (is_null($title)) {
+            throw new InvalidArgumentException('non-nullable title cannot be null');
         }
-        $allowedValues = self::getFormatAllowableValues();
-        if (!in_array($format, $allowedValues, true)) {
-            throw new InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'format', must be one of '%s'",
-                    $format,
-                    implode("', '", $allowedValues)
-                )
-            );
+        if ((mb_strlen($title) > 255)) {
+            throw new InvalidArgumentException('invalid length for $title when calling BaseLinkRequestMetatag., must be smaller than or equal to 255.');
         }
-        $this->container['format'] = $format;
+
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets margin
-     *
-     * @return int|null
-     */
-    public function getMargin(): ?int
-    {
-        return $this->container['margin'];
-    }
-
-    /**
-     * Sets margin
-     *
-     * @param int|null $margin The margin around the QR code (px)
-     *
-     * @return $this
-     */
-    public function setMargin(?int $margin): static
-    {
-        if (is_null($margin)) {
-            throw new InvalidArgumentException('non-nullable margin cannot be null');
-        }
-        $this->container['margin'] = $margin;
-
-        return $this;
-    }
-
-    /**
-     * Gets backgroundColor
+     * Gets description
      *
      * @return string|null
      */
-    public function getBackgroundColor(): ?string
+    public function getDescription(): ?string
     {
-        return $this->container['backgroundColor'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets backgroundColor
+     * Sets description
      *
-     * @param string|null $backgroundColor The background color of the QR code (hexadecimal)
+     * @param string|null $description Description for the link
      *
      * @return $this
      */
-    public function setBackgroundColor(?string $backgroundColor): static
+    public function setDescription(?string $description): static
     {
-        if (is_null($backgroundColor)) {
-            throw new InvalidArgumentException('non-nullable backgroundColor cannot be null');
+        if (is_null($description)) {
+            throw new InvalidArgumentException('non-nullable description cannot be null');
         }
-        $this->container['backgroundColor'] = $backgroundColor;
+        if ((mb_strlen($description) > 255)) {
+            throw new InvalidArgumentException('invalid length for $description when calling BaseLinkRequestMetatag., must be smaller than or equal to 255.');
+        }
+
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets foregroundColor
+     * Gets image
      *
      * @return string|null
      */
-    public function getForegroundColor(): ?string
+    public function getImage(): ?string
     {
-        return $this->container['foregroundColor'];
+        return $this->container['image'];
     }
 
     /**
-     * Sets foregroundColor
+     * Sets image
      *
-     * @param string|null $foregroundColor The foreground color of the QR code (hexadecimal)
+     * @param string|null $image Image URL for the link. Recommended: 1200X630px<br>Maximum size: 3Mb - Formats: PNG, JPEG, WebP and GIF.
      *
      * @return $this
      */
-    public function setForegroundColor(?string $foregroundColor): static
+    public function setImage(?string $image): static
     {
-        if (is_null($foregroundColor)) {
-            throw new InvalidArgumentException('non-nullable foregroundColor cannot be null');
+        if (is_null($image)) {
+            throw new InvalidArgumentException('non-nullable image cannot be null');
         }
-        $this->container['foregroundColor'] = $foregroundColor;
+        $this->container['image'] = $image;
 
         return $this;
     }

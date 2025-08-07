@@ -1,11 +1,11 @@
-# URLR@2.10.0
+# URLR@2.11.0
 
 ![Packagist Version](https://img.shields.io/packagist/v/urlr/urlr-php) ![Packagist Downloads](https://img.shields.io/packagist/dm/urlr/urlr-php) ![Packagist License](https://img.shields.io/packagist/l/urlr/urlr-php)
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
 - API version: 1.10
-- Package version: 2.10.0
+- Package version: 2.11.0
 - Build package: urlr/urlr-php
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en).
@@ -73,7 +73,7 @@ $createLinkRequest = new \URLR\Model\CreateLinkRequest([
 ]); // \URLR\Model\CreateLinkRequest | Infos of the link to shorten
 
 try {
-    $result = $apiInstance->createLink($createLinkRequest);
+    $result = $linksApi->createLink($createLinkRequest);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LinksApi->createLink: ', $e->getMessage(), PHP_EOL;
@@ -102,6 +102,9 @@ Class | Method | HTTP request | Description
 
 ## Models
 
+- [BaseLinkRequest](docs/Model/BaseLinkRequest.md)
+- [BaseLinkRequestMetatag](docs/Model/BaseLinkRequestMetatag.md)
+- [BaseLinkRequestQrcode](docs/Model/BaseLinkRequestQrcode.md)
 - [CreateAccessToken200Response](docs/Model/CreateAccessToken200Response.md)
 - [CreateAccessToken401Response](docs/Model/CreateAccessToken401Response.md)
 - [CreateAccessTokenRequest](docs/Model/CreateAccessTokenRequest.md)
@@ -109,10 +112,12 @@ Class | Method | HTTP request | Description
 - [CreateDomain409Response](docs/Model/CreateDomain409Response.md)
 - [CreateDomainRequest](docs/Model/CreateDomainRequest.md)
 - [CreateLink429Response](docs/Model/CreateLink429Response.md)
+- [CreateLinkRequest](docs/Model/CreateLinkRequest.md)
 - [CreateQrCodeRequest](docs/Model/CreateQrCodeRequest.md)
 - [CreateQrCodeRequestOneOf](docs/Model/CreateQrCodeRequestOneOf.md)
 - [CreateQrCodeRequestOneOf1](docs/Model/CreateQrCodeRequestOneOf1.md)
 - [EditLink500Response](docs/Model/EditLink500Response.md)
+- [EditLinkRequest](docs/Model/EditLinkRequest.md)
 - [GetFolders200Response](docs/Model/GetFolders200Response.md)
 - [GetFolders200ResponseFoldersInner](docs/Model/GetFolders200ResponseFoldersInner.md)
 - [GetLink200Response](docs/Model/GetLink200Response.md)
@@ -129,11 +134,6 @@ Class | Method | HTTP request | Description
 - [GetStatisticsRequest](docs/Model/GetStatisticsRequest.md)
 - [GetTeams200Response](docs/Model/GetTeams200Response.md)
 - [GetTeams200ResponseTeamsInner](docs/Model/GetTeams200ResponseTeamsInner.md)
-- [LinkBaseRequest](docs/Model/LinkBaseRequest.md)
-- [LinkBaseRequestMetatag](docs/Model/LinkBaseRequestMetatag.md)
-- [LinkBaseRequestQrcode](docs/Model/LinkBaseRequestQrcode.md)
-- [LinkCreateRequest](docs/Model/LinkCreateRequest.md)
-- [LinkEditRequest](docs/Model/LinkEditRequest.md)
 - [RefreshAccessToken401Response](docs/Model/RefreshAccessToken401Response.md)
 - [RefreshAccessTokenRequest](docs/Model/RefreshAccessTokenRequest.md)
 

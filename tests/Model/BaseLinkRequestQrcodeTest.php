@@ -1,6 +1,6 @@
 <?php
 /**
- * LinkBaseRequestMetatagTest
+ * BaseLinkRequestQrcodeTest
  *
  * PHP version 8.1
  *
@@ -31,14 +31,14 @@ namespace URLR\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * LinkBaseRequestMetatagTest Class Doc Comment
+ * BaseLinkRequestQrcodeTest Class Doc Comment
  *
- * @description Custom metadata for social previews
+ * @description QR Code
  * @package     URLR
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class LinkBaseRequestMetatagTest extends TestCase
+class BaseLinkRequestQrcodeTest extends TestCase
 {
 
     /**
@@ -70,36 +70,54 @@ class LinkBaseRequestMetatagTest extends TestCase
     }
 
     /**
-     * Test "LinkBaseRequestMetatag"
+     * Test "BaseLinkRequestQrcode"
      */
-    public function testLinkBaseRequestMetatag()
+    public function testBaseLinkRequestQrcode()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "title"
+     * Test attribute "size"
      */
-    public function testPropertyTitle()
+    public function testPropertySize()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "description"
+     * Test attribute "format"
      */
-    public function testPropertyDescription()
+    public function testPropertyFormat()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "image"
+     * Test attribute "margin"
      */
-    public function testPropertyImage()
+    public function testPropertyMargin()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "backgroundColor"
+     */
+    public function testPropertyBackgroundColor()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "foregroundColor"
+     */
+    public function testPropertyForegroundColor()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

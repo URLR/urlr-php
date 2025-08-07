@@ -1,6 +1,6 @@
 <?php
 /**
- * LinkCreateRequestTest
+ * EditLinkRequestTest
  *
  * PHP version 8.1
  *
@@ -31,14 +31,14 @@ namespace URLR\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * LinkCreateRequestTest Class Doc Comment
+ * EditLinkRequestTest Class Doc Comment
  *
- * @description LinkCreateRequest
+ * @description EditLinkRequest
  * @package     URLR
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class LinkCreateRequestTest extends TestCase
+class EditLinkRequestTest extends TestCase
 {
 
     /**
@@ -70,9 +70,9 @@ class LinkCreateRequestTest extends TestCase
     }
 
     /**
-     * Test "LinkCreateRequest"
+     * Test "EditLinkRequest"
      */
-    public function testLinkCreateRequest()
+    public function testEditLinkRequest()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -208,15 +208,6 @@ class LinkCreateRequestTest extends TestCase
      * Test attribute "deleteAfterExpiration"
      */
     public function testPropertyDeleteAfterExpiration()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "teamId"
-     */
-    public function testPropertyTeamId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

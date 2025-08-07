@@ -1,6 +1,6 @@
 <?php
 /**
- * LinkBaseRequest
+ * EditLinkRequest
  *
  * PHP version 8.1
  *
@@ -35,14 +35,14 @@ use ReturnTypeWillChange;
 use URLR\ObjectSerializer;
 
 /**
- * LinkBaseRequest Class Doc Comment
+ * EditLinkRequest Class Doc Comment
  *
  * @package  URLR
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class LinkBaseRequest implements ModelInterface, ArrayAccess, JsonSerializable
+class EditLinkRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class LinkBaseRequest implements ModelInterface, ArrayAccess, JsonSerializable
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'LinkBaseRequest';
+    protected static string $openAPIModelName = 'EditLinkRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -66,9 +66,9 @@ class LinkBaseRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'label' => 'string',
         'tags' => 'string[]',
         'password' => 'string',
-        'qrcode' => '\URLR\Model\LinkBaseRequestQrcode',
+        'qrcode' => '\URLR\Model\BaseLinkRequestQrcode',
         'utm' => '\URLR\Model\GetLink200ResponseUtm',
-        'metatag' => '\URLR\Model\LinkBaseRequestMetatag',
+        'metatag' => '\URLR\Model\BaseLinkRequestMetatag',
         'geolinks' => '\URLR\Model\GetLink200ResponseGeolinksInner[]',
         'deleteAt' => '\DateTime',
         'expiredAt' => '\DateTime',
@@ -421,7 +421,7 @@ class LinkBaseRequest implements ModelInterface, ArrayAccess, JsonSerializable
             throw new InvalidArgumentException('non-nullable url cannot be null');
         }
         if ((mb_strlen($url) > 4096)) {
-            throw new InvalidArgumentException('invalid length for $url when calling LinkBaseRequest., must be smaller than or equal to 4096.');
+            throw new InvalidArgumentException('invalid length for $url when calling EditLinkRequest., must be smaller than or equal to 4096.');
         }
 
         $this->container['url'] = $url;
@@ -507,7 +507,7 @@ class LinkBaseRequest implements ModelInterface, ArrayAccess, JsonSerializable
         }
 
         if ((!preg_match("/^[a-zA-Z0-9!-]{2,50}$/", ObjectSerializer::toString($code)))) {
-            throw new InvalidArgumentException("invalid value for \$code when calling LinkBaseRequest., must conform to the pattern /^[a-zA-Z0-9!-]{2,50}$/.");
+            throw new InvalidArgumentException("invalid value for \$code when calling EditLinkRequest., must conform to the pattern /^[a-zA-Z0-9!-]{2,50}$/.");
         }
 
         $this->container['code'] = $code;
@@ -566,7 +566,7 @@ class LinkBaseRequest implements ModelInterface, ArrayAccess, JsonSerializable
         }
 
         if ((count($tags) > 3)) {
-            throw new InvalidArgumentException('invalid value for $tags when calling LinkBaseRequest., number of items must be less than or equal to 3.');
+            throw new InvalidArgumentException('invalid value for $tags when calling EditLinkRequest., number of items must be less than or equal to 3.');
         }
         $this->container['tags'] = $tags;
 
@@ -603,9 +603,9 @@ class LinkBaseRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets qrcode
      *
-     * @return \URLR\Model\LinkBaseRequestQrcode|null
+     * @return \URLR\Model\BaseLinkRequestQrcode|null
      */
-    public function getQrcode(): ?\URLR\Model\LinkBaseRequestQrcode
+    public function getQrcode(): ?\URLR\Model\BaseLinkRequestQrcode
     {
         return $this->container['qrcode'];
     }
@@ -613,11 +613,11 @@ class LinkBaseRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets qrcode
      *
-     * @param \URLR\Model\LinkBaseRequestQrcode|null $qrcode qrcode
+     * @param \URLR\Model\BaseLinkRequestQrcode|null $qrcode qrcode
      *
      * @return $this
      */
-    public function setQrcode(?\URLR\Model\LinkBaseRequestQrcode $qrcode): static
+    public function setQrcode(?\URLR\Model\BaseLinkRequestQrcode $qrcode): static
     {
         if (is_null($qrcode)) {
             throw new InvalidArgumentException('non-nullable qrcode cannot be null');
@@ -657,9 +657,9 @@ class LinkBaseRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets metatag
      *
-     * @return \URLR\Model\LinkBaseRequestMetatag|null
+     * @return \URLR\Model\BaseLinkRequestMetatag|null
      */
-    public function getMetatag(): ?\URLR\Model\LinkBaseRequestMetatag
+    public function getMetatag(): ?\URLR\Model\BaseLinkRequestMetatag
     {
         return $this->container['metatag'];
     }
@@ -667,11 +667,11 @@ class LinkBaseRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets metatag
      *
-     * @param \URLR\Model\LinkBaseRequestMetatag|null $metatag metatag
+     * @param \URLR\Model\BaseLinkRequestMetatag|null $metatag metatag
      *
      * @return $this
      */
-    public function setMetatag(?\URLR\Model\LinkBaseRequestMetatag $metatag): static
+    public function setMetatag(?\URLR\Model\BaseLinkRequestMetatag $metatag): static
     {
         if (is_null($metatag)) {
             throw new InvalidArgumentException('non-nullable metatag cannot be null');

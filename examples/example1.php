@@ -1,55 +1,72 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
 require_once(__DIR__ . '/vendor/autoload.php');
 
-// Access tokens
+$username = getenv('URLR_API_USERNAME'); // to be defined on your side
+$password = getenv('URLR_API_PASSWORD'); // to be defined on your side
 
-$accessTokensApi = new URLR\Api\AccessTokensApi(
-    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
-    // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
-);
-$accessTokensRequest = new \URLR\Model\AccessTokensRequest([
-    'username' => '',
-    'password' => '',
-]); // \URLR\Model\AccessTokensRequest | Your credentials
+// If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+// This is optional, `GuzzleHttp\Client` will be used as default.
+$client =  new GuzzleHttp\Client();
+
+$configuration = URLR\Configuration::getDefaultConfiguration();
+
+// Access Tokens
+
+$accessTokensApi = new URLR\Api\AccessTokensApi($client, $configuration);
+$createAccessTokensRequest = new \URLR\Model\CreateAccessTokenRequest([
+    'username' => $username,
+    'password' => $password,
+]);
 
 try {
-    $token = $accessTokensApi->createAccessToken($accessTokensRequest)->getToken();
+    $token = $accessTokensApi->createAccessToken($createAccessTokensRequest)->getToken();
 } catch (Exception $e) {
     echo 'Exception when calling AccessTokensApi->createAccessToken: ', $e->getMessage(), PHP_EOL;
     exit;
 }
 
-$config = URLR\Configuration::getDefaultConfiguration()->setAccessToken($token);
+$configuration->setAccessToken($token);
 
-// Link shortening
+// Workspaces - get workspace id
 
-$linksApi = new URLR\Api\LinksApi(null, $config);
-
-$createLinkRequest = new \URLR\Model\CreateLinkRequest([
-    'url' => '',
-    'teamId' => ''
-]); // \URLR\Model\CreateLinkRequest | Infos of the link to shorten
-
+$workspacesApi = new URLR\Api\WorkspacesApi($client, $configuration);
 try {
-    $result = $linksApi->createLink($createLinkRequest);
-    print_r($result);
+    $workspaces = $workspacesApi->getTeams();
+    $workspaceId = $workspaces['teams'][0]['id'];
 } catch (Exception $e) {
     echo 'Exception when calling LinksApi->createLink: ', $e->getMessage(), PHP_EOL;
 }
 
-// Statistics
+// Create a link
 
-$statisticsApi = new URLR\Api\StatisticsApi(null, $config);
+$linksApi = new URLR\Api\LinksApi($client, $configuration);
 
-$statisticsRequest = new \URLR\Model\StatisticsRequest([
-    'linkId' => ''
-]); // \URLR\Model\StatisticsRequest | Infos to provide to get statistics of a link
+$createLinkRequest = new \URLR\Model\CreateLinkRequest([
+    'url' => 'https://github.com/URLR',
+    'teamId' => $workspaceId,
+]);
 
 try {
-    $result = $statisticsApi->getStatistics($statisticsRequest);
-    print_r($result);
+    $link = $linksApi->createLink($createLinkRequest);
+} catch (Exception $e) {
+    echo 'Exception when calling LinksApi->createLink: ', $e->getMessage(), PHP_EOL;
+}
+
+// Get statistics
+
+$statisticsApi = new URLR\Api\StatisticsApi($client, $configuration);
+
+$getStatisticsRequest = new \URLR\Model\GetStatisticsRequest([
+    'linkId' => $link['id'],
+]);
+
+try {
+    $statistics = $statisticsApi->getStatistics($getStatisticsRequest);
+    print_r($statistics);
 } catch (Exception $e) {
     echo 'Exception when calling StatisticsApi->getStatistics: ', $e->getMessage(), PHP_EOL;
 }

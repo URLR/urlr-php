@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateLink429Response
+ * LinkGeolinksInnerConditionsInner
  *
  * PHP version 8.1
  *
@@ -35,14 +35,14 @@ use ReturnTypeWillChange;
 use URLR\ObjectSerializer;
 
 /**
- * CreateLink429Response Class Doc Comment
+ * LinkGeolinksInnerConditionsInner Class Doc Comment
  *
  * @package  URLR
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializable
+class LinkGeolinksInnerConditionsInner implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'createLink_429_response';
+    protected static string $openAPIModelName = 'Link_geolinks_inner_conditions_inner';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,9 +60,8 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
       */
     protected static array $openAPITypes = [
         'type' => 'string',
-        'title' => 'string',
-        'status' => 'int',
-        'detail' => 'string'
+        'value' => 'string',
+        'operator' => 'string'
     ];
 
     /**
@@ -72,9 +71,8 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
       */
     protected static array $openAPIFormats = [
         'type' => null,
-        'title' => null,
-        'status' => null,
-        'detail' => null
+        'value' => null,
+        'operator' => null
     ];
 
     /**
@@ -84,9 +82,8 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
       */
     protected static array $openAPINullables = [
         'type' => false,
-        'title' => false,
-        'status' => false,
-        'detail' => false
+        'value' => false,
+        'operator' => false
     ];
 
     /**
@@ -176,9 +173,8 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
      */
     protected static array $attributeMap = [
         'type' => 'type',
-        'title' => 'title',
-        'status' => 'status',
-        'detail' => 'detail'
+        'value' => 'value',
+        'operator' => 'operator'
     ];
 
     /**
@@ -188,9 +184,8 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
      */
     protected static array $setters = [
         'type' => 'setType',
-        'title' => 'setTitle',
-        'status' => 'setStatus',
-        'detail' => 'setDetail'
+        'value' => 'setValue',
+        'operator' => 'setOperator'
     ];
 
     /**
@@ -200,9 +195,8 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
      */
     protected static array $getters = [
         'type' => 'getType',
-        'title' => 'getTitle',
-        'status' => 'getStatus',
-        'detail' => 'getDetail'
+        'value' => 'getValue',
+        'operator' => 'getOperator'
     ];
 
     /**
@@ -246,6 +240,38 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
         return self::$openAPIModelName;
     }
 
+    public const TYPE_COUNTRY = 'country';
+    public const TYPE_LANGUAGE = 'language';
+    public const TYPE_SYSTEM = 'system';
+    public const OPERATOR__AND = 'AND';
+    public const OPERATOR__OR = 'OR';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public static function getTypeAllowableValues()
+    {
+        return [
+            self::TYPE_COUNTRY,
+            self::TYPE_LANGUAGE,
+            self::TYPE_SYSTEM,
+        ];
+    }
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public static function getOperatorAllowableValues()
+    {
+        return [
+            self::OPERATOR__AND,
+            self::OPERATOR__OR,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -262,9 +288,8 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
     public function __construct(?array $data = null)
     {
         $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('detail', $data ?? [], null);
+        $this->setIfExists('value', $data ?? [], null);
+        $this->setIfExists('operator', $data ?? [], null);
     }
 
     /**
@@ -294,6 +319,24 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
     {
         $invalidProperties = [];
 
+        $allowedValues = self::getTypeAllowableValues();
+        if (!is_null($this->container['type']) && !in_array($this->container['type'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'type', must be one of '%s'",
+                $this->container['type'],
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = self::getOperatorAllowableValues();
+        if (!is_null($this->container['operator']) && !in_array($this->container['operator'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'operator', must be one of '%s'",
+                $this->container['operator'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -322,7 +365,7 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets type
      *
-     * @param string|null $type type
+     * @param string|null $type Type of the condition
      *
      * @return $this
      */
@@ -331,88 +374,81 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
         if (is_null($type)) {
             throw new InvalidArgumentException('non-nullable type cannot be null');
         }
+        $allowedValues = self::getTypeAllowableValues();
+        if (!in_array($type, $allowedValues, true)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'type', must be one of '%s'",
+                    $type,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets title
+     * Gets value
      *
      * @return string|null
      */
-    public function getTitle(): ?string
+    public function getValue(): ?string
     {
-        return $this->container['title'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets title
+     * Sets value
      *
-     * @param string|null $title title
+     * @param string|null $value Value for the given type. Allowed values depend on \"type\": e.g., \"US\", \"DE\", \"FR\" for type \"country\"; \"en\", \"fr\", \"de\" for type \"language\"; \"Android\", \"iOS\" for type \"system\".
      *
      * @return $this
      */
-    public function setTitle(?string $title): static
+    public function setValue(?string $value): static
     {
-        if (is_null($title)) {
-            throw new InvalidArgumentException('non-nullable title cannot be null');
+        if (is_null($value)) {
+            throw new InvalidArgumentException('non-nullable value cannot be null');
         }
-        $this->container['title'] = $title;
+        $this->container['value'] = $value;
 
         return $this;
     }
 
     /**
-     * Gets status
-     *
-     * @return int|null
-     */
-    public function getStatus(): ?int
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param int|null $status status
-     *
-     * @return $this
-     */
-    public function setStatus(?int $status): static
-    {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets detail
+     * Gets operator
      *
      * @return string|null
      */
-    public function getDetail(): ?string
+    public function getOperator(): ?string
     {
-        return $this->container['detail'];
+        return $this->container['operator'];
     }
 
     /**
-     * Sets detail
+     * Sets operator
      *
-     * @param string|null $detail detail
+     * @param string|null $operator Operator to apply for the condition
      *
      * @return $this
      */
-    public function setDetail(?string $detail): static
+    public function setOperator(?string $operator): static
     {
-        if (is_null($detail)) {
-            throw new InvalidArgumentException('non-nullable detail cannot be null');
+        if (is_null($operator)) {
+            throw new InvalidArgumentException('non-nullable operator cannot be null');
         }
-        $this->container['detail'] = $detail;
+        $allowedValues = self::getOperatorAllowableValues();
+        if (!in_array($operator, $allowedValues, true)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'operator', must be one of '%s'",
+                    $operator,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['operator'] = $operator;
 
         return $this;
     }

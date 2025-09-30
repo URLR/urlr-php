@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateLink429Response
+ * LinkMetatag
  *
  * PHP version 8.1
  *
@@ -35,14 +35,15 @@ use ReturnTypeWillChange;
 use URLR\ObjectSerializer;
 
 /**
- * CreateLink429Response Class Doc Comment
+ * LinkMetatag Class Doc Comment
  *
+ * @description Custom metadata for social previews
  * @package  URLR
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializable
+class LinkMetatag implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +52,7 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'createLink_429_response';
+    protected static string $openAPIModelName = 'Link_metatag';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,10 +60,9 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
       * @var array<string, string>
       */
     protected static array $openAPITypes = [
-        'type' => 'string',
         'title' => 'string',
-        'status' => 'int',
-        'detail' => 'string'
+        'description' => 'string',
+        'image' => 'string'
     ];
 
     /**
@@ -71,10 +71,9 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
       * @var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'type' => null,
         'title' => null,
-        'status' => null,
-        'detail' => null
+        'description' => null,
+        'image' => 'url'
     ];
 
     /**
@@ -83,10 +82,9 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
       * @var array<string, bool>
       */
     protected static array $openAPINullables = [
-        'type' => false,
         'title' => false,
-        'status' => false,
-        'detail' => false
+        'description' => false,
+        'image' => false
     ];
 
     /**
@@ -175,10 +173,9 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'type' => 'type',
         'title' => 'title',
-        'status' => 'status',
-        'detail' => 'detail'
+        'description' => 'description',
+        'image' => 'image'
     ];
 
     /**
@@ -187,10 +184,9 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $setters = [
-        'type' => 'setType',
         'title' => 'setTitle',
-        'status' => 'setStatus',
-        'detail' => 'setDetail'
+        'description' => 'setDescription',
+        'image' => 'setImage'
     ];
 
     /**
@@ -199,10 +195,9 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $getters = [
-        'type' => 'getType',
         'title' => 'getTitle',
-        'status' => 'getStatus',
-        'detail' => 'getDetail'
+        'description' => 'getDescription',
+        'image' => 'getImage'
     ];
 
     /**
@@ -261,10 +256,9 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('detail', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('image', $data ?? [], null);
     }
 
     /**
@@ -294,6 +288,14 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
     {
         $invalidProperties = [];
 
+        if (!is_null($this->container['title']) && (mb_strlen($this->container['title']) > 255)) {
+            $invalidProperties[] = "invalid value for 'title', the character length must be smaller than or equal to 255.";
+        }
+
+        if (!is_null($this->container['description']) && (mb_strlen($this->container['description']) > 255)) {
+            $invalidProperties[] = "invalid value for 'description', the character length must be smaller than or equal to 255.";
+        }
+
         return $invalidProperties;
     }
 
@@ -310,33 +312,6 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
 
 
     /**
-     * Gets type
-     *
-     * @return string|null
-     */
-    public function getType(): ?string
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string|null $type type
-     *
-     * @return $this
-     */
-    public function setType(?string $type): static
-    {
-        if (is_null($type)) {
-            throw new InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
      * Gets title
      *
      * @return string|null
@@ -349,7 +324,7 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
     /**
      * Sets title
      *
-     * @param string|null $title title
+     * @param string|null $title Title of the link
      *
      * @return $this
      */
@@ -358,61 +333,69 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
         if (is_null($title)) {
             throw new InvalidArgumentException('non-nullable title cannot be null');
         }
+        if ((mb_strlen($title) > 255)) {
+            throw new InvalidArgumentException('invalid length for $title when calling LinkMetatag., must be smaller than or equal to 255.');
+        }
+
         $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets description
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getStatus(): ?int
+    public function getDescription(): ?string
     {
-        return $this->container['status'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets status
+     * Sets description
      *
-     * @param int|null $status status
+     * @param string|null $description Description of the link
      *
      * @return $this
      */
-    public function setStatus(?int $status): static
+    public function setDescription(?string $description): static
     {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($description)) {
+            throw new InvalidArgumentException('non-nullable description cannot be null');
         }
-        $this->container['status'] = $status;
+        if ((mb_strlen($description) > 255)) {
+            throw new InvalidArgumentException('invalid length for $description when calling LinkMetatag., must be smaller than or equal to 255.');
+        }
+
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets detail
+     * Gets image
      *
      * @return string|null
      */
-    public function getDetail(): ?string
+    public function getImage(): ?string
     {
-        return $this->container['detail'];
+        return $this->container['image'];
     }
 
     /**
-     * Sets detail
+     * Sets image
      *
-     * @param string|null $detail detail
+     * @param string|null $image Image URL of the link
      *
      * @return $this
      */
-    public function setDetail(?string $detail): static
+    public function setImage(?string $image): static
     {
-        if (is_null($detail)) {
-            throw new InvalidArgumentException('non-nullable detail cannot be null');
+        if (is_null($image)) {
+            throw new InvalidArgumentException('non-nullable image cannot be null');
         }
-        $this->container['detail'] = $detail;
+        $this->container['image'] = $image;
 
         return $this;
     }

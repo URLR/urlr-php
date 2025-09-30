@@ -1,4 +1,4 @@
-# # GetLink200ResponseGeolinksInnerConditionsInner
+# # LinkGeolinksInnerConditionsInner
 
 ## Properties
 

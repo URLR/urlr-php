@@ -1,6 +1,6 @@
 <?php
 /**
- * CreateLink429Response
+ * CreateFolderRequest
  *
  * PHP version 8.1
  *
@@ -35,14 +35,14 @@ use ReturnTypeWillChange;
 use URLR\ObjectSerializer;
 
 /**
- * CreateLink429Response Class Doc Comment
+ * CreateFolderRequest Class Doc Comment
  *
  * @package  URLR
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements ArrayAccess<string, mixed>
  */
-class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializable
+class CreateFolderRequest implements ModelInterface, ArrayAccess, JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -51,7 +51,7 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
       *
       * @var string
       */
-    protected static string $openAPIModelName = 'createLink_429_response';
+    protected static string $openAPIModelName = 'createFolder_request';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,10 +59,10 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
       * @var array<string, string>
       */
     protected static array $openAPITypes = [
-        'type' => 'string',
-        'title' => 'string',
-        'status' => 'int',
-        'detail' => 'string'
+        'teamId' => 'string',
+        'name' => 'string',
+        'parentId' => 'string',
+        'color' => 'string'
     ];
 
     /**
@@ -71,10 +71,10 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
       * @var array<string, string|null>
       */
     protected static array $openAPIFormats = [
-        'type' => null,
-        'title' => null,
-        'status' => null,
-        'detail' => null
+        'teamId' => 'uuid',
+        'name' => null,
+        'parentId' => 'uuid',
+        'color' => null
     ];
 
     /**
@@ -83,10 +83,10 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
       * @var array<string, bool>
       */
     protected static array $openAPINullables = [
-        'type' => false,
-        'title' => false,
-        'status' => false,
-        'detail' => false
+        'teamId' => false,
+        'name' => false,
+        'parentId' => false,
+        'color' => false
     ];
 
     /**
@@ -175,10 +175,10 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'type' => 'type',
-        'title' => 'title',
-        'status' => 'status',
-        'detail' => 'detail'
+        'teamId' => 'team_id',
+        'name' => 'name',
+        'parentId' => 'parent_id',
+        'color' => 'color'
     ];
 
     /**
@@ -187,10 +187,10 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $setters = [
-        'type' => 'setType',
-        'title' => 'setTitle',
-        'status' => 'setStatus',
-        'detail' => 'setDetail'
+        'teamId' => 'setTeamId',
+        'name' => 'setName',
+        'parentId' => 'setParentId',
+        'color' => 'setColor'
     ];
 
     /**
@@ -199,10 +199,10 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
      * @var array<string, string>
      */
     protected static array $getters = [
-        'type' => 'getType',
-        'title' => 'getTitle',
-        'status' => 'getStatus',
-        'detail' => 'getDetail'
+        'teamId' => 'getTeamId',
+        'name' => 'getName',
+        'parentId' => 'getParentId',
+        'color' => 'getColor'
     ];
 
     /**
@@ -246,6 +246,33 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
         return self::$openAPIModelName;
     }
 
+    public const COLOR_BLUE = 'blue';
+    public const COLOR_GREEN = 'green';
+    public const COLOR_ORANGE = 'orange';
+    public const COLOR_PURPLE = 'purple';
+    public const COLOR_RED = 'red';
+    public const COLOR_ROSE = 'rose';
+    public const COLOR_YELLOW = 'yellow';
+    public const COLOR_BLACK = 'black';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public static function getColorAllowableValues()
+    {
+        return [
+            self::COLOR_BLUE,
+            self::COLOR_GREEN,
+            self::COLOR_ORANGE,
+            self::COLOR_PURPLE,
+            self::COLOR_RED,
+            self::COLOR_ROSE,
+            self::COLOR_YELLOW,
+            self::COLOR_BLACK,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -261,10 +288,10 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('detail', $data ?? [], null);
+        $this->setIfExists('teamId', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('parentId', $data ?? [], null);
+        $this->setIfExists('color', $data ?? [], null);
     }
 
     /**
@@ -294,6 +321,21 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
     {
         $invalidProperties = [];
 
+        if ($this->container['teamId'] === null) {
+            $invalidProperties[] = "'teamId' can't be null";
+        }
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
+        }
+        $allowedValues = self::getColorAllowableValues();
+        if (!is_null($this->container['color']) && !in_array($this->container['color'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'color', must be one of '%s'",
+                $this->container['color'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -310,109 +352,119 @@ class CreateLink429Response implements ModelInterface, ArrayAccess, JsonSerializ
 
 
     /**
-     * Gets type
+     * Gets teamId
      *
-     * @return string|null
+     * @return string
      */
-    public function getType(): ?string
+    public function getTeamId(): string
     {
-        return $this->container['type'];
+        return $this->container['teamId'];
     }
 
     /**
-     * Sets type
+     * Sets teamId
      *
-     * @param string|null $type type
+     * @param string $teamId Team API ID
      *
      * @return $this
      */
-    public function setType(?string $type): static
+    public function setTeamId(string $teamId): static
     {
-        if (is_null($type)) {
-            throw new InvalidArgumentException('non-nullable type cannot be null');
+        if (is_null($teamId)) {
+            throw new InvalidArgumentException('non-nullable teamId cannot be null');
         }
-        $this->container['type'] = $type;
+        $this->container['teamId'] = $teamId;
 
         return $this;
     }
 
     /**
-     * Gets title
+     * Gets name
      *
-     * @return string|null
+     * @return string
      */
-    public function getTitle(): ?string
+    public function getName(): string
     {
-        return $this->container['title'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets title
+     * Sets name
      *
-     * @param string|null $title title
+     * @param string $name Name
      *
      * @return $this
      */
-    public function setTitle(?string $title): static
+    public function setName(string $name): static
     {
-        if (is_null($title)) {
-            throw new InvalidArgumentException('non-nullable title cannot be null');
+        if (is_null($name)) {
+            throw new InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['title'] = $title;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets parentId
      *
-     * @return int|null
+     * @return string|null
      */
-    public function getStatus(): ?int
+    public function getParentId(): ?string
     {
-        return $this->container['status'];
+        return $this->container['parentId'];
     }
 
     /**
-     * Sets status
+     * Sets parentId
      *
-     * @param int|null $status status
+     * @param string|null $parentId Folder API ID (if any)
      *
      * @return $this
      */
-    public function setStatus(?int $status): static
+    public function setParentId(?string $parentId): static
     {
-        if (is_null($status)) {
-            throw new InvalidArgumentException('non-nullable status cannot be null');
+        if (is_null($parentId)) {
+            throw new InvalidArgumentException('non-nullable parentId cannot be null');
         }
-        $this->container['status'] = $status;
+        $this->container['parentId'] = $parentId;
 
         return $this;
     }
 
     /**
-     * Gets detail
+     * Gets color
      *
      * @return string|null
      */
-    public function getDetail(): ?string
+    public function getColor(): ?string
     {
-        return $this->container['detail'];
+        return $this->container['color'];
     }
 
     /**
-     * Sets detail
+     * Sets color
      *
-     * @param string|null $detail detail
+     * @param string|null $color Color of folder
      *
      * @return $this
      */
-    public function setDetail(?string $detail): static
+    public function setColor(?string $color): static
     {
-        if (is_null($detail)) {
-            throw new InvalidArgumentException('non-nullable detail cannot be null');
+        if (is_null($color)) {
+            throw new InvalidArgumentException('non-nullable color cannot be null');
         }
-        $this->container['detail'] = $detail;
+        $allowedValues = self::getColorAllowableValues();
+        if (!in_array($color, $allowedValues, true)) {
+            throw new InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'color', must be one of '%s'",
+                    $color,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['color'] = $color;
 
         return $this;
     }

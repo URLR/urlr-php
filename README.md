@@ -4,7 +4,7 @@
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
-- API version: 1.10
+- API version: 1.12
 - Package version: 2.11.1
 - Build package: urlr/urlr-php
 
@@ -95,10 +95,12 @@ Class | Method | HTTP request | Description
 *AccessTokensApi* | [**createAccessToken**](docs/Api/AccessTokensApi.md#createaccesstoken) | **POST** /access_tokens/create | Get an access token
 *AccessTokensApi* | [**refreshAccessToken**](docs/Api/AccessTokensApi.md#refreshaccesstoken) | **POST** /access_tokens/refresh | Refresh an access token
 *DomainsApi* | [**createDomain**](docs/Api/DomainsApi.md#createdomain) | **POST** /domains/create | Create a domain
+*FoldersApi* | [**createFolder**](docs/Api/FoldersApi.md#createfolder) | **POST** /folders/create | Create a folder
 *FoldersApi* | [**getFolders**](docs/Api/FoldersApi.md#getfolders) | **GET** /folders/{team_id} | Get folders of workspace
 *LinksApi* | [**createLink**](docs/Api/LinksApi.md#createlink) | **POST** /links/create | Create a link
 *LinksApi* | [**editLink**](docs/Api/LinksApi.md#editlink) | **PATCH** /links/{link_id} | Edit a link
 *LinksApi* | [**getLink**](docs/Api/LinksApi.md#getlink) | **GET** /links/{link_id} | Get a link
+*LinksApi* | [**listLinks**](docs/Api/LinksApi.md#listlinks) | **GET** /links | List links
 *QRCodesApi* | [**createQrCode**](docs/Api/QRCodesApi.md#createqrcode) | **POST** /qrcodes/create | Create a QR Code
 *StatisticsApi* | [**getStatistics**](docs/Api/StatisticsApi.md#getstatistics) | **POST** /statistics | Get statistics of a link
 *WorkspacesApi* | [**getTeams**](docs/Api/WorkspacesApi.md#getteams) | **GET** /teams | Get workspaces of user
@@ -113,8 +115,10 @@ Class | Method | HTTP request | Description
 - [CreateAccessToken401Response](docs/Model/CreateAccessToken401Response.md)
 - [CreateAccessTokenRequest](docs/Model/CreateAccessTokenRequest.md)
 - [CreateDomain200Response](docs/Model/CreateDomain200Response.md)
-- [CreateDomain409Response](docs/Model/CreateDomain409Response.md)
 - [CreateDomainRequest](docs/Model/CreateDomainRequest.md)
+- [CreateFolder200Response](docs/Model/CreateFolder200Response.md)
+- [CreateFolder409Response](docs/Model/CreateFolder409Response.md)
+- [CreateFolderRequest](docs/Model/CreateFolderRequest.md)
 - [CreateLink429Response](docs/Model/CreateLink429Response.md)
 - [CreateLinkRequest](docs/Model/CreateLinkRequest.md)
 - [CreateQrCodeRequest](docs/Model/CreateQrCodeRequest.md)
@@ -124,13 +128,6 @@ Class | Method | HTTP request | Description
 - [EditLinkRequest](docs/Model/EditLinkRequest.md)
 - [GetFolders200Response](docs/Model/GetFolders200Response.md)
 - [GetFolders200ResponseFoldersInner](docs/Model/GetFolders200ResponseFoldersInner.md)
-- [GetLink200Response](docs/Model/GetLink200Response.md)
-- [GetLink200ResponseGeolinksInner](docs/Model/GetLink200ResponseGeolinksInner.md)
-- [GetLink200ResponseGeolinksInnerConditionsInner](docs/Model/GetLink200ResponseGeolinksInnerConditionsInner.md)
-- [GetLink200ResponseMetatag](docs/Model/GetLink200ResponseMetatag.md)
-- [GetLink200ResponseQrcode](docs/Model/GetLink200ResponseQrcode.md)
-- [GetLink200ResponseTagsInner](docs/Model/GetLink200ResponseTagsInner.md)
-- [GetLink200ResponseUtm](docs/Model/GetLink200ResponseUtm.md)
 - [GetLink401Response](docs/Model/GetLink401Response.md)
 - [GetLink404Response](docs/Model/GetLink404Response.md)
 - [GetLink422Response](docs/Model/GetLink422Response.md)
@@ -138,6 +135,14 @@ Class | Method | HTTP request | Description
 - [GetStatisticsRequest](docs/Model/GetStatisticsRequest.md)
 - [GetTeams200Response](docs/Model/GetTeams200Response.md)
 - [GetTeams200ResponseTeamsInner](docs/Model/GetTeams200ResponseTeamsInner.md)
+- [Link](docs/Model/Link.md)
+- [LinkGeolinksInner](docs/Model/LinkGeolinksInner.md)
+- [LinkGeolinksInnerConditionsInner](docs/Model/LinkGeolinksInnerConditionsInner.md)
+- [LinkMetatag](docs/Model/LinkMetatag.md)
+- [LinkQrcode](docs/Model/LinkQrcode.md)
+- [LinkTagsInner](docs/Model/LinkTagsInner.md)
+- [LinkUtm](docs/Model/LinkUtm.md)
+- [ListLinks200Response](docs/Model/ListLinks200Response.md)
 - [RefreshAccessToken401Response](docs/Model/RefreshAccessToken401Response.md)
 - [RefreshAccessTokenRequest](docs/Model/RefreshAccessTokenRequest.md)
 

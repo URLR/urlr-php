@@ -1,4 +1,4 @@
-# # CreateFolder200Response
+# CreateFolder200Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # CreateQrCodeRequest
+# CreateQrCodeRequest
 
 ## Properties
 

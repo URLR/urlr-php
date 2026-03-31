@@ -1,4 +1,4 @@
-# # LinkTagsInner
+# LinkTagsInner
 
 ## Properties
 

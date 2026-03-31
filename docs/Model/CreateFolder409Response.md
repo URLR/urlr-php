@@ -1,4 +1,4 @@
-# # CreateFolder409Response
+# CreateFolder409Response
 
 ## Properties
 

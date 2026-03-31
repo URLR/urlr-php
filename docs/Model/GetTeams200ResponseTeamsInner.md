@@ -1,4 +1,4 @@
-# # GetTeams200ResponseTeamsInner
+# GetTeams200ResponseTeamsInner
 
 ## Properties
 

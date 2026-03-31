@@ -1,4 +1,4 @@
-# # CreateLink429Response
+# CreateLink429Response
 
 ## Properties
 

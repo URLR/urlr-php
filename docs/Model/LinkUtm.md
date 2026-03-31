@@ -1,4 +1,4 @@
-# # LinkUtm
+# LinkUtm
 
 ## Properties
 

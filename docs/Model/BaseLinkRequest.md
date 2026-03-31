@@ -1,4 +1,4 @@
-# # BaseLinkRequest
+# BaseLinkRequest
 
 ## Properties
 

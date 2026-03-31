@@ -1,4 +1,4 @@
-# # GetStatisticsRequest
+# GetStatisticsRequest
 
 ## Properties
 

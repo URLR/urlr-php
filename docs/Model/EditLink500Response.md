@@ -1,4 +1,4 @@
-# # EditLink500Response
+# EditLink500Response
 
 ## Properties
 

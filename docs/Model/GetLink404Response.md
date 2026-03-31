@@ -1,4 +1,4 @@
-# # GetLink404Response
+# GetLink404Response
 
 ## Properties
 

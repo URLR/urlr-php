@@ -1,4 +1,4 @@
-# # CreateAccessTokenRequest
+# CreateAccessTokenRequest
 
 ## Properties
 

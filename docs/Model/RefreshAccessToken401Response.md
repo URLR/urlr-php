@@ -1,4 +1,4 @@
-# # RefreshAccessToken401Response
+# RefreshAccessToken401Response
 
 ## Properties
 

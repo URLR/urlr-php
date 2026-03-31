@@ -1,4 +1,4 @@
-# # BaseLinkRequestQrcode
+# BaseLinkRequestQrcode
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # RefreshAccessTokenRequest
+# RefreshAccessTokenRequest
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # BaseLinkRequestMetatag
+# BaseLinkRequestMetatag
 
 ## Properties
 

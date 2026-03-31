@@ -1,4 +1,4 @@
-# # GetFolders200Response
+# GetFolders200Response
 
 ## Properties
 

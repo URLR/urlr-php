@@ -1,4 +1,4 @@
-# # CreateAccessToken200Response
+# CreateAccessToken200Response
 
 ## Properties
 

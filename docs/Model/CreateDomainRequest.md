@@ -1,4 +1,4 @@
-# # CreateDomainRequest
+# CreateDomainRequest
 
 ## Properties
 

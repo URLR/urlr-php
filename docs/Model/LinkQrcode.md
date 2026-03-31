@@ -1,4 +1,4 @@
-# # LinkQrcode
+# LinkQrcode
 
 ## Properties
 

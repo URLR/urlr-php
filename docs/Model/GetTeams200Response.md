@@ -1,4 +1,4 @@
-# # GetTeams200Response
+# GetTeams200Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # ListLinks200Response
+# ListLinks200Response
 
 ## Properties
 

@@ -1,4 +1,4 @@
-# # CreateAccessToken401Response
+# CreateAccessToken401Response
 
 ## Properties
 

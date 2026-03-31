@@ -1,4 +1,4 @@
-# # CreateLinkRequest
+# CreateLinkRequest
 
 ## Properties
 

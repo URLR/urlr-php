@@ -1,4 +1,4 @@
-# # CreateFolderRequest
+# CreateFolderRequest
 
 ## Properties
 

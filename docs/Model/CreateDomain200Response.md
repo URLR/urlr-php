@@ -1,4 +1,4 @@
-# # CreateDomain200Response
+# CreateDomain200Response
 
 ## Properties
 

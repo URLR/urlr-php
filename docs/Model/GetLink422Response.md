@@ -1,4 +1,4 @@
-# # GetLink422Response
+# GetLink422Response
 
 ## Properties
 

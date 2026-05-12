@@ -1,16 +1,16 @@
 # URLR\QRCodesApi
 
-All URIs are relative to https://urlr.me/api/v1, except if the operation defines another base path.
+All URIs are relative to https://urlr.me/api/v2, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createQrCode()**](QRCodesApi.md#createQrCode) | **POST** /qrcodes/create | Create a QR Code |
+| [**qrcodeCreate()**](QRCodesApi.md#qrcodeCreate) | **POST** /qrcodes | Create a QR Code |
 
 
-## `createQrCode()`
+## `qrcodeCreate()`
 
 ```php
-createQrCode($createQrCodeRequest): \SplFileObject
+qrcodeCreate($qrcodeCreateRequest): \SplFileObject
 ```
 
 Create a QR Code
@@ -22,8 +22,10 @@ Create a QR Code
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer (JWT) authorization: bearerAuth
-$config = URLR\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ApiKeyAuth
+$config = URLR\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = URLR\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
 
 
 $apiInstance = new URLR\Api\QRCodesApi(
@@ -32,13 +34,13 @@ $apiInstance = new URLR\Api\QRCodesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$createQrCodeRequest = new \URLR\Model\CreateQrCodeRequest(); // \URLR\Model\CreateQrCodeRequest | Info of the QR Code to create
+$qrcodeCreateRequest = new \URLR\Model\QrcodeCreateRequest(); // \URLR\Model\QrcodeCreateRequest | Info of the QR Code to create
 
 try {
-    $result = $apiInstance->createQrCode($createQrCodeRequest);
+    $result = $apiInstance->qrcodeCreate($qrcodeCreateRequest);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling QRCodesApi->createQrCode: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling QRCodesApi->qrcodeCreate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -46,7 +48,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **createQrCodeRequest** | [**\URLR\Model\CreateQrCodeRequest**](../Model/CreateQrCodeRequest.md)| Info of the QR Code to create | [optional] |
+| **qrcodeCreateRequest** | [**\URLR\Model\QrcodeCreateRequest**](../Model/QrcodeCreateRequest.md)| Info of the QR Code to create | [optional] |
 
 ### Return type
 
@@ -54,7 +56,7 @@ try {
 
 ### Authorization
 
-[bearerAuth](../../README.md#bearerAuth)
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

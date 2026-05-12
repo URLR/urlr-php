@@ -1,17 +1,18 @@
 # URLR\FoldersApi
 
-All URIs are relative to https://urlr.me/api/v1, except if the operation defines another base path.
+All URIs are relative to https://urlr.me/api/v2, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createFolder()**](FoldersApi.md#createFolder) | **POST** /folders/create | Create a folder |
-| [**getFolders()**](FoldersApi.md#getFolders) | **GET** /folders/{team_id} | Get folders of workspace |
+| [**folderCreate()**](FoldersApi.md#folderCreate) | **POST** /folders | Create a folder |
+| [**folderGet()**](FoldersApi.md#folderGet) | **GET** /folders/{folder_id} | Get a folder |
+| [**folderList()**](FoldersApi.md#folderList) | **GET** /folders | List folders |
 
 
-## `createFolder()`
+## `folderCreate()`
 
 ```php
-createFolder($createFolderRequest): \URLR\Model\CreateFolder200Response
+folderCreate($folderCreateRequest): \URLR\Model\Folder
 ```
 
 Create a folder
@@ -23,19 +24,25 @@ Create a folder
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+// Configure API key authorization: ApiKeyAuth
+$config = URLR\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = URLR\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
+
 
 $apiInstance = new URLR\Api\FoldersApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
-$createFolderRequest = new \URLR\Model\CreateFolderRequest(); // \URLR\Model\CreateFolderRequest | You can use this endpoint to add a folder to URLR.
+$folderCreateRequest = new \URLR\Model\FolderCreateRequest(); // \URLR\Model\FolderCreateRequest | You can use this endpoint to add a folder to URLR.
 
 try {
-    $result = $apiInstance->createFolder($createFolderRequest);
+    $result = $apiInstance->folderCreate($folderCreateRequest);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FoldersApi->createFolder: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FoldersApi->folderCreate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -43,15 +50,15 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **createFolderRequest** | [**\URLR\Model\CreateFolderRequest**](../Model/CreateFolderRequest.md)| You can use this endpoint to add a folder to URLR. | [optional] |
+| **folderCreateRequest** | [**\URLR\Model\FolderCreateRequest**](../Model/FolderCreateRequest.md)| You can use this endpoint to add a folder to URLR. | [optional] |
 
 ### Return type
 
-[**\URLR\Model\CreateFolder200Response**](../Model/CreateFolder200Response.md)
+[**\URLR\Model\Folder**](../Model/Folder.md)
 
 ### Authorization
 
-No authorization required
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -62,13 +69,13 @@ No authorization required
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getFolders()`
+## `folderGet()`
 
 ```php
-getFolders($teamId): \URLR\Model\GetFolders200Response
+folderGet($folderId): \URLR\Model\Folder
 ```
 
-Get folders of workspace
+Get a folder
 
 ### Example
 
@@ -77,8 +84,10 @@ Get folders of workspace
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer (JWT) authorization: bearerAuth
-$config = URLR\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ApiKeyAuth
+$config = URLR\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = URLR\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
 
 
 $apiInstance = new URLR\Api\FoldersApi(
@@ -87,13 +96,13 @@ $apiInstance = new URLR\Api\FoldersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$teamId = ffefc6c4-d970-4373-a867-2a69c8be2c89; // string | Workspace API ID
+$folderId = 'folderId_example'; // string | Folder API ID
 
 try {
-    $result = $apiInstance->getFolders($teamId);
+    $result = $apiInstance->folderGet($folderId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling FoldersApi->getFolders: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling FoldersApi->folderGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -101,15 +110,75 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **teamId** | **string**| Workspace API ID | |
+| **folderId** | **string**| Folder API ID | |
 
 ### Return type
 
-[**\URLR\Model\GetFolders200Response**](../Model/GetFolders200Response.md)
+[**\URLR\Model\Folder**](../Model/Folder.md)
 
 ### Authorization
 
-[bearerAuth](../../README.md#bearerAuth)
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/problem+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `folderList()`
+
+```php
+folderList($workspaceId): \URLR\Model\FolderList200Response
+```
+
+List folders
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKeyAuth
+$config = URLR\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = URLR\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
+
+
+$apiInstance = new URLR\Api\FoldersApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$workspaceId = 'workspaceId_example'; // string | Workspace API ID
+
+try {
+    $result = $apiInstance->folderList($workspaceId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling FoldersApi->folderList: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **workspaceId** | **string**| Workspace API ID | |
+
+### Return type
+
+[**\URLR\Model\FolderList200Response**](../Model/FolderList200Response.md)
+
+### Authorization
+
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

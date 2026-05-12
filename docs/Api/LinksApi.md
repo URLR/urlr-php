@@ -1,19 +1,20 @@
 # URLR\LinksApi
 
-All URIs are relative to https://urlr.me/api/v1, except if the operation defines another base path.
+All URIs are relative to https://urlr.me/api/v2, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**createLink()**](LinksApi.md#createLink) | **POST** /links/create | Create a link |
-| [**editLink()**](LinksApi.md#editLink) | **PATCH** /links/{link_id} | Edit a link |
-| [**getLink()**](LinksApi.md#getLink) | **GET** /links/{link_id} | Get a link |
-| [**listLinks()**](LinksApi.md#listLinks) | **GET** /links | List links |
+| [**linkCreate()**](LinksApi.md#linkCreate) | **POST** /links | Create a link |
+| [**linkDelete()**](LinksApi.md#linkDelete) | **DELETE** /links/{link_id} | Delete a link |
+| [**linkEdit()**](LinksApi.md#linkEdit) | **PATCH** /links/{link_id} | Edit a link |
+| [**linkGet()**](LinksApi.md#linkGet) | **GET** /links/{link_id} | Get a link |
+| [**linkList()**](LinksApi.md#linkList) | **GET** /links | List links |
 
 
-## `createLink()`
+## `linkCreate()`
 
 ```php
-createLink($createLinkRequest): \URLR\Model\Link
+linkCreate($linkCreateRequest): \URLR\Model\Link
 ```
 
 Create a link
@@ -25,8 +26,10 @@ Create a link
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer (JWT) authorization: bearerAuth
-$config = URLR\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ApiKeyAuth
+$config = URLR\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = URLR\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
 
 
 $apiInstance = new URLR\Api\LinksApi(
@@ -35,13 +38,13 @@ $apiInstance = new URLR\Api\LinksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$createLinkRequest = new \URLR\Model\CreateLinkRequest(); // \URLR\Model\CreateLinkRequest | Info of the link to create
+$linkCreateRequest = new \URLR\Model\LinkCreateRequest(); // \URLR\Model\LinkCreateRequest | Info of the link to create
 
 try {
-    $result = $apiInstance->createLink($createLinkRequest);
+    $result = $apiInstance->linkCreate($linkCreateRequest);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LinksApi->createLink: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling LinksApi->linkCreate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -49,7 +52,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **createLinkRequest** | [**\URLR\Model\CreateLinkRequest**](../Model/CreateLinkRequest.md)| Info of the link to create | [optional] |
+| **linkCreateRequest** | [**\URLR\Model\LinkCreateRequest**](../Model/LinkCreateRequest.md)| Info of the link to create | [optional] |
 
 ### Return type
 
@@ -57,7 +60,7 @@ try {
 
 ### Authorization
 
-[bearerAuth](../../README.md#bearerAuth)
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -68,10 +71,70 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `editLink()`
+## `linkDelete()`
 
 ```php
-editLink($linkId, $editLinkRequest): \URLR\Model\Link
+linkDelete($linkId): \URLR\Model\Link
+```
+
+Delete a link
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: ApiKeyAuth
+$config = URLR\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = URLR\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
+
+
+$apiInstance = new URLR\Api\LinksApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$linkId = 'linkId_example'; // string | Link API ID
+
+try {
+    $result = $apiInstance->linkDelete($linkId);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling LinksApi->linkDelete: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **linkId** | **string**| Link API ID | |
+
+### Return type
+
+[**\URLR\Model\Link**](../Model/Link.md)
+
+### Authorization
+
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: `application/json`, `application/problem+json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `linkEdit()`
+
+```php
+linkEdit($linkId, $linkEditRequest): \URLR\Model\Link
 ```
 
 Edit a link
@@ -83,8 +146,10 @@ Edit a link
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer (JWT) authorization: bearerAuth
-$config = URLR\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ApiKeyAuth
+$config = URLR\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = URLR\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
 
 
 $apiInstance = new URLR\Api\LinksApi(
@@ -93,14 +158,14 @@ $apiInstance = new URLR\Api\LinksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$linkId = ffefc6c4-d970-4373-a867-2a69c8be2c89; // string | Link API ID
-$editLinkRequest = new \URLR\Model\EditLinkRequest(); // \URLR\Model\EditLinkRequest | Info of the link to edit
+$linkId = 'linkId_example'; // string | Link API ID
+$linkEditRequest = new \URLR\Model\LinkEditRequest(); // \URLR\Model\LinkEditRequest | Info of the link to edit
 
 try {
-    $result = $apiInstance->editLink($linkId, $editLinkRequest);
+    $result = $apiInstance->linkEdit($linkId, $linkEditRequest);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LinksApi->editLink: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling LinksApi->linkEdit: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -109,7 +174,7 @@ try {
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **linkId** | **string**| Link API ID | |
-| **editLinkRequest** | [**\URLR\Model\EditLinkRequest**](../Model/EditLinkRequest.md)| Info of the link to edit | [optional] |
+| **linkEditRequest** | [**\URLR\Model\LinkEditRequest**](../Model/LinkEditRequest.md)| Info of the link to edit | [optional] |
 
 ### Return type
 
@@ -117,7 +182,7 @@ try {
 
 ### Authorization
 
-[bearerAuth](../../README.md#bearerAuth)
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -128,10 +193,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `getLink()`
+## `linkGet()`
 
 ```php
-getLink($linkId): \URLR\Model\Link
+linkGet($linkId): \URLR\Model\Link
 ```
 
 Get a link
@@ -143,8 +208,10 @@ Get a link
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer (JWT) authorization: bearerAuth
-$config = URLR\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ApiKeyAuth
+$config = URLR\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = URLR\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
 
 
 $apiInstance = new URLR\Api\LinksApi(
@@ -153,13 +220,13 @@ $apiInstance = new URLR\Api\LinksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$linkId = ffefc6c4-d970-4373-a867-2a69c8be2c89; // string | Link API ID
+$linkId = 'linkId_example'; // string | Link API ID
 
 try {
-    $result = $apiInstance->getLink($linkId);
+    $result = $apiInstance->linkGet($linkId);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LinksApi->getLink: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling LinksApi->linkGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -175,7 +242,7 @@ try {
 
 ### Authorization
 
-[bearerAuth](../../README.md#bearerAuth)
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
@@ -186,10 +253,10 @@ try {
 [[Back to Model list]](../../README.md#models)
 [[Back to README]](../../README.md)
 
-## `listLinks()`
+## `linkList()`
 
 ```php
-listLinks($teamId, $folderId, $tagId, $limit, $page): \URLR\Model\ListLinks200Response
+linkList($workspaceId, $folderId, $tagId, $limit, $page): \URLR\Model\LinkList200Response
 ```
 
 List links
@@ -201,8 +268,10 @@ List links
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer (JWT) authorization: bearerAuth
-$config = URLR\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ApiKeyAuth
+$config = URLR\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = URLR\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
 
 
 $apiInstance = new URLR\Api\LinksApi(
@@ -211,17 +280,17 @@ $apiInstance = new URLR\Api\LinksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$teamId = 'teamId_example'; // string | Filter by Workspace API ID
+$workspaceId = 'workspaceId_example'; // string | Filter by Workspace API ID
 $folderId = 'folderId_example'; // string | Filter by Folder API ID
 $tagId = 'tagId_example'; // string | Filter by Tag API ID
 $limit = 10; // int | Number of items per page
 $page = 1; // int | Page number
 
 try {
-    $result = $apiInstance->listLinks($teamId, $folderId, $tagId, $limit, $page);
+    $result = $apiInstance->linkList($workspaceId, $folderId, $tagId, $limit, $page);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling LinksApi->listLinks: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling LinksApi->linkList: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -229,7 +298,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **teamId** | **string**| Filter by Workspace API ID | [optional] |
+| **workspaceId** | **string**| Filter by Workspace API ID | [optional] |
 | **folderId** | **string**| Filter by Folder API ID | [optional] |
 | **tagId** | **string**| Filter by Tag API ID | [optional] |
 | **limit** | **int**| Number of items per page | [optional] [default to 10] |
@@ -237,11 +306,11 @@ try {
 
 ### Return type
 
-[**\URLR\Model\ListLinks200Response**](../Model/ListLinks200Response.md)
+[**\URLR\Model\LinkList200Response**](../Model/LinkList200Response.md)
 
 ### Authorization
 
-[bearerAuth](../../README.md#bearerAuth)
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 

@@ -1,19 +1,19 @@
 # URLR\StatisticsApi
 
-All URIs are relative to https://urlr.me/api/v1, except if the operation defines another base path.
+All URIs are relative to https://urlr.me/api/v2, except if the operation defines another base path.
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getStatistics()**](StatisticsApi.md#getStatistics) | **POST** /statistics | Get statistics of a link |
+| [**statisticGet()**](StatisticsApi.md#statisticGet) | **GET** /statistics | Get statistics |
 
 
-## `getStatistics()`
+## `statisticGet()`
 
 ```php
-getStatistics($getStatisticsRequest): \URLR\Model\GetStatistics200Response
+statisticGet($linkId, $from, $to): \URLR\Model\StatisticGet200Response
 ```
 
-Get statistics of a link
+Get statistics
 
 ### Example
 
@@ -22,8 +22,10 @@ Get statistics of a link
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
-// Configure Bearer (JWT) authorization: bearerAuth
-$config = URLR\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+// Configure API key authorization: ApiKeyAuth
+$config = URLR\Configuration::getDefaultConfiguration()->setApiKey('X-API-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = URLR\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-API-KEY', 'Bearer');
 
 
 $apiInstance = new URLR\Api\StatisticsApi(
@@ -32,13 +34,15 @@ $apiInstance = new URLR\Api\StatisticsApi(
     new GuzzleHttp\Client(),
     $config
 );
-$getStatisticsRequest = new \URLR\Model\GetStatisticsRequest(); // \URLR\Model\GetStatisticsRequest | Infos to provide to get statistics of a link
+$linkId = 'linkId_example'; // string | Link API ID
+$from = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Get statistics from this date
+$to = new \DateTime('2013-10-20T19:20:30+01:00'); // \DateTime | Get statistics until this date
 
 try {
-    $result = $apiInstance->getStatistics($getStatisticsRequest);
+    $result = $apiInstance->statisticGet($linkId, $from, $to);
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling StatisticsApi->getStatistics: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling StatisticsApi->statisticGet: ', $e->getMessage(), PHP_EOL;
 }
 ```
 
@@ -46,19 +50,21 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **getStatisticsRequest** | [**\URLR\Model\GetStatisticsRequest**](../Model/GetStatisticsRequest.md)| Infos to provide to get statistics of a link | [optional] |
+| **linkId** | **string**| Link API ID | |
+| **from** | **\DateTime**| Get statistics from this date | [optional] |
+| **to** | **\DateTime**| Get statistics until this date | [optional] |
 
 ### Return type
 
-[**\URLR\Model\GetStatistics200Response**](../Model/GetStatistics200Response.md)
+[**\URLR\Model\StatisticGet200Response**](../Model/StatisticGet200Response.md)
 
 ### Authorization
 
-[bearerAuth](../../README.md#bearerAuth)
+[ApiKeyAuth](../../README.md#ApiKeyAuth)
 
 ### HTTP request headers
 
-- **Content-Type**: `application/json`
+- **Content-Type**: Not defined
 - **Accept**: `application/json`, `application/problem+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

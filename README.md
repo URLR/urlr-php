@@ -1,11 +1,11 @@
-# URLR@2.14.0
+# URLR@3.0.0
 
 ![Packagist Version](https://img.shields.io/packagist/v/urlr/urlr-php) ![Packagist Downloads](https://img.shields.io/packagist/dm/urlr/urlr-php) ![Packagist License](https://img.shields.io/packagist/l/urlr/urlr-php)
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
-- API version: 1.12
-- Package version: 2.14.0
+- API version: 2.0.0
+- Package version: 3.0.0
 - Build package: urlr/urlr-php
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en).
@@ -88,70 +88,70 @@ A complete example is [available here](examples/example1.php).
 
 ## API Endpoints
 
-All URIs are relative to *https://urlr.me/api/v1*
+All URIs are relative to *https://urlr.me/api/v2*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AccessTokensApi* | [**createAccessToken**](docs/Api/AccessTokensApi.md#createaccesstoken) | **POST** /access_tokens/create | Get an access token
-*AccessTokensApi* | [**refreshAccessToken**](docs/Api/AccessTokensApi.md#refreshaccesstoken) | **POST** /access_tokens/refresh | Refresh an access token
-*DomainsApi* | [**createDomain**](docs/Api/DomainsApi.md#createdomain) | **POST** /domains/create | Create a domain
-*FoldersApi* | [**createFolder**](docs/Api/FoldersApi.md#createfolder) | **POST** /folders/create | Create a folder
-*FoldersApi* | [**getFolders**](docs/Api/FoldersApi.md#getfolders) | **GET** /folders/{team_id} | Get folders of workspace
-*LinksApi* | [**createLink**](docs/Api/LinksApi.md#createlink) | **POST** /links/create | Create a link
-*LinksApi* | [**editLink**](docs/Api/LinksApi.md#editlink) | **PATCH** /links/{link_id} | Edit a link
-*LinksApi* | [**getLink**](docs/Api/LinksApi.md#getlink) | **GET** /links/{link_id} | Get a link
-*LinksApi* | [**listLinks**](docs/Api/LinksApi.md#listlinks) | **GET** /links | List links
-*QRCodesApi* | [**createQrCode**](docs/Api/QRCodesApi.md#createqrcode) | **POST** /qrcodes/create | Create a QR Code
-*StatisticsApi* | [**getStatistics**](docs/Api/StatisticsApi.md#getstatistics) | **POST** /statistics | Get statistics of a link
-*WorkspacesApi* | [**getTeams**](docs/Api/WorkspacesApi.md#getteams) | **GET** /teams | Get workspaces of user
+*DomainsApi* | [**domainCreate**](docs/Api/DomainsApi.md#domaincreate) | **POST** /domains | Create a domain
+*DomainsApi* | [**domainGet**](docs/Api/DomainsApi.md#domainget) | **GET** /domains/{domain_id} | Get a domain
+*DomainsApi* | [**domainList**](docs/Api/DomainsApi.md#domainlist) | **GET** /domains | List domains
+*FoldersApi* | [**folderCreate**](docs/Api/FoldersApi.md#foldercreate) | **POST** /folders | Create a folder
+*FoldersApi* | [**folderGet**](docs/Api/FoldersApi.md#folderget) | **GET** /folders/{folder_id} | Get a folder
+*FoldersApi* | [**folderList**](docs/Api/FoldersApi.md#folderlist) | **GET** /folders | List folders
+*LinksApi* | [**linkCreate**](docs/Api/LinksApi.md#linkcreate) | **POST** /links | Create a link
+*LinksApi* | [**linkDelete**](docs/Api/LinksApi.md#linkdelete) | **DELETE** /links/{link_id} | Delete a link
+*LinksApi* | [**linkEdit**](docs/Api/LinksApi.md#linkedit) | **PATCH** /links/{link_id} | Edit a link
+*LinksApi* | [**linkGet**](docs/Api/LinksApi.md#linkget) | **GET** /links/{link_id} | Get a link
+*LinksApi* | [**linkList**](docs/Api/LinksApi.md#linklist) | **GET** /links | List links
+*QRCodesApi* | [**qrcodeCreate**](docs/Api/QRCodesApi.md#qrcodecreate) | **POST** /qrcodes | Create a QR Code
+*StatisticsApi* | [**statisticGet**](docs/Api/StatisticsApi.md#statisticget) | **GET** /statistics | Get statistics
+*WorkspacesApi* | [**workspaceGet**](docs/Api/WorkspacesApi.md#workspaceget) | **GET** /workspaces/{workspace_id} | Get a workspace
+*WorkspacesApi* | [**workspaceList**](docs/Api/WorkspacesApi.md#workspacelist) | **GET** /workspaces | List workspaces of user
 
 
 ## Models
 
-- [BaseLinkRequest](docs/Model/BaseLinkRequest.md)
-- [BaseLinkRequestMetatag](docs/Model/BaseLinkRequestMetatag.md)
-- [BaseLinkRequestQrcode](docs/Model/BaseLinkRequestQrcode.md)
-- [CreateAccessToken200Response](docs/Model/CreateAccessToken200Response.md)
-- [CreateAccessToken401Response](docs/Model/CreateAccessToken401Response.md)
-- [CreateAccessTokenRequest](docs/Model/CreateAccessTokenRequest.md)
-- [CreateDomain200Response](docs/Model/CreateDomain200Response.md)
-- [CreateDomainRequest](docs/Model/CreateDomainRequest.md)
-- [CreateFolder200Response](docs/Model/CreateFolder200Response.md)
-- [CreateFolder409Response](docs/Model/CreateFolder409Response.md)
-- [CreateFolderRequest](docs/Model/CreateFolderRequest.md)
-- [CreateLink429Response](docs/Model/CreateLink429Response.md)
-- [CreateLinkRequest](docs/Model/CreateLinkRequest.md)
-- [CreateQrCodeRequest](docs/Model/CreateQrCodeRequest.md)
-- [CreateQrCodeRequestOneOf](docs/Model/CreateQrCodeRequestOneOf.md)
-- [CreateQrCodeRequestOneOf1](docs/Model/CreateQrCodeRequestOneOf1.md)
-- [EditLink500Response](docs/Model/EditLink500Response.md)
-- [EditLinkRequest](docs/Model/EditLinkRequest.md)
-- [GetFolders200Response](docs/Model/GetFolders200Response.md)
-- [GetFolders200ResponseFoldersInner](docs/Model/GetFolders200ResponseFoldersInner.md)
-- [GetLink401Response](docs/Model/GetLink401Response.md)
-- [GetLink404Response](docs/Model/GetLink404Response.md)
-- [GetLink422Response](docs/Model/GetLink422Response.md)
-- [GetStatistics200Response](docs/Model/GetStatistics200Response.md)
-- [GetStatisticsRequest](docs/Model/GetStatisticsRequest.md)
-- [GetTeams200Response](docs/Model/GetTeams200Response.md)
-- [GetTeams200ResponseTeamsInner](docs/Model/GetTeams200ResponseTeamsInner.md)
+- [Domain](docs/Model/Domain.md)
+- [DomainCreate409Response](docs/Model/DomainCreate409Response.md)
+- [DomainCreate429Response](docs/Model/DomainCreate429Response.md)
+- [DomainCreateRequest](docs/Model/DomainCreateRequest.md)
+- [DomainGet401Response](docs/Model/DomainGet401Response.md)
+- [DomainGet404Response](docs/Model/DomainGet404Response.md)
+- [DomainGet422Response](docs/Model/DomainGet422Response.md)
+- [DomainList200Response](docs/Model/DomainList200Response.md)
+- [Folder](docs/Model/Folder.md)
+- [FolderCreateRequest](docs/Model/FolderCreateRequest.md)
+- [FolderList200Response](docs/Model/FolderList200Response.md)
 - [Link](docs/Model/Link.md)
+- [LinkBaseRequest](docs/Model/LinkBaseRequest.md)
+- [LinkBaseRequestMetatag](docs/Model/LinkBaseRequestMetatag.md)
+- [LinkBaseRequestQrcode](docs/Model/LinkBaseRequestQrcode.md)
+- [LinkCreateRequest](docs/Model/LinkCreateRequest.md)
+- [LinkDelete500Response](docs/Model/LinkDelete500Response.md)
+- [LinkEditRequest](docs/Model/LinkEditRequest.md)
 - [LinkGeolinksInner](docs/Model/LinkGeolinksInner.md)
 - [LinkGeolinksInnerConditionsInner](docs/Model/LinkGeolinksInnerConditionsInner.md)
+- [LinkList200Response](docs/Model/LinkList200Response.md)
 - [LinkMetatag](docs/Model/LinkMetatag.md)
 - [LinkQrcode](docs/Model/LinkQrcode.md)
 - [LinkTagsInner](docs/Model/LinkTagsInner.md)
 - [LinkUtm](docs/Model/LinkUtm.md)
-- [ListLinks200Response](docs/Model/ListLinks200Response.md)
-- [RefreshAccessToken401Response](docs/Model/RefreshAccessToken401Response.md)
-- [RefreshAccessTokenRequest](docs/Model/RefreshAccessTokenRequest.md)
+- [QrcodeCreateRequest](docs/Model/QrcodeCreateRequest.md)
+- [QrcodeCreateRequestOneOf](docs/Model/QrcodeCreateRequestOneOf.md)
+- [QrcodeCreateRequestOneOf1](docs/Model/QrcodeCreateRequestOneOf1.md)
+- [StatisticGet200Response](docs/Model/StatisticGet200Response.md)
+- [Workspace](docs/Model/Workspace.md)
+- [WorkspaceList200Response](docs/Model/WorkspaceList200Response.md)
 
 ## Authorization
 
 
-### bearerAuth
+### ApiKeyAuth
 
-- **Type**: Bearer authentication (JWT)
+- **Type**: API key
+- **API key parameter name**: X-API-KEY
+- **Location**: HTTP header
+
 
 
 ## Tests

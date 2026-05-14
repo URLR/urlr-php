@@ -1,11 +1,11 @@
-# URLR@3.0.1
+# URLR@3.0.2
 
 ![Packagist Version](https://img.shields.io/packagist/v/urlr/urlr-php) ![Packagist Downloads](https://img.shields.io/packagist/dm/urlr/urlr-php) ![Packagist License](https://img.shields.io/packagist/l/urlr/urlr-php)
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
 - API version: 2.0.0
-- Package version: 3.0.1
+- Package version: 3.0.2
 - Build package: urlr/urlr-php
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en).
@@ -42,45 +42,28 @@ Please follow the [installation procedure](#installation--usage) and then run th
 
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$username = getenv('URLR_API_USERNAME'); // to be defined on your side
-$password = getenv('URLR_API_PASSWORD'); // to be defined on your side
+$apiKey = getenv('URLR_API_KEY'); // to be defined on your side
 
 // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
 // This is optional, `GuzzleHttp\Client` will be used as default.
 $client =  new GuzzleHttp\Client();
 
-$configuration = URLR\Configuration::getDefaultConfiguration();
-
-// Access Tokens
-
-$accessTokensApi = new URLR\Api\AccessTokensApi($client, $configuration);
-$createAccessTokensRequest = new \URLR\Model\CreateAccessTokenRequest([
-    'username' => $username,
-    'password' => $password,
-]);
-
-try {
-    $token = $accessTokensApi->createAccessToken($createAccessTokensRequest)->getToken();
-} catch (Exception $e) {
-    echo 'Exception when calling AccessTokensApi->createAccessToken: ', $e->getMessage(), PHP_EOL;
-    exit;
-}
-
-$configuration->setAccessToken($token);
+$configuration = URLR\Configuration::getDefaultConfiguration()
+    ->setApiKey('X-API-KEY', $apiKey);
 
 // Create a link
 
 $linksApi = new URLR\Api\LinksApi($client, $configuration);
 
-$createLinkRequest = new \URLR\Model\CreateLinkRequest([
+$linkCreateRequest = new \URLR\Model\LinkCreateRequest([
     'url' => '',
-    'teamId' => '',
+    'workspaceId' => '',
 ]);
 
 try {
-    $link = $linksApi->createLink($createLinkRequest);
+    $link = $linksApi->linkCreate($linkCreateRequest);
 } catch (Exception $e) {
-    echo 'Exception when calling LinksApi->createLink: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling LinksApi->linkCreate: ', $e->getMessage(), PHP_EOL;
 }
 ```
 

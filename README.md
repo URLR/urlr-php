@@ -1,11 +1,11 @@
-# URLR@3.0.2
+# URLR@3.1.0
 
 ![Packagist Version](https://img.shields.io/packagist/v/urlr/urlr-php) ![Packagist Downloads](https://img.shields.io/packagist/dm/urlr/urlr-php) ![Packagist License](https://img.shields.io/packagist/l/urlr/urlr-php)
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
 - API version: 2.0.0
-- Package version: 3.0.2
+- Package version: 3.1.0
 - Build package: urlr/urlr-php
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en).
@@ -57,7 +57,6 @@ $linksApi = new URLR\Api\LinksApi($client, $configuration);
 
 $linkCreateRequest = new \URLR\Model\LinkCreateRequest([
     'url' => '',
-    'workspaceId' => '',
 ]);
 
 try {
@@ -88,8 +87,6 @@ Class | Method | HTTP request | Description
 *LinksApi* | [**linkList**](docs/Api/LinksApi.md#linklist) | **GET** /links | List links
 *QRCodesApi* | [**qrcodeCreate**](docs/Api/QRCodesApi.md#qrcodecreate) | **POST** /qrcodes | Create a QR Code
 *StatisticsApi* | [**statisticGet**](docs/Api/StatisticsApi.md#statisticget) | **GET** /statistics | Get statistics
-*WorkspacesApi* | [**workspaceGet**](docs/Api/WorkspacesApi.md#workspaceget) | **GET** /workspaces/{workspace_id} | Get a workspace
-*WorkspacesApi* | [**workspaceList**](docs/Api/WorkspacesApi.md#workspacelist) | **GET** /workspaces | List workspaces of user
 
 
 ## Models
@@ -123,8 +120,6 @@ Class | Method | HTTP request | Description
 - [QrcodeCreateRequestOneOf](docs/Model/QrcodeCreateRequestOneOf.md)
 - [QrcodeCreateRequestOneOf1](docs/Model/QrcodeCreateRequestOneOf1.md)
 - [StatisticGet200Response](docs/Model/StatisticGet200Response.md)
-- [Workspace](docs/Model/Workspace.md)
-- [WorkspaceList200Response](docs/Model/WorkspaceList200Response.md)
 
 ## Authorization
 

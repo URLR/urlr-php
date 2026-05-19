@@ -74,7 +74,7 @@ try {
 ## `linkDelete()`
 
 ```php
-linkDelete($linkId): \URLR\Model\Link
+linkDelete($linkId)
 ```
 
 Delete a link
@@ -101,8 +101,7 @@ $apiInstance = new URLR\Api\LinksApi(
 $linkId = 'linkId_example'; // string | Link API ID
 
 try {
-    $result = $apiInstance->linkDelete($linkId);
-    print_r($result);
+    $apiInstance->linkDelete($linkId);
 } catch (Exception $e) {
     echo 'Exception when calling LinksApi->linkDelete: ', $e->getMessage(), PHP_EOL;
 }
@@ -116,7 +115,7 @@ try {
 
 ### Return type
 
-[**\URLR\Model\Link**](../Model/Link.md)
+void (empty response body)
 
 ### Authorization
 
@@ -125,7 +124,7 @@ try {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: `application/json`, `application/problem+json`
+- **Accept**: `application/problem+json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
 [[Back to Model list]](../../README.md#models)
@@ -256,7 +255,7 @@ try {
 ## `linkList()`
 
 ```php
-linkList($workspaceId, $folderId, $tagId, $limit, $page): \URLR\Model\LinkList200Response
+linkList($folderId, $tagId, $limit, $page): \URLR\Model\LinkList200Response
 ```
 
 List links
@@ -280,14 +279,13 @@ $apiInstance = new URLR\Api\LinksApi(
     new GuzzleHttp\Client(),
     $config
 );
-$workspaceId = 'workspaceId_example'; // string | Filter by Workspace API ID
 $folderId = 'folderId_example'; // string | Filter by Folder API ID
 $tagId = 'tagId_example'; // string | Filter by Tag API ID
 $limit = 10; // int | Number of items per page
 $page = 1; // int | Page number
 
 try {
-    $result = $apiInstance->linkList($workspaceId, $folderId, $tagId, $limit, $page);
+    $result = $apiInstance->linkList($folderId, $tagId, $limit, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling LinksApi->linkList: ', $e->getMessage(), PHP_EOL;
@@ -298,7 +296,6 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **workspaceId** | **string**| Filter by Workspace API ID | [optional] |
 | **folderId** | **string**| Filter by Folder API ID | [optional] |
 | **tagId** | **string**| Filter by Tag API ID | [optional] |
 | **limit** | **int**| Number of items per page | [optional] [default to 10] |

@@ -74,8 +74,7 @@ class LinkCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'qrcode' => '\URLR\Model\LinkBaseRequestQrcode',
         'utm' => '\URLR\Model\LinkUtm',
         'metatag' => '\URLR\Model\LinkBaseRequestMetatag',
-        'geolinks' => '\URLR\Model\LinkGeolinksInner[]',
-        'workspaceId' => 'string'
+        'geolinks' => '\URLR\Model\LinkGeolinksInner[]'
     ];
 
     /**
@@ -100,8 +99,7 @@ class LinkCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'qrcode' => null,
         'utm' => null,
         'metatag' => null,
-        'geolinks' => null,
-        'workspaceId' => 'uuid'
+        'geolinks' => null
     ];
 
     /**
@@ -126,8 +124,7 @@ class LinkCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'qrcode' => false,
         'utm' => false,
         'metatag' => false,
-        'geolinks' => false,
-        'workspaceId' => false
+        'geolinks' => false
     ];
 
     /**
@@ -222,8 +219,7 @@ class LinkCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'qrcode' => 'qrcode',
         'utm' => 'utm',
         'metatag' => 'metatag',
-        'geolinks' => 'geolinks',
-        'workspaceId' => 'workspace_id'
+        'geolinks' => 'geolinks'
     ];
 
     /**
@@ -248,8 +244,7 @@ class LinkCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'qrcode' => 'setQrcode',
         'utm' => 'setUtm',
         'metatag' => 'setMetatag',
-        'geolinks' => 'setGeolinks',
-        'workspaceId' => 'setWorkspaceId'
+        'geolinks' => 'setGeolinks'
     ];
 
     /**
@@ -274,8 +269,7 @@ class LinkCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
         'qrcode' => 'getQrcode',
         'utm' => 'getUtm',
         'metatag' => 'getMetatag',
-        'geolinks' => 'getGeolinks',
-        'workspaceId' => 'getWorkspaceId'
+        'geolinks' => 'getGeolinks'
     ];
 
     /**
@@ -342,7 +336,6 @@ class LinkCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
         $this->setIfExists('utm', $data ?? [], null);
         $this->setIfExists('metatag', $data ?? [], null);
         $this->setIfExists('geolinks', $data ?? [], null);
-        $this->setIfExists('workspaceId', $data ?? [], null);
     }
 
     /**
@@ -370,10 +363,7 @@ class LinkCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['url'] === null) {
-            $invalidProperties[] = "'url' can't be null";
-        }
-        if ((mb_strlen($this->container['url']) > 4096)) {
+        if (!is_null($this->container['url']) && (mb_strlen($this->container['url']) > 4096)) {
             $invalidProperties[] = "invalid value for 'url', the character length must be smaller than or equal to 4096.";
         }
 
@@ -401,9 +391,6 @@ class LinkCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
             $invalidProperties[] = "invalid value for 'tags', number of items must be less than or equal to 3.";
         }
 
-        if ($this->container['workspaceId'] === null) {
-            $invalidProperties[] = "'workspaceId' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -419,9 +406,9 @@ class LinkCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Gets url
      *
-     * @return string
+     * @return string|null
      */
-    public function getUrl(): string
+    public function getUrl(): ?string
     {
         return $this->container['url'];
     }
@@ -429,11 +416,11 @@ class LinkCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
     /**
      * Sets url
      *
-     * @param string $url URL to shorten
+     * @param string|null $url URL to shorten
      *
      * @return $this
      */
-    public function setUrl(string $url): static
+    public function setUrl(?string $url): static
     {
         if (is_null($url)) {
             throw new InvalidArgumentException('non-nullable url cannot be null');
@@ -897,33 +884,6 @@ class LinkCreateRequest implements ModelInterface, ArrayAccess, JsonSerializable
             throw new InvalidArgumentException('non-nullable geolinks cannot be null');
         }
         $this->container['geolinks'] = $geolinks;
-
-        return $this;
-    }
-
-    /**
-     * Gets workspaceId
-     *
-     * @return string
-     */
-    public function getWorkspaceId(): string
-    {
-        return $this->container['workspaceId'];
-    }
-
-    /**
-     * Sets workspaceId
-     *
-     * @param string $workspaceId Workspace API ID
-     *
-     * @return $this
-     */
-    public function setWorkspaceId(string $workspaceId): static
-    {
-        if (is_null($workspaceId)) {
-            throw new InvalidArgumentException('non-nullable workspaceId cannot be null');
-        }
-        $this->container['workspaceId'] = $workspaceId;
 
         return $this;
     }

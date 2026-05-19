@@ -8,7 +8,6 @@ docs/Api/FoldersApi.md
 docs/Api/LinksApi.md
 docs/Api/QRCodesApi.md
 docs/Api/StatisticsApi.md
-docs/Api/WorkspacesApi.md
 docs/Model/Domain.md
 docs/Model/DomainCreate409Response.md
 docs/Model/DomainCreate429Response.md
@@ -38,15 +37,12 @@ docs/Model/QrcodeCreateRequest.md
 docs/Model/QrcodeCreateRequestOneOf.md
 docs/Model/QrcodeCreateRequestOneOf1.md
 docs/Model/StatisticGet200Response.md
-docs/Model/Workspace.md
-docs/Model/WorkspaceList200Response.md
 phpunit.xml.dist
 src/Api/DomainsApi.php
 src/Api/FoldersApi.php
 src/Api/LinksApi.php
 src/Api/QRCodesApi.php
 src/Api/StatisticsApi.php
-src/Api/WorkspacesApi.php
 src/ApiException.php
 src/Configuration.php
 src/FormDataProcessor.php
@@ -81,15 +77,12 @@ src/Model/QrcodeCreateRequest.php
 src/Model/QrcodeCreateRequestOneOf.php
 src/Model/QrcodeCreateRequestOneOf1.php
 src/Model/StatisticGet200Response.php
-src/Model/Workspace.php
-src/Model/WorkspaceList200Response.php
 src/ObjectSerializer.php
 tests/Api/DomainsApiTest.php
 tests/Api/FoldersApiTest.php
 tests/Api/LinksApiTest.php
 tests/Api/QRCodesApiTest.php
 tests/Api/StatisticsApiTest.php
-tests/Api/WorkspacesApiTest.php
 tests/Model/DomainCreate409ResponseTest.php
 tests/Model/DomainCreate429ResponseTest.php
 tests/Model/DomainCreateRequestTest.php
@@ -119,5 +112,3 @@ tests/Model/QrcodeCreateRequestOneOf1Test.php
 tests/Model/QrcodeCreateRequestOneOfTest.php
 tests/Model/QrcodeCreateRequestTest.php
 tests/Model/StatisticGet200ResponseTest.php
-tests/Model/WorkspaceList200ResponseTest.php
-tests/Model/WorkspaceTest.php

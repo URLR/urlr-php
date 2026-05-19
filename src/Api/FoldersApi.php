@@ -811,7 +811,6 @@ class FoldersApi
      *
      * List folders
      *
-     * @param  string $workspaceId Workspace API ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['folderList'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -819,11 +818,10 @@ class FoldersApi
      * @return \URLR\Model\FolderList200Response|\URLR\Model\DomainGet404Response|\URLR\Model\DomainGet401Response|\URLR\Model\DomainGet422Response
      */
     public function folderList(
-        string $workspaceId,
         string $contentType = self::contentTypes['folderList'][0]
     ): \URLR\Model\FolderList200Response|\URLR\Model\DomainGet404Response|\URLR\Model\DomainGet401Response|\URLR\Model\DomainGet422Response
     {
-        list($response) = $this->folderListWithHttpInfo($workspaceId, $contentType);
+        list($response) = $this->folderListWithHttpInfo($contentType);
         return $response;
     }
 
@@ -832,7 +830,6 @@ class FoldersApi
      *
      * List folders
      *
-     * @param  string $workspaceId Workspace API ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['folderList'] to see the possible values for this operation
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
@@ -840,11 +837,10 @@ class FoldersApi
      * @return array of \URLR\Model\FolderList200Response|\URLR\Model\DomainGet404Response|\URLR\Model\DomainGet401Response|\URLR\Model\DomainGet422Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function folderListWithHttpInfo(
-        string $workspaceId,
         string $contentType = self::contentTypes['folderList'][0]
     ): array
     {
-        $request = $this->folderListRequest($workspaceId, $contentType);
+        $request = $this->folderListRequest($contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -959,18 +955,16 @@ class FoldersApi
      *
      * List folders
      *
-     * @param  string $workspaceId Workspace API ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['folderList'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function folderListAsync(
-        string $workspaceId,
         string $contentType = self::contentTypes['folderList'][0]
     ): PromiseInterface
     {
-        return $this->folderListAsyncWithHttpInfo($workspaceId, $contentType)
+        return $this->folderListAsyncWithHttpInfo($contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -983,19 +977,17 @@ class FoldersApi
      *
      * List folders
      *
-     * @param  string $workspaceId Workspace API ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['folderList'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return PromiseInterface
      */
     public function folderListAsyncWithHttpInfo(
-        string $workspaceId,
         string $contentType = self::contentTypes['folderList'][0]
     ): PromiseInterface
     {
         $returnType = '\URLR\Model\FolderList200Response';
-        $request = $this->folderListRequest($workspaceId, $contentType);
+        $request = $this->folderListRequest($contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1036,24 +1028,15 @@ class FoldersApi
     /**
      * Create request for operation 'folderList'
      *
-     * @param  string $workspaceId Workspace API ID (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['folderList'] to see the possible values for this operation
      *
      * @throws InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
     public function folderListRequest(
-        string $workspaceId,
         string $contentType = self::contentTypes['folderList'][0]
     ): Request
     {
-
-        // verify the required parameter 'workspaceId' is set
-        if ($workspaceId === null || (is_array($workspaceId) && count($workspaceId) === 0)) {
-            throw new InvalidArgumentException(
-                'Missing the required parameter $workspaceId when calling folderList'
-            );
-        }
 
 
         $resourcePath = '/folders';
@@ -1063,15 +1046,6 @@ class FoldersApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $workspaceId,
-            'workspace_id', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            true // required
-        ) ?? []);
 
 
 

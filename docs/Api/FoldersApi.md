@@ -132,7 +132,7 @@ try {
 ## `folderList()`
 
 ```php
-folderList($workspaceId): \URLR\Model\FolderList200Response
+folderList(): \URLR\Model\FolderList200Response
 ```
 
 List folders
@@ -156,10 +156,9 @@ $apiInstance = new URLR\Api\FoldersApi(
     new GuzzleHttp\Client(),
     $config
 );
-$workspaceId = 'workspaceId_example'; // string | Workspace API ID
 
 try {
-    $result = $apiInstance->folderList($workspaceId);
+    $result = $apiInstance->folderList();
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling FoldersApi->folderList: ', $e->getMessage(), PHP_EOL;
@@ -168,9 +167,7 @@ try {
 
 ### Parameters
 
-| Name | Type | Description  | Notes |
-| ------------- | ------------- | ------------- | ------------- |
-| **workspaceId** | **string**| Workspace API ID | |
+This endpoint does not need any parameter.
 
 ### Return type
 

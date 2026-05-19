@@ -58,8 +58,7 @@ class QrcodeCreateRequestOneOf implements ModelInterface, ArrayAccess, JsonSeria
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'url' => 'string',
-        'workspaceId' => 'string'
+        'url' => 'string'
     ];
 
     /**
@@ -68,8 +67,7 @@ class QrcodeCreateRequestOneOf implements ModelInterface, ArrayAccess, JsonSeria
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'url' => 'url',
-        'workspaceId' => 'uuid'
+        'url' => 'url'
     ];
 
     /**
@@ -78,8 +76,7 @@ class QrcodeCreateRequestOneOf implements ModelInterface, ArrayAccess, JsonSeria
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'url' => false,
-        'workspaceId' => false
+        'url' => false
     ];
 
     /**
@@ -158,8 +155,7 @@ class QrcodeCreateRequestOneOf implements ModelInterface, ArrayAccess, JsonSeria
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'url' => 'url',
-        'workspaceId' => 'workspace_id'
+        'url' => 'url'
     ];
 
     /**
@@ -168,8 +164,7 @@ class QrcodeCreateRequestOneOf implements ModelInterface, ArrayAccess, JsonSeria
      * @var array<string, string>
      */
     protected static array $setters = [
-        'url' => 'setUrl',
-        'workspaceId' => 'setWorkspaceId'
+        'url' => 'setUrl'
     ];
 
     /**
@@ -178,8 +173,7 @@ class QrcodeCreateRequestOneOf implements ModelInterface, ArrayAccess, JsonSeria
      * @var array<string, string>
      */
     protected static array $getters = [
-        'url' => 'getUrl',
-        'workspaceId' => 'getWorkspaceId'
+        'url' => 'getUrl'
     ];
 
     /**
@@ -230,7 +224,6 @@ class QrcodeCreateRequestOneOf implements ModelInterface, ArrayAccess, JsonSeria
     public function __construct(?array $data = null)
     {
         $this->setIfExists('url', $data ?? [], null);
-        $this->setIfExists('workspaceId', $data ?? [], null);
     }
 
     /**
@@ -260,9 +253,6 @@ class QrcodeCreateRequestOneOf implements ModelInterface, ArrayAccess, JsonSeria
 
         if ($this->container['url'] === null) {
             $invalidProperties[] = "'url' can't be null";
-        }
-        if ($this->container['workspaceId'] === null) {
-            $invalidProperties[] = "'workspaceId' can't be null";
         }
         return $invalidProperties;
     }
@@ -299,33 +289,6 @@ class QrcodeCreateRequestOneOf implements ModelInterface, ArrayAccess, JsonSeria
             throw new InvalidArgumentException('non-nullable url cannot be null');
         }
         $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets workspaceId
-     *
-     * @return string
-     */
-    public function getWorkspaceId(): string
-    {
-        return $this->container['workspaceId'];
-    }
-
-    /**
-     * Sets workspaceId
-     *
-     * @param string $workspaceId Workspace API ID
-     *
-     * @return $this
-     */
-    public function setWorkspaceId(string $workspaceId): static
-    {
-        if (is_null($workspaceId)) {
-            throw new InvalidArgumentException('non-nullable workspaceId cannot be null');
-        }
-        $this->container['workspaceId'] = $workspaceId;
 
         return $this;
     }

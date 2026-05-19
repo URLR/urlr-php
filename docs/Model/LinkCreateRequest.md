@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **string** | URL to shorten |
+**url** | **string** | URL to shorten | [optional]
 **folderId** | **string** | Folder API ID | [optional]
 **domain** | **string** | Domain | [optional]
 **code** | **string** | Custom short code | [optional]
@@ -21,6 +21,5 @@ Name | Type | Description | Notes
 **utm** | [**\URLR\Model\LinkUtm**](LinkUtm.md) |  | [optional]
 **metatag** | [**\URLR\Model\LinkBaseRequestMetatag**](LinkBaseRequestMetatag.md) |  | [optional]
 **geolinks** | [**\URLR\Model\LinkGeolinksInner[]**](LinkGeolinksInner.md) | Dynamic routing conditions | [optional]
-**workspaceId** | **string** | Workspace API ID |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

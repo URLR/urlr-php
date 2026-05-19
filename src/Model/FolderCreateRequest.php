@@ -58,7 +58,6 @@ class FolderCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string>
      */
     protected static array $openAPITypes = [
-        'workspaceId' => 'string',
         'name' => 'string',
         'parentId' => 'string',
         'color' => 'string'
@@ -70,7 +69,6 @@ class FolderCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string|null>
      */
     protected static array $openAPIFormats = [
-        'workspaceId' => 'uuid',
         'name' => null,
         'parentId' => 'uuid',
         'color' => null
@@ -82,7 +80,6 @@ class FolderCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, bool>
      */
     protected static array $openAPINullables = [
-        'workspaceId' => false,
         'name' => false,
         'parentId' => false,
         'color' => false
@@ -164,7 +161,6 @@ class FolderCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string>
      */
     protected static array $attributeMap = [
-        'workspaceId' => 'workspace_id',
         'name' => 'name',
         'parentId' => 'parent_id',
         'color' => 'color'
@@ -176,7 +172,6 @@ class FolderCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string>
      */
     protected static array $setters = [
-        'workspaceId' => 'setWorkspaceId',
         'name' => 'setName',
         'parentId' => 'setParentId',
         'color' => 'setColor'
@@ -188,7 +183,6 @@ class FolderCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      * @var array<string, string>
      */
     protected static array $getters = [
-        'workspaceId' => 'getWorkspaceId',
         'name' => 'getName',
         'parentId' => 'getParentId',
         'color' => 'getColor'
@@ -268,7 +262,6 @@ class FolderCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('workspaceId', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('parentId', $data ?? [], null);
         $this->setIfExists('color', $data ?? [], null);
@@ -299,9 +292,6 @@ class FolderCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['workspaceId'] === null) {
-            $invalidProperties[] = "'workspaceId' can't be null";
-        }
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
@@ -329,33 +319,6 @@ class FolderCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets workspaceId
-     *
-     * @return string
-     */
-    public function getWorkspaceId(): string
-    {
-        return $this->container['workspaceId'];
-    }
-
-    /**
-     * Sets workspaceId
-     *
-     * @param string $workspaceId Workspace API ID
-     *
-     * @return $this
-     */
-    public function setWorkspaceId(string $workspaceId): static
-    {
-        if (is_null($workspaceId)) {
-            throw new InvalidArgumentException('non-nullable workspaceId cannot be null');
-        }
-        $this->container['workspaceId'] = $workspaceId;
-
-        return $this;
-    }
 
     /**
      * Gets name

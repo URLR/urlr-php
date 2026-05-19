@@ -481,12 +481,12 @@ class LinksApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return \URLR\Model\Link|\URLR\Model\DomainGet404Response|\URLR\Model\DomainGet401Response|\URLR\Model\DomainGet422Response|\URLR\Model\LinkDelete500Response
+     * @return \URLR\Model\DomainGet404Response|\URLR\Model\DomainGet401Response|\URLR\Model\DomainGet422Response|\URLR\Model\LinkDelete500Response|null
      */
     public function linkDelete(
         string $linkId,
         string $contentType = self::contentTypes['linkDelete'][0]
-    ): \URLR\Model\Link|\URLR\Model\DomainGet404Response|\URLR\Model\DomainGet401Response|\URLR\Model\DomainGet422Response|\URLR\Model\LinkDelete500Response
+    ): \URLR\Model\DomainGet404Response|\URLR\Model\DomainGet401Response|\URLR\Model\DomainGet422Response|\URLR\Model\LinkDelete500Response|null
     {
         list($response) = $this->linkDeleteWithHttpInfo($linkId, $contentType);
         return $response;
@@ -502,7 +502,7 @@ class LinksApi
      *
      * @throws ApiException on non-2xx response or if the response body is not in the expected format
      * @throws InvalidArgumentException
-     * @return array of \URLR\Model\Link|\URLR\Model\DomainGet404Response|\URLR\Model\DomainGet401Response|\URLR\Model\DomainGet422Response|\URLR\Model\LinkDelete500Response, HTTP status code, HTTP response headers (array of strings)
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
     public function linkDeleteWithHttpInfo(
         string $linkId,
@@ -533,68 +533,10 @@ class LinksApi
 
             $statusCode = $response->getStatusCode();
 
-            switch($statusCode) {
-                case 204:
-                    return $this->handleResponseWithDataType(
-                        '\URLR\Model\Link',
-                        $request,
-                        $response,
-                    );
-                case 404:
-                    return $this->handleResponseWithDataType(
-                        '\URLR\Model\DomainGet404Response',
-                        $request,
-                        $response,
-                    );
-                case 401:
-                    return $this->handleResponseWithDataType(
-                        '\URLR\Model\DomainGet401Response',
-                        $request,
-                        $response,
-                    );
-                case 422:
-                    return $this->handleResponseWithDataType(
-                        '\URLR\Model\DomainGet422Response',
-                        $request,
-                        $response,
-                    );
-                case 500:
-                    return $this->handleResponseWithDataType(
-                        '\URLR\Model\LinkDelete500Response',
-                        $request,
-                        $response,
-                    );
-            }
-            
 
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        (string) $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    (string) $response->getBody()
-                );
-            }
-
-            return $this->handleResponseWithDataType(
-                '\URLR\Model\Link',
-                $request,
-                $response,
-            );
+            return [null, $statusCode, $response->getHeaders()];
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 204:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\URLR\Model\Link',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    throw $e;
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -673,27 +615,14 @@ class LinksApi
         string $contentType = self::contentTypes['linkDelete'][0]
     ): PromiseInterface
     {
-        $returnType = '\URLR\Model\Link';
+        $returnType = '';
         $request = $this->linkDeleteRequest($linkId, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    if (in_array($returnType, ['\SplFileObject', '\Psr\Http\Message\StreamInterface'])) {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -755,7 +684,7 @@ class LinksApi
 
 
         $headers = $this->headerSelector->selectHeaders(
-            ['application/json', 'application/problem+json', ],
+            ['application/problem+json', ],
             $contentType,
             $multipart
         );
@@ -1503,7 +1432,6 @@ class LinksApi
      *
      * List links
      *
-     * @param  string|null $workspaceId Filter by Workspace API ID (optional)
      * @param  string|null $folderId Filter by Folder API ID (optional)
      * @param  string|null $tagId Filter by Tag API ID (optional)
      * @param  int|null $limit Number of items per page (optional, default to 10)
@@ -1515,7 +1443,6 @@ class LinksApi
      * @return \URLR\Model\LinkList200Response|\URLR\Model\DomainGet422Response|\URLR\Model\DomainGet404Response|\URLR\Model\DomainGet401Response
      */
     public function linkList(
-        ?string $workspaceId = null,
         ?string $folderId = null,
         ?string $tagId = null,
         ?int $limit = 10,
@@ -1523,7 +1450,7 @@ class LinksApi
         string $contentType = self::contentTypes['linkList'][0]
     ): \URLR\Model\LinkList200Response|\URLR\Model\DomainGet422Response|\URLR\Model\DomainGet404Response|\URLR\Model\DomainGet401Response
     {
-        list($response) = $this->linkListWithHttpInfo($workspaceId, $folderId, $tagId, $limit, $page, $contentType);
+        list($response) = $this->linkListWithHttpInfo($folderId, $tagId, $limit, $page, $contentType);
         return $response;
     }
 
@@ -1532,7 +1459,6 @@ class LinksApi
      *
      * List links
      *
-     * @param  string|null $workspaceId Filter by Workspace API ID (optional)
      * @param  string|null $folderId Filter by Folder API ID (optional)
      * @param  string|null $tagId Filter by Tag API ID (optional)
      * @param  int|null $limit Number of items per page (optional, default to 10)
@@ -1544,7 +1470,6 @@ class LinksApi
      * @return array of \URLR\Model\LinkList200Response|\URLR\Model\DomainGet422Response|\URLR\Model\DomainGet404Response|\URLR\Model\DomainGet401Response, HTTP status code, HTTP response headers (array of strings)
      */
     public function linkListWithHttpInfo(
-        ?string $workspaceId = null,
         ?string $folderId = null,
         ?string $tagId = null,
         ?int $limit = 10,
@@ -1552,7 +1477,7 @@ class LinksApi
         string $contentType = self::contentTypes['linkList'][0]
     ): array
     {
-        $request = $this->linkListRequest($workspaceId, $folderId, $tagId, $limit, $page, $contentType);
+        $request = $this->linkListRequest($folderId, $tagId, $limit, $page, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1667,7 +1592,6 @@ class LinksApi
      *
      * List links
      *
-     * @param  string|null $workspaceId Filter by Workspace API ID (optional)
      * @param  string|null $folderId Filter by Folder API ID (optional)
      * @param  string|null $tagId Filter by Tag API ID (optional)
      * @param  int|null $limit Number of items per page (optional, default to 10)
@@ -1678,7 +1602,6 @@ class LinksApi
      * @return PromiseInterface
      */
     public function linkListAsync(
-        ?string $workspaceId = null,
         ?string $folderId = null,
         ?string $tagId = null,
         ?int $limit = 10,
@@ -1686,7 +1609,7 @@ class LinksApi
         string $contentType = self::contentTypes['linkList'][0]
     ): PromiseInterface
     {
-        return $this->linkListAsyncWithHttpInfo($workspaceId, $folderId, $tagId, $limit, $page, $contentType)
+        return $this->linkListAsyncWithHttpInfo($folderId, $tagId, $limit, $page, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1699,7 +1622,6 @@ class LinksApi
      *
      * List links
      *
-     * @param  string|null $workspaceId Filter by Workspace API ID (optional)
      * @param  string|null $folderId Filter by Folder API ID (optional)
      * @param  string|null $tagId Filter by Tag API ID (optional)
      * @param  int|null $limit Number of items per page (optional, default to 10)
@@ -1710,7 +1632,6 @@ class LinksApi
      * @return PromiseInterface
      */
     public function linkListAsyncWithHttpInfo(
-        ?string $workspaceId = null,
         ?string $folderId = null,
         ?string $tagId = null,
         ?int $limit = 10,
@@ -1719,7 +1640,7 @@ class LinksApi
     ): PromiseInterface
     {
         $returnType = '\URLR\Model\LinkList200Response';
-        $request = $this->linkListRequest($workspaceId, $folderId, $tagId, $limit, $page, $contentType);
+        $request = $this->linkListRequest($folderId, $tagId, $limit, $page, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1760,7 +1681,6 @@ class LinksApi
     /**
      * Create request for operation 'linkList'
      *
-     * @param  string|null $workspaceId Filter by Workspace API ID (optional)
      * @param  string|null $folderId Filter by Folder API ID (optional)
      * @param  string|null $tagId Filter by Tag API ID (optional)
      * @param  int|null $limit Number of items per page (optional, default to 10)
@@ -1771,7 +1691,6 @@ class LinksApi
      * @return \GuzzleHttp\Psr7\Request
      */
     public function linkListRequest(
-        ?string $workspaceId = null,
         ?string $folderId = null,
         ?string $tagId = null,
         ?int $limit = 10,
@@ -1779,7 +1698,6 @@ class LinksApi
         string $contentType = self::contentTypes['linkList'][0]
     ): Request
     {
-
 
 
 
@@ -1802,15 +1720,6 @@ class LinksApi
         $httpBody = '';
         $multipart = false;
 
-        // query params
-        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $workspaceId,
-            'workspace_id', // param base name
-            'string', // openApiType
-            'form', // style
-            true, // explode
-            false // required
-        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $folderId,

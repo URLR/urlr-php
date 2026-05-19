@@ -64,7 +64,6 @@ class QrcodeCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
         'backgroundColor' => 'string',
         'foregroundColor' => 'string',
         'url' => 'string',
-        'workspaceId' => 'string',
         'linkId' => 'string'
     ];
 
@@ -80,7 +79,6 @@ class QrcodeCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
         'backgroundColor' => null,
         'foregroundColor' => null,
         'url' => 'url',
-        'workspaceId' => 'uuid',
         'linkId' => 'uuid'
     ];
 
@@ -96,7 +94,6 @@ class QrcodeCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
         'backgroundColor' => false,
         'foregroundColor' => false,
         'url' => false,
-        'workspaceId' => false,
         'linkId' => false
     ];
 
@@ -182,7 +179,6 @@ class QrcodeCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
         'backgroundColor' => 'background_color',
         'foregroundColor' => 'foreground_color',
         'url' => 'url',
-        'workspaceId' => 'workspace_id',
         'linkId' => 'link_id'
     ];
 
@@ -198,7 +194,6 @@ class QrcodeCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
         'backgroundColor' => 'setBackgroundColor',
         'foregroundColor' => 'setForegroundColor',
         'url' => 'setUrl',
-        'workspaceId' => 'setWorkspaceId',
         'linkId' => 'setLinkId'
     ];
 
@@ -214,7 +209,6 @@ class QrcodeCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
         'backgroundColor' => 'getBackgroundColor',
         'foregroundColor' => 'getForegroundColor',
         'url' => 'getUrl',
-        'workspaceId' => 'getWorkspaceId',
         'linkId' => 'getLinkId'
     ];
 
@@ -288,7 +282,6 @@ class QrcodeCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
         $this->setIfExists('backgroundColor', $data ?? [], '#ffffff');
         $this->setIfExists('foregroundColor', $data ?? [], '#000000');
         $this->setIfExists('url', $data ?? [], null);
-        $this->setIfExists('workspaceId', $data ?? [], null);
         $this->setIfExists('linkId', $data ?? [], null);
     }
 
@@ -336,9 +329,6 @@ class QrcodeCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
 
         if ($this->container['url'] === null) {
             $invalidProperties[] = "'url' can't be null";
-        }
-        if ($this->container['workspaceId'] === null) {
-            $invalidProperties[] = "'workspaceId' can't be null";
         }
         if ($this->container['linkId'] === null) {
             $invalidProperties[] = "'linkId' can't be null";
@@ -531,33 +521,6 @@ class QrcodeCreateRequest implements ModelInterface, ArrayAccess, JsonSerializab
             throw new InvalidArgumentException('non-nullable url cannot be null');
         }
         $this->container['url'] = $url;
-
-        return $this;
-    }
-
-    /**
-     * Gets workspaceId
-     *
-     * @return string
-     */
-    public function getWorkspaceId(): string
-    {
-        return $this->container['workspaceId'];
-    }
-
-    /**
-     * Sets workspaceId
-     *
-     * @param string $workspaceId Workspace API ID
-     *
-     * @return $this
-     */
-    public function setWorkspaceId(string $workspaceId): static
-    {
-        if (is_null($workspaceId)) {
-            throw new InvalidArgumentException('non-nullable workspaceId cannot be null');
-        }
-        $this->container['workspaceId'] = $workspaceId;
 
         return $this;
     }

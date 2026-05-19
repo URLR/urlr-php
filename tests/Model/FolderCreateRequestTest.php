@@ -78,15 +78,6 @@ class FolderCreateRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "workspaceId"
-     */
-    public function testPropertyWorkspaceId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "name"
      */
     public function testPropertyName()

@@ -85,13 +85,4 @@ class QrcodeCreateRequestOneOfTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "workspaceId"
-     */
-    public function testPropertyWorkspaceId()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
 }

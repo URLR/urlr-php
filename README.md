@@ -1,11 +1,11 @@
-# URLR@3.1.0
+# URLR@3.2.0
 
 ![Packagist Version](https://img.shields.io/packagist/v/urlr/urlr-php) ![Packagist Downloads](https://img.shields.io/packagist/dm/urlr/urlr-php) ![Packagist License](https://img.shields.io/packagist/l/urlr/urlr-php)
 
 This SDK is automatically generated with the [OpenAPI Generator](https://openapi-generator.tech) project.
 
-- API version: 2.0.0
-- Package version: 3.1.0
+- API version: 2.1.0
+- Package version: 3.2.0
 - Build package: urlr/urlr-php
 
 For more information, please visit [https://urlr.me/en](https://urlr.me/en).
@@ -98,6 +98,7 @@ Class | Method | HTTP request | Description
 - [DomainGet401Response](docs/Model/DomainGet401Response.md)
 - [DomainGet404Response](docs/Model/DomainGet404Response.md)
 - [DomainGet422Response](docs/Model/DomainGet422Response.md)
+- [DomainGet500Response](docs/Model/DomainGet500Response.md)
 - [DomainList200Response](docs/Model/DomainList200Response.md)
 - [Folder](docs/Model/Folder.md)
 - [FolderCreateRequest](docs/Model/FolderCreateRequest.md)
@@ -107,7 +108,6 @@ Class | Method | HTTP request | Description
 - [LinkBaseRequestMetatag](docs/Model/LinkBaseRequestMetatag.md)
 - [LinkBaseRequestQrcode](docs/Model/LinkBaseRequestQrcode.md)
 - [LinkCreateRequest](docs/Model/LinkCreateRequest.md)
-- [LinkDelete500Response](docs/Model/LinkDelete500Response.md)
 - [LinkEditRequest](docs/Model/LinkEditRequest.md)
 - [LinkGeolinksInner](docs/Model/LinkGeolinksInner.md)
 - [LinkGeolinksInnerConditionsInner](docs/Model/LinkGeolinksInnerConditionsInner.md)

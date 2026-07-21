@@ -1,4 +1,4 @@
-# LinkDelete500Response
+# DomainGet500Response
 
 ## Properties
 

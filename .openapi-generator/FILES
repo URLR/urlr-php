@@ -15,6 +15,7 @@ docs/Model/DomainCreateRequest.md
 docs/Model/DomainGet401Response.md
 docs/Model/DomainGet404Response.md
 docs/Model/DomainGet422Response.md
+docs/Model/DomainGet500Response.md
 docs/Model/DomainList200Response.md
 docs/Model/Folder.md
 docs/Model/FolderCreateRequest.md
@@ -24,7 +25,6 @@ docs/Model/LinkBaseRequest.md
 docs/Model/LinkBaseRequestMetatag.md
 docs/Model/LinkBaseRequestQrcode.md
 docs/Model/LinkCreateRequest.md
-docs/Model/LinkDelete500Response.md
 docs/Model/LinkEditRequest.md
 docs/Model/LinkGeolinksInner.md
 docs/Model/LinkGeolinksInnerConditionsInner.md
@@ -54,6 +54,7 @@ src/Model/DomainCreateRequest.php
 src/Model/DomainGet401Response.php
 src/Model/DomainGet404Response.php
 src/Model/DomainGet422Response.php
+src/Model/DomainGet500Response.php
 src/Model/DomainList200Response.php
 src/Model/Folder.php
 src/Model/FolderCreateRequest.php
@@ -63,7 +64,6 @@ src/Model/LinkBaseRequest.php
 src/Model/LinkBaseRequestMetatag.php
 src/Model/LinkBaseRequestQrcode.php
 src/Model/LinkCreateRequest.php
-src/Model/LinkDelete500Response.php
 src/Model/LinkEditRequest.php
 src/Model/LinkGeolinksInner.php
 src/Model/LinkGeolinksInnerConditionsInner.php
@@ -73,6 +73,7 @@ src/Model/LinkQrcode.php
 src/Model/LinkTagsInner.php
 src/Model/LinkUtm.php
 src/Model/ModelInterface.php
+src/Model/OneOfInterface.php
 src/Model/QrcodeCreateRequest.php
 src/Model/QrcodeCreateRequestOneOf.php
 src/Model/QrcodeCreateRequestOneOf1.php
@@ -89,6 +90,7 @@ tests/Model/DomainCreateRequestTest.php
 tests/Model/DomainGet401ResponseTest.php
 tests/Model/DomainGet404ResponseTest.php
 tests/Model/DomainGet422ResponseTest.php
+tests/Model/DomainGet500ResponseTest.php
 tests/Model/DomainList200ResponseTest.php
 tests/Model/DomainTest.php
 tests/Model/FolderCreateRequestTest.php
@@ -98,7 +100,6 @@ tests/Model/LinkBaseRequestMetatagTest.php
 tests/Model/LinkBaseRequestQrcodeTest.php
 tests/Model/LinkBaseRequestTest.php
 tests/Model/LinkCreateRequestTest.php
-tests/Model/LinkDelete500ResponseTest.php
 tests/Model/LinkEditRequestTest.php
 tests/Model/LinkGeolinksInnerConditionsInnerTest.php
 tests/Model/LinkGeolinksInnerTest.php

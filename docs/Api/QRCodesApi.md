@@ -34,7 +34,7 @@ $apiInstance = new URLR\Api\QRCodesApi(
     new GuzzleHttp\Client(),
     $config
 );
-$qrcodeCreateRequest = new \URLR\Model\QrcodeCreateRequest(); // \URLR\Model\QrcodeCreateRequest | Info of the QR Code to create
+$qrcodeCreateRequest = new \URLR\Model\QrcodeCreateRequestOneOf(); // \URLR\Model\QrcodeCreateRequest | Info of the QR Code to create
 
 try {
     $result = $apiInstance->qrcodeCreate($qrcodeCreateRequest);

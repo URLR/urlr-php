@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 **url** | **string** | URL to shorten | [optional]
 **folderId** | **string** | Folder API ID | [optional]
 **domain** | **string** | Domain | [optional]
-**code** | **string** | Custom short code | [optional]
+**code** | **string** | Length must be between 2 and 50 characters if a custom domain is set, or between 2 and 49 characters otherwise. | [optional]
 **label** | **string** | Label | [optional]
 **password** | **string** | Password | [optional]
 **deleteAt** | **\DateTime** | Scheduled deletion date | [optional]
